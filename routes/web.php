@@ -14,8 +14,8 @@
 Route::get('', function () {
     return view('welcome');
 });
-Route::get('teste', function () {
-    return view('comuns.teste');
+Route::get('inicial', function () {
+    return view('comuns.inicial');
 });
 
 
