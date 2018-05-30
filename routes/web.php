@@ -14,6 +14,9 @@
 Route::get('', function () {
     return view('welcome');
 });
+Route::get('teste', function () {
+    return view('comuns.teste');
+});
 
 
 Auth::routes();
