@@ -35,12 +35,12 @@
     </ul>
     <ul class="navbar-nav">
       <div class="mb-3 mb-md-0 ml-md-3">
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="imagens\login.png" width="37" height="37" alt="">
-            Entrar
+            Faça seu login <br> ou cadastre-se
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Login</a>
             <a class="dropdown-item" href="#">Cadastrar</a>
           </div>
