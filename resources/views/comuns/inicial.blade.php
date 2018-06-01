@@ -1,8 +1,8 @@
 @extends('comuns.estatico.layout')
 
-@section('conteudo')
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #77efa7;">
-  <a class="navbar-brand" href="#"><img src="C:\Users\lucas\Documents\GitHub\sistemaRamon\imagens\logo.png" width="134" height="38" alt="">
+@section('navegacao')
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #77efa7;">
+  <a class="navbar-brand" href="#"><img src="imagens\logo.png" width="134" height="38" alt="">
 </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -31,12 +31,16 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0" method="GET">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
+@endsection
+
+@section('conteudo')
+
 
 
 @endsection
