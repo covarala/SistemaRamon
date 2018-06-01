@@ -1,7 +1,7 @@
 @extends('comuns.estatico.layout')
 
 @section('navegacao')
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #77efa7;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
   <a class="navbar-brand" href="#"><img src="imagens\logo.png" width="134" height="38" alt="">
 </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
