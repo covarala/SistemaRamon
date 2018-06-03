@@ -14,11 +14,11 @@
 Route::get('', function () {
     return view('welcome');
 });
-Route::get('inicial', function () {
-    return view('comuns.inicial');
-});
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('inicial', 'MainController@inicial');
+Route::get('/login', 'MainController@login');
+Route::get('/register', 'MainController@register');
