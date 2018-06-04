@@ -19,10 +19,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="shortcut icon" href="imagens\favicon.ico">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
-      <a class="navbar-brand" style="width:200px" href="#"><img src="imagens\logo.png" width="134" height="38" alt="">
+      <a class="navbar-brand"style="width:200px" href="#"><img src="imagens\logo.png" width="134" height="38" alt="">
     </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -49,8 +50,8 @@
 
         <ul class="navbar-nav mr-auto">
           <form class="form-inline my-2 my-sm-0" method="GET">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="imagens\search.png" width="20" height="20" alt=""></button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-link my-2 my-sm-" type="submit"><img src="imagens\search.png" width="20" height="20" alt=""></button>
           </form>
         </ul>
         <ul class="navbar-nav">
