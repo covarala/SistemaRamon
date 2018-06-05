@@ -42,7 +42,7 @@
             <button type="button" class="btn btn-link">Não tem login? Cadastre-se!</button>
           </label>
 
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+          <button class="btn btn-lg btn-success btn-block" type="submit">Entrar</button>
           <p class="text-center mt-5 mb-3 text-muted">© 2017-2018</p>
         </form>
       </div>
