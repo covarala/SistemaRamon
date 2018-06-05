@@ -21,9 +21,9 @@
     <![endif]-->
     <link rel="shortcut icon" href="imagens\favicon .ico">
   </head>
-  <body>
+  <body class="">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
-      <a class="navbar-brand"style="width:200px" href="#"><img src="imagens\logo.png" width="134" height="38" alt="">
+      <a class="navbar-brand"style="width:200px" href="inicial"><img src="imagens\logo.png" width="134" height="38" alt="">
     </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse row" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="inicial">Inicio<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link text-white" href="#">Produtos<span class="sr-only">(current)</span></a>
@@ -62,8 +62,8 @@
                 Faça seu login <br> ou cadastre-se
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Login</a>
-                <a class="dropdown-item" href="#">Cadastrar</a>
+                <a class="dropdown-item" href="login">Login</a>
+                <a class="dropdown-item" href="register">Cadastrar</a>
               </div>
             </li>
           </div>

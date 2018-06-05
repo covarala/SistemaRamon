@@ -71,14 +71,15 @@
         </div>
         </div>
       </div>
-    </div>
-      <ul class="pagination justify-content-end pagination-md"></ul>
-    <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end pagination-md">
-        <li class="page-item">
-          <a class="page-link text-success" href="#"> <img src="https://png.icons8.com/color/16/ffffff/plus.png"> Ver mais produtos <span aria-hidden="true">&raquo;</span></a>
-        </li>
       </ul>
-    </nav>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end pagination-md">
+          <li class="page-item">
+            <a class="page-link text-success" href="#"> <img src="https://png.icons8.com/color/16/ffffff/plus.png"> Ver mais produtos <span aria-hidden="true">&raquo;</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 @endsection
