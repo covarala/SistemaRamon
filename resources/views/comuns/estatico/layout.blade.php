@@ -19,7 +19,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="imagens\favicon.ico">
+    <link rel="shortcut icon" href="imagens\favicon .ico">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
@@ -73,7 +73,6 @@
     </nav>
     @yield('conteudo')
 
-      @yield('rodape')
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -85,4 +84,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
   </body>
+  <footer class="text-muted" >
+    <div class="container">
+      <p class="text-sm-center">Politica de privacidade <a href="../../">clique aqui</a></p>
+      <p class="text-sm-center">B2W - Companhia Digital / CNPJ: 00.776.574/0006-60 / Inscrição Estadual: 492.513.778.117 / Endereço Rua Sacadura Cabral, 102 - Rio de Janeiro, RJ - 20081-902 / </p>
+    </div>
+  </footer>
 </html>

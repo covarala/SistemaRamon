@@ -43,6 +43,7 @@
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <a href="#" class="btn btn btn-success">Ver produto</a>
             </div>
           </div>
         </div>
@@ -53,6 +54,7 @@
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <a href="#" class="btn btn btn-success">Ver produto</a>
             </div>
           </div>
         </div>
@@ -63,12 +65,20 @@
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <a href="#" class="btn btn btn-success">Ver produto</a>
             </div>
           </div>
         </div>
         </div>
       </div>
     </div>
+      <ul class="pagination justify-content-end pagination-md"></ul>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end pagination-md">
+        <li class="page-item">
+          <a class="page-link text-success" href="#"> <img src="https://png.icons8.com/color/16/ffffff/plus.png"> Ver mais produtos <span aria-hidden="true">&raquo;</span></a>
+        </li>
+      </ul>
+    </nav>
   </div>
-
 @endsection
