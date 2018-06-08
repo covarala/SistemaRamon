@@ -27,27 +27,31 @@
       </a>
     </nav>
 
-    <div class="container offset-md-4">
-      <br><br><br><br>
-      <div class="row">
-        <form class="form-signin col-md-4">
-          <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-          <h1 class="text-center h3 mb-3 font-weight-normal">Please sign in</h1>
+    <div class="container">
+
+      <div class="login-form col-md-4 offset-md-4">
+          <div class="form-group">
+            <br><br>
+          <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png"> Login do cliente</h1>
+          </div>
+          <br>
+          <div class="form-group">
+          <label for="exampleInputEmail1">e-mail:</label>
           <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+          <input type="email" id="inputEmail" class="form-control" placeholder="Ex. joaodasilva@gmail.com" required="" autofocus="">
+          </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">senha:</label>
           <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+          <input type="password" id="inputPassword" class="form-control" placeholder="" required="">
+          </div>
+          <button class="btn btn-lg btn-success btn-block" type="submit">Continuar</button>
+          <br>
+          <p class="text-center mt-5 mb-3 text-muted">Não tem cadastro? <a href="register">Cadastre-se</a><br>© 2017-2018</p>
 
-          <label>
-            <button type="button" class="btn btn-link">Não tem login? Cadastre-se!</button>
-          </label>
-
-          <button class="btn btn-lg btn-success btn-block" type="submit">Entrar</button>
-          <p class="text-center mt-5 mb-3 text-muted">© 2017-2018</p>
-        </form>
       </div>
     </div>
-    <br><br><br><br>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
