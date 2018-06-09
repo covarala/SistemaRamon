@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('inicial', 'MainController@inicial');
 Route::get('/login', 'MainController@login');
 Route::get('/register', 'MainController@register');
+Route::post('inicial', 'UsersController@veridicaLogin')->name('formulario.login');

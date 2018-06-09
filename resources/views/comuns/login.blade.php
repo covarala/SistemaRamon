@@ -35,17 +35,23 @@
           <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png"> Login do cliente</h1>
           </div>
           <br>
-          <div class="form-group">
-          <label for="exampleInputEmail1">e-mail:</label>
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Ex. joaodasilva@gmail.com" required="" autofocus="">
-          </div>
-          <div class="form-group">
-          <label for="exampleInputPassword1">senha:</label>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="" required="">
-          </div>
-          <button class="btn btn-lg btn-success btn-block" type="submit">Continuar</button>
+
+          <form class="form" action="{{ route('formulario.login') }}" method="post">
+            {!! csrf_field() !!}
+            <div class="form-group">
+              <label for="exampleInputEmail1">e-mail:</label>
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Ex. joaodasilva@gmail.com" required="" autofocus="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">senha:</label>
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" name="password" id="inputPassword" class="form-control" placeholder="" required="">
+            </div>
+            <button class="btn btn-lg btn-success btn-block" type="submit">Continuar</button>
+
+          </form>
+
           <br>
           <p class="text-center mt-5 mb-3 text-muted">Não tem cadastro? <a href="register">Cadastre-se</a><br>© 2017-2018</p>
 

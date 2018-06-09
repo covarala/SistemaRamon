@@ -50,7 +50,8 @@
 
         <ul class="navbar-nav mr-auto">
           <form class="form-inline my-2 my-sm-0" method="GET">
-            <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+            {!! csrf_field() !!}
+            <input name="search" class="form-control" type="search" placeholder="Buscar" aria-label="Search">
             <button class="btn btn-link" type="submit"><img src="imagens\search.png" width="20" height="20" alt=""></button>
           </form>
         </ul>
