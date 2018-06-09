@@ -32,7 +32,7 @@
       <div class="login-form col-md-4 offset-md-4">
           <div class="form-group">
             <br><br>
-          <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png"> Login do cliente</h1>
+          <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png"> Entrar</h1>
           </div>
           <br>
 
