@@ -35,16 +35,16 @@
             <a class="nav-link text-white" href="inicial">Inicio<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#">Produtos<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="produtos">Produtos<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#">Sobre<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="sobre">Sobre<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#">Contatos<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="contatos">Contatos<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#">Representantes<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="representantes">Representantes<span class="sr-only">(current)</span></a>
           </li>
         </ul>
 
@@ -55,21 +55,24 @@
             <button class="btn btn-link" type="submit"><img src="imagens\search.png" width="20" height="20" alt=""></button>
           </form>
         </ul>
-        <ul class="navbar-nav">
-          <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
-            <li class="nav-item dropdown ">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
-                Faça seu login <br> ou cadastre-se
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="login">Login</a>
-                <a class="dropdown-item" href="register">Cadastrar</a>
-              </div>
-            </li>
-          </div>
-
-        </ul>
+        @if(!(session()->has('email')))
+          <ul class="navbar-nav">
+            <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                  <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
+                  Faça seu login <br> ou cadastre-se
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="entrar">Login</a>
+                  <a class="dropdown-item" href="registrar">Cadastrar</a>
+                </div>
+              </li>
+            </div>
+          </ul>
+        @else
+        
+        @endif
       </div>
     </nav>
     @yield('conteudo')

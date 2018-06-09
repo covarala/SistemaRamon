@@ -24,4 +24,20 @@ class MainController extends Controller
     {
         return view('comuns.inicial');
     }
+    function contatos()
+    {
+        return view('comuns.contatos');
+    }
+    function produtos()
+    {
+        return view('comuns.produtos');
+    }
+    function representantes()
+    {
+        return view('comuns.representantes');
+    }
+    function sobre()
+    {
+        return view('comuns.sobre');
+    }
 }

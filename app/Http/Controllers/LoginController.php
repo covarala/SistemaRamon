@@ -25,19 +25,22 @@ class LoginController extends Controller
           //check('senha para checar', 'senha ja com hash')
           $request->session()->put('email', $email);
           $request->session()->put('id', $dadosBanco['id']);
-          return redirect('inicial');
+
+          if ($dadosBanco['tipousuario'] === 'admin') {
+            return redirect('/home');
+          }
+          return view('inicial', $request);
         }else {
-          return redirect('/login');
+          return redirect('/entrar');
         }
       }
-      return redirect('/login');
-
+      return redirect('/entrar');
     }
 
     public function logout(Request $request)
     {
       $request->session()->flush();
-      return redirect('/login');
+      return redirect('/inicial');
     }
 
 

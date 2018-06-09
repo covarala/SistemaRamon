@@ -1,0 +1,1 @@
+@extends('comuns.estatico.layout')
