@@ -71,7 +71,7 @@
             </div>
           </ul>
         @else
-        
+
         @endif
       </div>
     </nav>
@@ -90,7 +90,7 @@
   </body>
   <footer class="text-muted" >
     <div class="container">
-      <p class="text-sm-center">Politica de privacidade <a href="../../">clique aqui</a></p>
+      <p class="text-sm-center">Politica de privacidade <a href="#">clique aqui</a></p>
       <p class="text-sm-center">B2W - Companhia Digital / CNPJ: 00.776.574/0006-60 / Inscrição Estadual: 492.513.778.117 / Endereço Rua Sacadura Cabral, 102 - Rio de Janeiro, RJ - 20081-902 / </p>
     </div>
   </footer>

@@ -53,7 +53,7 @@
           </form>
 
           <br>
-          <p class="text-center mt-5 mb-3 text-muted">Não tem cadastro? <a href="register">Cadastre-se</a><br>© 2017-2018</p>
+          <p class="text-center mt-5 mb-3 text-muted">Não tem cadastro? <a href="registrar">Cadastre-se</a><br>© 2017-2018</p>
 
       </div>
     </div>

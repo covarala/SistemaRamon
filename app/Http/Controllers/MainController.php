@@ -40,4 +40,8 @@ class MainController extends Controller
     {
         return view('comuns.sobre');
     }
+    function detalhes()
+    {
+        return view('comuns.detalhes');
+    }
 }
