@@ -18,8 +18,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-
 Route::get('inicial', 'MainController@inicial');
 Route::get('/login', 'MainController@login');
 Route::get('/register', 'MainController@register');
-Route::post('inicial', 'UsersController@veridicaLogin')->name('formulario.login');
+Route::post('inicial', 'LoginController@login')->name('formulario.login');
+Route::get('logout', 'LoginController@logout')->name('botao.logout');

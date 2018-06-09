@@ -9,39 +9,11 @@ use App\Models\Juridica;
 use App\Models\Telefone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
-{
-
-    public function veridicaLogin(Request $request)
-    {
-        //
-        $dados = $request->all();
-        // $dados['password'] = bcrypt($dados['password']);
-
-        // $dadosBanco = Users::find(2);
-        $dadosBanco = Users::where('email', $dados['email'])->first();
-
-        //check('senha para checar', 'senha ja com hash')
-        if (Hash::check($dados['password'], $dadosBanco['password'])) {
-
-          // $tmp = compact('dadosBanco');
-          // var_dump($tmp['dadosBanco'])->name;
-          // exit;
-
-          // criarSessao($tmp['dadosBanco']);
-
-          return view('comuns.inicial', compact('dadosBanco'));
-        }
-
-    }
-
-    public function criarSessao(Request $dados)
-    {
-      // code...
-      $value = $request->session()->get('key');
-    }
-
+{  
     public function create()
     {
         //

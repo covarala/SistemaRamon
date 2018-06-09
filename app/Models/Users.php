@@ -9,6 +9,7 @@ class Users extends Model
 {
     //
     use Notifiable;
+    protected $table = "users";
 
     protected $fillable = [
         'nome', 'email', 'password', 'tipousuario'
