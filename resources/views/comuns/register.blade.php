@@ -28,28 +28,111 @@
     </nav>
 
     <div class="container">
-      <div class="login-form col-md-4 offset-md-4">
+
         <br><br>
-        <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png">Cadastre-se</h1>
+        <h1 class="text-center h3 mb-2 font-weight-normal"><img src="imagens\chave.png">Cadastre-se</h1>
         <br>
         <p class="text-center">Escolha o tipo de Pessoa:</p>
-
+        <!–– Cadastro opções  : ––>
         <ul class="nav nav-pills mb-3 nav justify-content-center" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active text-dark"  id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Pessoa Física</a>
+      <li class="nav-item mb-3">
+        <a class="nav-link active text-dark"  id="pills-fisica-tab" data-toggle="pill" href="#pills-fisica" role="tab" aria-controls="pills-fisica" aria-selected="true">Pessoa Física</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Pessoa Jurídica</a>
+      <li class="nav-item mb-3">
+        <a class="nav-link text-dark" id="pills-juridica-tab" data-toggle="pill" href="#pills-juridica" role="tab" aria-controls="pills-juridica" aria-selected="false">Pessoa Jurídica</a>
       </li>
     </ul>
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-    </div>
+    <div class="tab-content " id="pills-tabContent">
+      <!–– Aba da Pessoa física  : ––>
+      <div class="tab-pane fade show active" id="pills-fisica" role="tabpanel" aria-labelledby="pills-fisica-tab">
+        <!–– formulário da pessoa fisica  : ––>
+        <div class="col-md-6 order-md-1 offset-md-3">
+
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="inputName4">nome completo</label>
+              <input type="text" class="form-control" id="inputName4"  placeholder="nome completo">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputUsername4">nome de usuário</label>
+              <input type="text" class="form-control" id="inputUsername4" placeholder="usuário">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="inputPhoneNumber">telefone</label>
+            <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">e-mail</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">senha</label>
+              <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputStreet">Rua</label>
+            <input type="text" class="form-control" id="inputStreet" placeholder="Rua">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-7">
+              <label for="inputBairro">bairro</label>
+              <input type="text" class="form-control" id="inputBairro" placeholder="Bairro">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputHnumber">numero</label>
+              <input type="text" class="form-control" id="inputHnumber" placeholder="Número">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputCommplemento">complemento</label>
+              <input type="text" class="form-control" id="inputComplemento" placeholder="">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">Cidade</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-3 offset-sm-1">
+              <label for="inputZip">CEP</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputState ">estado</label>
+              <select id="inputState " value="MG" class="form-control custom-select">
+                <option selected></option>
+                <option>MG</option>
+                <option>SP</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Check me out
+              </label>
+            </div>
+          </div>
+          <div class="col-md-4 offset-md-4 mb-3">
+          <button type="submit" class="btn btn-success btn-block">criar seu cadastar</button>
+        </div>
+        </form>
 
 
       </div>
+      </div>
+      <div class="tab-pane fade" id="pills-juridica" role="tabpanel" aria-labelledby="pills-juridica-tab">...</div>
+
+    </div>
+
+
+
     </div>
 
 

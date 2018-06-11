@@ -30,22 +30,21 @@
     <div class="container">
 
       <div class="login-form col-md-4 offset-md-4">
-          <div class="form-group">
+          <div class="form-group mb-4">
             <br><br>
-          <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png"> Entrar</h1>
+          <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png">Entrar</h1>
           </div>
-          <br>
 
           <form class="form" action="{{ route('formulario.login') }}" method="post">
             {!! csrf_field() !!}
             <div class="form-group">
               <label for="exampleInputEmail1">e-mail:</label>
-              <label for="inputEmail" class="sr-only">Email address</label>
+              <label for="inputEmail" class="sr-only">Endereço de e-mail</label>
               <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Ex. joaodasilva@gmail.com" required="" autofocus="">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">senha:</label>
-              <label for="inputPassword" class="sr-only">Password</label>
+              <label for="inputPassword" class="sr-only">senha</label>
               <input type="password" name="password" id="inputPassword" class="form-control" placeholder="" required="">
             </div>
             <button class="btn btn-lg btn-success btn-block" type="submit">Continuar</button>
