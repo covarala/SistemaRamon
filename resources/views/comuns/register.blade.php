@@ -51,32 +51,32 @@
         <form class="needs-validation" novalidate>
           <div class="form-row">
             <div class="form-group col-md-8">
-              <label for="inputName4">nome completo</label>
-              <input type="text" class="form-control" id="inputName4"  placeholder="nome completo">
+              <label for="inputName">nome completo</label>
+              <input type="text" class="form-control" id="inputName"  placeholder="nome completo">
             </div>
-            <div class="form-group col-md-4">
-              <label for="inputUsername4">nome de usuário</label>
-              <input type="text" class="form-control" id="inputUsername4" placeholder="usuário">
+            <div class="form-group col-md-4 " >
+              <label for="inputPhoneNumber">telefone</label>
+              <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
             </div>
           </div>
-
-          <div class="form-group col-md-6">
-            <label for="inputPhoneNumber">telefone</label>
-            <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
-          </div>
-
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputEmail4">e-mail</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              <label for="inputCPF">CPF</label>
+              <input type="text" class="form-control" id="inputCPF" placeholder="CPF">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail">e-mail</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPassword4">senha</label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+              <label for="inputPassword">senha</label>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputStreet">Rua</label>
+            <label for="inputStreet">rua</label>
             <input type="text" class="form-control" id="inputStreet" placeholder="Rua">
           </div>
           <div class="form-row">
@@ -95,12 +95,12 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputCity">Cidade</label>
+              <label for="inputCity">cidade</label>
               <input type="text" class="form-control" id="inputCity">
             </div>
             <div class="form-group col-md-3 offset-sm-1">
-              <label for="inputZip">CEP</label>
-              <input type="text" class="form-control" id="inputZip">
+              <label for="inputCEP">CEP</label>
+              <input type="text" class="form-control" id="inputCPF">
             </div>
             <div class="form-group col-md-2">
               <label for="inputState ">estado</label>
@@ -127,7 +127,92 @@
 
       </div>
       </div>
-      <div class="tab-pane fade" id="pills-juridica" role="tabpanel" aria-labelledby="pills-juridica-tab">...</div>
+      <div class="tab-pane fade" id="pills-juridica" role="tabpanel" aria-labelledby="pills-juridica-tab">
+
+        <div class="col-md-6 order-md-1 offset-md-3">
+
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="inputRN">razão social</label>
+              <input type="text" class="form-control" id="inputRN"  placeholder="razão social da empresa">
+            </div>
+            <div class="form-group col-md-4 " >
+              <label for="inputPhoneNumber">telefone</label>
+              <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCPF">CNPJ</label>
+              <input type="text" class="form-control" id="inputCPF" placeholder="CNPJ">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail">e-mail</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword">senha</label>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputStreet">rua</label>
+            <input type="text" class="form-control" id="inputStreet" placeholder="Rua">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-7">
+              <label for="inputBairro">bairro</label>
+              <input type="text" class="form-control" id="inputBairro" placeholder="Bairro">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputHnumber">numero</label>
+              <input type="text" class="form-control" id="inputHnumber" placeholder="Número">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputCommplemento">complemento</label>
+              <input type="text" class="form-control" id="inputComplemento" placeholder="">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">cidade</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-3 offset-sm-1">
+              <label for="inputCEP">CEP</label>
+              <input type="text" class="form-control" id="inputCPF">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputState ">estado</label>
+              <select id="inputState " value="MG" class="form-control custom-select">
+                <option selected></option>
+                <option>MG</option>
+                <option>SP</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Check me out
+              </label>
+            </div>
+          </div>
+          <div class="col-md-4 offset-md-4 mb-3">
+          <button type="submit" class="btn btn-success btn-block">criar seu cadastar</button>
+        </div>
+        </form>
+
+
+      </div>
+
+
+
+      </div>
 
     </div>
 
