@@ -13,8 +13,8 @@ class UsuariosTableSeeder extends Seeder
     {
         Users::create(
           [
-            'name'    => 'André',
-        	  'email'   => 'andre@email.com',
+            'name'    => 'André Braga',
+        	  'email'   => 'andrebraga@email.com',
             'password'=> bcrypt('123456'),
             'tipousuario'=> 'cliente',
           ]

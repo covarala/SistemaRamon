@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Users;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
+      Users::create(
+        [
+          'name'    => 'André Braga',
+          'email'   => 'andrebraga@email.com',
+          'password'=> bcrypt('123456'),
+          'tipousuario'=> 'cliente',
+        ]
+        );
+        // $this->call(UsersTableSeeder::class);
     }
 }

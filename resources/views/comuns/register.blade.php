@@ -49,6 +49,7 @@
         <div class="col-md-6 order-md-1 offset-md-3">
 
         <form class="needs-validation" novalidate>
+          {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
               <label for="inputName">nome completo</label>
@@ -132,6 +133,7 @@
         <div class="col-md-6 order-md-1 offset-md-3">
 
         <form class="needs-validation" novalidate>
+          {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
               <label for="inputRN">razão social</label>

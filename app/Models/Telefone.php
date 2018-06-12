@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Telefone extends Model
 {
     //
+    protected $fillable = [
+        'user_id',
+    ];
 }

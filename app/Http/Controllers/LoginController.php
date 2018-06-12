@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Models\Endereco;
+use App\Models\Fisica;
+use App\Models\Juridica;
+use App\Models\Telefone;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -42,6 +46,70 @@ class LoginController extends Controller
       $request->session()->flush();
       return redirect('/inicial');
     }
+
+    public function register(Request $request)
+    {
+        //
+        $dados = $request->all();
+        $dados['password'] = bcrypt($dados['password']);
+        // $dadosUsers = new Users
+        $dadosUsers = [
+          'name' => $dados['name'],
+          'password' => $dados['password'],
+          'email' => $dados['email'],
+          'tipousuario' => $dados['tipousuario'],
+        ];
+
+        // $dadosUsers->save();
+
+        Users::create($dadosUsers);
+
+        $dadosBanco = Users::where('email', $dados['email'])->first();
+        $idUsers = $dadosBanco['id'];
+
+        $dadosTel = [
+          'user_id' => $idUsers,
+          'telefone' => $dados['telefone']
+        ];
+        Telefone::create($dadosTel);
+
+
+        $dadosEndereco = [
+          'rua' => $dados['rua'],
+          'numero' => $dados['numero'],
+          'bairro' => $dados['bairro'],
+          'cidade' => $dados['cidade'],
+          'estado' => $dados['estado'],
+          'complemento' => $dados['complemento'],
+          'cep' => $dados['cep'],
+          'user_id' => $idUsers,
+        ];
+
+        Endereco::create($dadosEndereco);
+        dd($dadosEndereco);
+
+        if ($dadosUsers['tipousuario'] === 'representante') {
+          // code...
+        }
+        if ($dadosUsers['tipousuario'] === 'fisica') {
+          // code...
+          $dadosFisica = [
+            'user_id' => $idUsers,
+            'cpf' => $dados['cpf']
+          ];
+          Fisica::create($dadosFisica);
+        }
+        if ($dadosUsers['tipousuario'] === 'juridica') {
+          // code...
+          $dadosJuridica = [
+            'user_id' => $idUsers,
+            'cnpj' => $dados['cnpj']
+          ];
+          Juridica::create($dadosJuridica);
+        }
+        // return response()->json(['success' => true]);
+    }
+
 
 
 }
