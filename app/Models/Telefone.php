@@ -3,11 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+
 
 class Telefone extends Model
 {
     //
+    use Notifiable;
+
+    protected $table = "telefone";
+
     protected $fillable = [
-        'user_id',
+        'user_id', 'telefone',
     ];
 }

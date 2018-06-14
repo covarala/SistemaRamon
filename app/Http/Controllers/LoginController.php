@@ -33,7 +33,7 @@ class LoginController extends Controller
           if ($dadosBanco['tipousuario'] === 'admin') {
             return redirect('/home');
           }
-          return view('inicial', $request);
+          return redirect('/inicial');
         }else {
           return redirect('/entrar');
         }
@@ -52,6 +52,7 @@ class LoginController extends Controller
         //
         $dados = $request->all();
         $dados['password'] = bcrypt($dados['password']);
+
         // $dadosUsers = new Users
         $dadosUsers = [
           'name' => $dados['name'],
@@ -68,8 +69,8 @@ class LoginController extends Controller
         $idUsers = $dadosBanco['id'];
 
         $dadosTel = [
+          'telefone' => $dados['telefone'],
           'user_id' => $idUsers,
-          'telefone' => $dados['telefone']
         ];
         Telefone::create($dadosTel);
 
@@ -86,20 +87,8 @@ class LoginController extends Controller
         ];
 
         Endereco::create($dadosEndereco);
-        dd($dadosEndereco);
 
         if ($dadosUsers['tipousuario'] === 'representante') {
-          // code...
-        }
-        if ($dadosUsers['tipousuario'] === 'fisica') {
-          // code...
-          $dadosFisica = [
-            'user_id' => $idUsers,
-            'cpf' => $dados['cpf']
-          ];
-          Fisica::create($dadosFisica);
-        }
-        if ($dadosUsers['tipousuario'] === 'juridica') {
           // code...
           $dadosJuridica = [
             'user_id' => $idUsers,
@@ -107,6 +96,23 @@ class LoginController extends Controller
           ];
           Juridica::create($dadosJuridica);
         }
+        if ($dados['tipopessoa'] === 'fisica') {
+          // code...
+          $dadosFisica = [
+            'user_id' => $idUsers,
+            'cpf' => $dados['cpf']
+          ];
+          Fisica::create($dadosFisica);
+        }
+        if ($dados['tipopessoa'] === 'juridica') {
+          // code...
+          $dadosJuridica = [
+            'user_id' => $idUsers,
+            'cnpj' => $dados['cnpj']
+          ];
+          Juridica::create($dadosJuridica);
+        }
+        return redirect('/inicial');
         // return response()->json(['success' => true]);
     }
 

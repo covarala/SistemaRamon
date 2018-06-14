@@ -20,7 +20,7 @@ class CreateEnderecoTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->string('cep');
             $table->integer('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

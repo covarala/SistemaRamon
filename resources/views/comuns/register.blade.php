@@ -48,64 +48,66 @@
         <!–– formulário da pessoa fisica  : ––>
         <div class="col-md-6 order-md-1 offset-md-3">
 
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" action="{{ route('formulario.register') }}" novalidate>
           {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
-              <label for="inputName">nome completo</label>
-              <input type="text" class="form-control" id="inputName"  placeholder="nome completo">
+              <label for="inputName">Nome Completo</label>
+              <input type="text" name="name" class="form-control" id="inputName"  placeholder="nome completo">
             </div>
             <div class="form-group col-md-4 " >
-              <label for="inputPhoneNumber">telefone</label>
-              <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
+              <label for="inputPhoneNumber">Telefone</label>
+              <input type="text" name="telefone" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
             </div>
           </div>
+          <input type="hidden" name="tipousuario" value="cliente" class="form-control">
+          <input type="hidden" name="tipopessoa" value="fisica" class="form-control">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCPF">CPF</label>
-              <input type="text" class="form-control" id="inputCPF" placeholder="CPF">
+              <input type="text" name="cpf" class="form-control" id="inputCPF" placeholder="CPF">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputEmail">e-mail</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+              <label for="inputEmail">E-mail</label>
+              <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPassword">senha</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+              <label for="inputPassword">Senha</label>
+              <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputStreet">rua</label>
-            <input type="text" class="form-control" id="inputStreet" placeholder="Rua">
+            <label for="inputStreet">Rua</label>
+            <input type="text" name="rua" class="form-control" id="inputStreet" placeholder="Rua">
           </div>
           <div class="form-row">
             <div class="form-group col-md-7">
-              <label for="inputBairro">bairro</label>
-              <input type="text" class="form-control" id="inputBairro" placeholder="Bairro">
+              <label for="inputBairro">Bairro</label>
+              <input type="text" name="bairro" class="form-control" id="inputBairro" placeholder="Bairro">
             </div>
             <div class="form-group col-md-3">
-              <label for="inputHnumber">numero</label>
-              <input type="text" class="form-control" id="inputHnumber" placeholder="Número">
+              <label for="inputHnumber">Número</label>
+              <input type="text" name="numero" class="form-control" id="inputHnumber" placeholder="Número">
             </div>
             <div class="form-group col-md-2">
-              <label for="inputCommplemento">complemento</label>
-              <input type="text" class="form-control" id="inputComplemento" placeholder="">
+              <label for="inputCommplemento">Complemento</label>
+              <input type="text" name="complemento" class="form-control" id="inputComplemento" placeholder="">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputCity">cidade</label>
-              <input type="text" class="form-control" id="inputCity">
+              <label for="inputCity">Cidade</label>
+              <input type="text" name="cidade" class="form-control" id="inputCity">
             </div>
             <div class="form-group col-md-3 offset-sm-1">
               <label for="inputCEP">CEP</label>
-              <input type="text" class="form-control" id="inputCPF">
+              <input type="text" name="cep" class="form-control" id="inputCPF">
             </div>
             <div class="form-group col-md-2">
-              <label for="inputState ">estado</label>
-              <select id="inputState " value="MG" class="form-control custom-select">
+              <label for="inputState ">Estado</label>
+              <select id="inputState " name="estado" value="MG" class="form-control custom-select">
                 <option selected></option>
                 <option>MG</option>
                 <option>SP</option>
@@ -132,64 +134,66 @@
 
         <div class="col-md-6 order-md-1 offset-md-3">
 
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" action="{{ route('formulario.register') }}" novalidate>
           {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
-              <label for="inputRN">razão social</label>
-              <input type="text" class="form-control" id="inputRN"  placeholder="razão social da empresa">
+              <label for="inputRN">Razão social</label>
+              <input type="text" name="name" class="form-control" id="inputRN"  placeholder="razão social da empresa">
             </div>
+            <input type="hidden" name="tipousuario" value="cliente" class="form-control" >
+            <input type="hidden" name="tipopessoa" value="juridica" class="form-control" >
             <div class="form-group col-md-4 " >
-              <label for="inputPhoneNumber">telefone</label>
-              <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
+              <label for="inputPhoneNumber">Telefone</label>
+              <input type="text" name="telefone" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCPF">CNPJ</label>
-              <input type="text" class="form-control" id="inputCPF" placeholder="CNPJ">
+              <input type="text" name="cnpj" class="form-control" id="inputCPF" placeholder="CNPJ">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputEmail">e-mail</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+              <label for="inputEmail">E-mail</label>
+              <input type="email" name="email" name="email" class="form-control" id="inputEmail" placeholder="E-mail">
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPassword">senha</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+              <label for="inputPassword">Senha</label>
+              <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputStreet">rua</label>
-            <input type="text" class="form-control" id="inputStreet" placeholder="Rua">
+            <label for="inputStreet">Rua</label>
+            <input type="text"name="rua" class="form-control" id="inputStreet" placeholder="Rua">
           </div>
           <div class="form-row">
             <div class="form-group col-md-7">
-              <label for="inputBairro">bairro</label>
-              <input type="text" class="form-control" id="inputBairro" placeholder="Bairro">
+              <label for="inputBairro">Bairro</label>
+              <input type="text" name="bairro" class="form-control" id="inputBairro" placeholder="Bairro">
             </div>
             <div class="form-group col-md-3">
-              <label for="inputHnumber">numero</label>
-              <input type="text" class="form-control" id="inputHnumber" placeholder="Número">
+              <label for="inputHnumber">Número</label>
+              <input type="text" name="numero" class="form-control" id="inputHnumber" placeholder="Número">
             </div>
             <div class="form-group col-md-2">
-              <label for="inputCommplemento">complemento</label>
-              <input type="text" class="form-control" id="inputComplemento" placeholder="">
+              <label for="inputCommplemento">Complemento</label>
+              <input type="text" name="complemento" class="form-control" id="inputComplemento" placeholder="">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputCity">cidade</label>
-              <input type="text" class="form-control" id="inputCity">
+              <label for="inputCity">Cidade</label>
+              <input type="text" name="cidade" class="form-control" id="inputCity">
             </div>
             <div class="form-group col-md-3 offset-sm-1">
               <label for="inputCEP">CEP</label>
-              <input type="text" class="form-control" id="inputCPF">
+              <input type="text" name="cep" class="form-control" id="inputCPF">
             </div>
             <div class="form-group col-md-2">
-              <label for="inputState ">estado</label>
-              <select id="inputState " value="MG" class="form-control custom-select">
+              <label for="inputState">Estado</label>
+              <select id="inputState" name="estado" value="MG" class="form-control custom-select">
                 <option selected></option>
                 <option>MG</option>
                 <option>SP</option>

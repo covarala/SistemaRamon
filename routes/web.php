@@ -14,17 +14,21 @@
 Route::get('', function () {
     return view('welcome');
 });
+Route::get('/teste', function () {
+    return view('teste');
+});
 Route::get('/home', 'HomeController@index')->name('dashboard');
 
 Auth::routes();
 
-Route::get('/inicial', 'MainController@inicial')->name('inicial');
-Route::get('/entrar', 'MainController@login')->name('entrar');
+Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
+
+Route::get('/inicial', 'MainController@inicial');
+Route::get('/entrar', 'MainController@login');
+Route::get('/formulario/register', 'LoginController@register')->name('formulario.register');
 Route::get('/registrar', 'MainController@register')->name('registrar');
-Route::post('/inicial', 'LoginController@login')->name('formulario.login');
 Route::get('/logout', 'LoginController@logout')->name('botao.logout');
 
-Route::get('/entrar', 'LoginController@register')->name('formulario.register');
 
 Route::get('/inicial', 'MainController@inicial')->name('inicial');
 Route::get('/produtos', 'MainController@produtos')->name('produtos');
