@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="imagens\favicon .ico">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body class="">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
@@ -91,7 +92,8 @@
   <footer class="text-muted" >
     <div class="container">
       <p class="text-sm-center">Politica de privacidade <a href="#">clique aqui</a></p>
-      <p class="text-sm-center">B2W - Companhia Digital / CNPJ: 00.776.574/0006-60 / Inscrição Estadual: 492.513.778.117 / Endereço Rua Sacadura Cabral, 102 - Rio de Janeiro, RJ - 20081-902 / </p>
+      <p class="text-sm-center">Rapadura Mônada: Faz. Itapiraçaba - Local denominado Sto Antônio -
+Rod. Januária Brejo do Amparo, 5090 - Zona Rural - Januária / MG – CEP 39.480-000</p>
     </div>
   </footer>
 </html>
