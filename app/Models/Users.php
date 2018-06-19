@@ -12,7 +12,7 @@ class Users extends Model
     protected $table = "users";
 
     protected $fillable = [
-        'name', 'email', 'password', 'tipousuario'
+        'name', 'sobrenome', 'email', 'password', 'tipousuario'
     ];
 
     protected $hidden = [

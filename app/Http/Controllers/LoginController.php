@@ -28,8 +28,8 @@ class LoginController extends Controller
         if (Hash::check($password, $dadosBanco['password'])) {
           //check('senha para checar', 'senha ja com hash')
           $request->session()->put('email', $email);
-          $request->session()->put('id', $dadosBanco['id']);
-          $request->session()->put('nome', $dadosBanco['name']);
+          $request->session()->put('id', $dadosBanco['idUser']);
+          $request->session()->put('nome', $dadosBanco['oame']);
 
           if ($dadosBanco['tipousuario'] === 'admin') {
             return redirect('/home');
@@ -52,6 +52,11 @@ class LoginController extends Controller
     {
         //
         $dados = $request->all();
+
+        $dadosBanco = Users::where('email', '=' ,$email)->first();
+        if ($email === $dadosBanco['email']) {
+          return redirect('registrar');
+        }
         $dados['password'] = bcrypt($dados['password']);
 
         // $dadosUsers = new Users

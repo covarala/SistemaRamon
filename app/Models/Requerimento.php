@@ -16,5 +16,6 @@ class Requerimento extends Model
         'qntIndividual', 'qntCaixaMasterIndividual',
         'qntDisplay', 'qntCaixaMasterDisplay',
         'qntSm', 'qntCaixaMasterSm',
+        'idRecebedor','idEmissor',
     ];
 }

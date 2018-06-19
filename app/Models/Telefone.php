@@ -14,6 +14,6 @@ class Telefone extends Model
     protected $table = "telefone";
 
     protected $fillable = [
-        'user_id', 'telefone',
+        'idUser', 'telefone',
     ];
 }

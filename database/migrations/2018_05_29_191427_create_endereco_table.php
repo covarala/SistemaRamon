@@ -14,7 +14,7 @@ class CreateEnderecoTable extends Migration
     public function up()
     {
         Schema::create('endereco', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idEndereco');
             $table->string('rua');
             $table->string('numero');
             $table->string('bairro');
@@ -22,7 +22,7 @@ class CreateEnderecoTable extends Migration
             $table->string('estado');
             $table->string('complemento')->nullable();
             $table->string('cep');
-            $table->integer('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('idUser')->foreign('idUser')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
 
         });

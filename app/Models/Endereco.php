@@ -16,6 +16,6 @@ class Endereco extends Model
       'rua', 'numero',
       'bairro', 'cidade',
       'estado', 'complemento',
-      'user_id', 'cep',
+      'idUser', 'cep',
       ];
 }

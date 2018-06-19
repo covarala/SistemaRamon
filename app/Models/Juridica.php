@@ -13,6 +13,6 @@ class Juridica extends Model
     protected $table = "juridica";
 
     protected $fillable = [
-        'cnpj', 'user_id',
+        'cnpj', 'idUser',
       ];
 }

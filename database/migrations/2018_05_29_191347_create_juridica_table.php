@@ -14,9 +14,11 @@ class CreateJuridicaTable extends Migration
     public function up()
     {
         Schema::create('juridica', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idJuridica');
             $table->string('cnpj');
-            $table->integer('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('inscricaoEstadual');
+            $table->boolean('distribuidor')->default($value = false);
+            $table->integer('idUser')->foreign('idUser')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

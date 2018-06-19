@@ -14,12 +14,11 @@ class CreateFisicaTable extends Migration
     public function up()
     {
         Schema::create('fisica', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idFisica');
             $table->string('cpf');
-
-            $table->integer('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('idUser')->foreign('idUser')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
-            
+
         });
     }
 

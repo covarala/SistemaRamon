@@ -13,6 +13,6 @@ class Fisica extends Model
     protected $table = "fisica";
 
     protected $fillable = [
-      'cpf', 'user_id',
+      'cpf', 'idUser',
       ];
 }
