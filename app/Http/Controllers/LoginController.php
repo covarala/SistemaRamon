@@ -29,6 +29,7 @@ class LoginController extends Controller
           //check('senha para checar', 'senha ja com hash')
           $request->session()->put('email', $email);
           $request->session()->put('id', $dadosBanco['id']);
+          $request->session()->put('nome', $dadosBanco['name']);
 
           if ($dadosBanco['tipousuario'] === 'admin') {
             return redirect('/home');

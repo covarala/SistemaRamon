@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produto;
 
 class MainController extends Controller
 {
@@ -42,6 +43,7 @@ class MainController extends Controller
     }
     function detalhes()
     {
-        return view('comuns.detalhes');
+
+      return view('comuns.detalhes');
     }
 }

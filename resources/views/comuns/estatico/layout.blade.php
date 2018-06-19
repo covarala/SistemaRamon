@@ -1,3 +1,6 @@
+<?php
+$tmp = session()->all();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,7 +23,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="imagens\favicon .ico">
-    <link rel="stylesheet" href="css/main.css">
   </head>
   <body class="">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
@@ -45,7 +47,7 @@
             <a class="nav-link text-white" href="contatos">Contatos<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link text-white" href="representantes">Representantes<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="distribuidores">Distribuidores<span class="sr-only">(current)</span></a>
           </li>
         </ul>
 
@@ -62,17 +64,30 @@
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                   <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
-                  Faça seu login <br> ou cadastre-se
+                  Entre ou <br> cadastre-se
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="entrar">Login</a>
+                  <a class="dropdown-item" href="entrar">Entrar</a>
                   <a class="dropdown-item" href="registrar">Cadastrar</a>
                 </div>
               </li>
             </div>
           </ul>
         @else
-
+        <ul class="navbar-nav">
+          <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
+                Olá, <br> {{ $tmp['nome'] }}
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="logout">Sair</a>
+                <a class="dropdown-item" href="registrar">Cadastrar</a>
+              </div>
+            </li>
+          </div>
+        </ul>
         @endif
       </div>
     </nav>

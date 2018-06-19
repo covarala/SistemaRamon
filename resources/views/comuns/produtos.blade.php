@@ -1,20 +1,3 @@
-<!--<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>stars review</title>
-  <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-<div class="box">
-  <a class="ion-android-star b1"></a>
-  <a class="ion-android-star b2"></a>
-  <a class="ion-android-star b3"></a>
-  <a class="ion-android-star b4"></a>
-  <a class="ion-android-star b5"></a>
-</div>
-</body>
-</html> //-->
 @extends('comuns.estatico.layout')
 @section('conteudo')
 <div class="album py-5 bg-light">
@@ -25,8 +8,19 @@
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Individual - 25g</h5>
+        <p class="card-text">Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.</p>
+      </div>
+      <div class="card-footer">
+        <a href="detalhes" class="btn btn btn-block btn-success">Ver produto</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">SM - 100g</h5>
+        <p class="card-text">Contém 04 barras de 25g.
+Validade, informação nutricional e demais informações.</p>
       </div>
       <div class="card-footer">
         <a href="#" class="btn btn btn-block btn-success">Ver produto</a>
@@ -35,17 +29,7 @@
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn btn-block btn-success">Ver produto</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Display - 450g</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
       </div>
       <div class="card-footer">
@@ -58,7 +42,7 @@
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Caixa Master - Embalagem SM</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
       <div class="card-footer">
@@ -68,7 +52,7 @@
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Caixa Master - Embalagem 450g</h5>
         <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       </div>
       <div class="card-footer">
@@ -78,7 +62,7 @@
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Caixa Master - Embalagem Individual 10 Kg</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
       </div>
       <div class="card-footer">
