@@ -7,30 +7,24 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Email</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Estado</th>
         </tr>
       </thead>
       <tbody>
+        <?php $cont = 1; ?>
+        @foreach ($dados as $dado)
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <th scope="row">{{ $cont }}</th>
+          <td>{{ $dado->Nome }}</td>
+          <td>{{ $dado->Email }}</td>
+          <td>{{ $dado->Cidade }}</td>
+          <td>{{ $dado->Estado }}</td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        <?php $cont++; ?>
+        @endforeach
       </tbody>
     </table>
 

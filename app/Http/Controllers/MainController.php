@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Users;
+use App\Models\Endereco;
+use App\Models\Fisica;
+use App\Models\Juridica;
+
+use DB;
 
 class MainController extends Controller
 {
@@ -33,9 +39,10 @@ class MainController extends Controller
     {
         return view('comuns.produtos');
     }
-    function representantes()
+    function distribuidores()
     {
-        return view('comuns.representantes');
+      $dados = DB::table('dadosusuariojuridica')->select('*')->where('distribuidor', '=', '1')->get();
+      return view('comuns.distribuidores', compact('dados'));
     }
     function sobre()
     {

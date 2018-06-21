@@ -32,6 +32,12 @@ class CreateViews extends Migration
             cpf as CPF,
             CONCAT(rua,", ", numero,", ",bairro,". ",cidade," - ",estado," ",complemento)
               as Endereco,
+            rua as Rua,
+            numero as Numero,
+            bairro as Bairro,
+            complemento as Complemento,
+            cidade as Cidade,
+            estado as Estado,
             cep as CEP
            FROM users, fisica, endereco
             WHERE (
@@ -48,7 +54,14 @@ class CreateViews extends Migration
             inscricaoEstadual as InscricaoEstadual,
             CONCAT(rua,", ", numero,", ",bairro,". ",cidade," - ",estado," ",complemento)
               as Endereco,
-            cep as CEP
+            rua as Rua,
+            numero as Numero,
+            bairro as Bairro,
+            complemento as Complemento,
+            cidade as Cidade,
+            estado as Estado,
+            cep as CEP,
+            distribuidor as Distribuidor
            FROM users, juridica, endereco
             WHERE (
             users.IdUser = endereco.IdUser

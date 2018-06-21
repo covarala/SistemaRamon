@@ -34,5 +34,5 @@ Route::get('/inicial', 'MainController@inicial')->name('inicial');
 Route::get('/produtos', 'MainController@produtos')->name('produtos');
 Route::get('/sobre', 'MainController@sobre')->name('sobre');
 Route::get('/contatos', 'MainController@contatos')->name('contatos');
-Route::get('/distribuidores', 'MainController@representantes')->name('distribuidores');
+Route::get('/distribuidores', 'MainController@distribuidores')->name('distribuidores');
 Route::get('/detalhes', 'MainController@detalhes')->name('detalhes');
