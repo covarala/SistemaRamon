@@ -26,7 +26,7 @@
     margin: 10px;
     font-size: 15px;
     line-height: 24px;
-    border-radius: 10px;
+    border: none;
     position: relative;
     box-sizing: border-box;
     cursor: pointer;
@@ -111,7 +111,7 @@
     padding: 15px;
     position: absolute;
     background: #339b52;
-    border-radius: 10px;
+    border: none;
     box-sizing: border-box;
     content: 'Faça seu orçamento !';
     transform-origin: left bottom;
