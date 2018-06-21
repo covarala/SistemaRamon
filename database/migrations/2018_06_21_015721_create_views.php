@@ -41,8 +41,8 @@ class CreateViews extends Migration
             cep as CEP
            FROM users, fisica, endereco
             WHERE (
-            users.IdUser = endereco.IdUser
-            and users.IdUser = fisica.IdUser )
+            users.id = endereco.IdUser
+            and users.id = fisica.IdUser )
             order by nome
           );
           ');
@@ -64,8 +64,8 @@ class CreateViews extends Migration
             distribuidor as Distribuidor
            FROM users, juridica, endereco
             WHERE (
-            users.IdUser = endereco.IdUser
-            and users.IdUser = juridica.IdUser
+            users.id = endereco.IdUser
+            and users.id = juridica.IdUser
            )
             order by nome
           );
@@ -74,7 +74,7 @@ class CreateViews extends Migration
           Create view telefonesUsuarios AS(
             SELECT users.nome, b.telefone, b.IdUser
             from users, telefone as b
-            WHERE users.IdUser = b.IdUser
+            WHERE users.id = b.IdUser
             ORDER BY b.IdUser ASC
           );
         ');

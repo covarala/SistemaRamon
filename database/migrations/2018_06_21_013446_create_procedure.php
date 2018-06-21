@@ -24,16 +24,16 @@ class CreateProcedure extends Migration
 
            	set @qntEmissorAtual = (select qntReqEnviado from users, requerimento
               where requerimento.idrequerimento = id
-              and users.idUser = requerimento.idEmissor
+              and users.id = requerimento.idEmissor
             );
             set @qntRecebedorAtual = (select qntReqRecebido from users, requerimento
               where requerimento.idrequerimento = id
-              and users.idUser = requerimento.idRecebedor);
+              and users.id = requerimento.idRecebedor);
 
              UPDATE users SET qntReqEnviado = @qntEmissorAtual + 1
-             WHERE idUser = idEmissor;
+             WHERE id = idEmissor;
              UPDATE users SET qntReqRecebido = @qntRecebedorAtual + 1
-             WHERE idUser = idRecebedor;
+             WHERE id = idRecebedor;
           END
         ');
     }
