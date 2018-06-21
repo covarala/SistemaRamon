@@ -13,7 +13,6 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
 
 
 
@@ -24,6 +23,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="imagens\favicon .ico">
+    <link rel="stylesheet" href="css/main.css">
   </head>
 
   <body>
