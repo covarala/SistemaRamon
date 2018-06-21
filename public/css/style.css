@@ -102,6 +102,7 @@
 .efeito-6 {
     background: #3fbf65;
     transform-style: preserve-3d;
+    box-shadow: 0 5px 0 #34a355;
 }
 
 .efeito-6:after {
@@ -116,6 +117,7 @@
     content: 'Faça seu orçamento !';
     transform-origin: left bottom;
     transform: rotateX(90deg);
+    box-shadow: 0 5px 0 #25723c;
 }
 
 .efeito-6:hover {
