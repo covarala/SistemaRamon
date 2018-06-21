@@ -23,6 +23,7 @@ $tmp = session()->all();
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="imagens\favicon .ico">
+    <link href="css/style.css" rel="stylesheet">
   </head>
   <body class="">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
@@ -67,8 +68,8 @@ $tmp = session()->all();
                   Entre ou <br> cadastre-se
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="entrar">Entrar</a>
-                  <a class="dropdown-item" href="registrar">Cadastrar</a>
+                  <a class="dropdown-item" href="entrar">Entrar <img src="imagens\entrar.png"  class="rounded float-right" ></a>
+                  <a class="dropdown-item" href="registrar">Cadastrar <img src="imagens\register.png"  class="rounded float-right" ></a>
                 </div>
               </li>
             </div>

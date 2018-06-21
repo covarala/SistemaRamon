@@ -2,6 +2,9 @@
 @section('conteudo')
 <div class="album py-5 bg-light">
   <div class="container col-md-9  offset-md-auto mb-5">
+    <ul class="nav justify-content-end">
+      <button type="button" class="efeito efeito-6">Gostou dos nossos produtos?</button>
+    </ul>
 
 <!-- Primeira linha -->
   <div class="card-deck mb-3">
