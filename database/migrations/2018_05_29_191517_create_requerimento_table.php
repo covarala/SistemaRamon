@@ -15,12 +15,12 @@ class CreateRequerimentoTable extends Migration
     {
         Schema::create('requerimento', function (Blueprint $table) {
             $table->increments('idRequerimento');
-            $table->string('qntIndividual');
-            $table->string('qntCaixaMasterIndividual');
-            $table->string('qntDisplay');
-            $table->string('qntCaixaMasterDisplay');
-            $table->string('qntSm');
-            $table->string('qntCaixaMasterSm');
+            $table->integer('qntIndividual')->default('0');
+            $table->integer('qntCaixaMasterIndividual')->default('0');
+            $table->integer('qntDisplay')->default('0');
+            $table->integer('qntCaixaMasterDisplay')->default('0');
+            $table->integer('qntSm')->default('0');
+            $table->integer('qntCaixaMasterSm')->default('0');
             $table->integer('idRecebedor')->foreign('fkIdRecebedor')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('idEmissor')->foreign('fkIdEmissor')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

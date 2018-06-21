@@ -2,6 +2,12 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Users;
+use App\Models\Endereco;
+use App\Models\Fisica;
+use App\Models\Juridica;
+use App\Models\Telefone;
+use App\Models\Produto;
+use App\Models\Requerimento;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,18 +18,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      Users::create(
+       Users::create(
         [
-          'name'    => 'André',
+          'nome'    => 'André',
           'sobrenome'    => 'Oliveira Braga',
           'email'   => 'andrebraga@email.com',
           'password'=> bcrypt('123456'),
           'tipousuario'=> 'admin',
         ]
         );
+       Users::create(
+        [
+          'nome'    => 'Grawl',
+          'sobrenome'    => 'Desenvolvimentos',
+          'email'   => 'grawldesenvolvimentos@email.com',
+          'password'=> bcrypt('123456'),
+          'tipousuario'=> 'admin',
+        ]
+        );
       Users::create(
         [
-          'name'    => 'Georgia',
+          'nome'    => 'Georgia',
           'sobrenome'    => 'Souza Gomes Barbosa',
           'email'   => 'georgiabarbosa@email.com',
           'password'=> bcrypt('654321'),
@@ -32,7 +47,7 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Lucas',
+          'nome'    => 'Lucas',
           'sobrenome'    => 'Guimarães Pereira',
           'email'   => 'lucasgp@email.com',
           'password'=> bcrypt('987654'),
@@ -41,7 +56,7 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Sueli',
+          'nome'    => 'Sueli',
           'sobrenome'    => 'Catarina Isabelle Pinto',
           'email'   => 'suelicatarina@email.com',
           'password'=> bcrypt('123456'),
@@ -50,7 +65,7 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Heitor',
+          'nome'    => 'Heitor',
           'sobrenome'    => 'Paulo Melo',
           'email'   => 'heitormelo@email.com',
           'password'=> bcrypt('123456'),
@@ -59,7 +74,7 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Joana',
+          'nome'    => 'Joana',
           'sobrenome'    => 'Adriana Isabel Moreira',
           'email'   => 'joanamoreira@email.com',
           'password'=> bcrypt('123456'),
@@ -68,7 +83,7 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Eduardo',
+          'nome'    => 'Eduardo',
           'sobrenome'    => 'Emanuel Tomás Caldeira',
           'email'   => 'eduardoemanueltomascaldeira@email.com',
           'password'=> bcrypt('123456'),
@@ -77,7 +92,7 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Teresinha',
+          'nome'    => 'Teresinha',
           'sobrenome'    => 'Mariah Sales',
           'email'   => 'teresinhamariahsales@email.com',
           'password'=> bcrypt('123456'),
@@ -86,7 +101,7 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Emanuel',
+          'nome'    => 'Emanuel',
           'sobrenome'    => 'Luan Nicolas Barros',
           'email'   => 'emanuelluan@email.com',
           'password'=> bcrypt('123456'),
@@ -95,13 +110,331 @@ class DatabaseSeeder extends Seeder
         );
       Users::create(
         [
-          'name'    => 'Letícia',
+          'nome'    => 'Letícia',
           'sobrenome'    => 'Alessandra Gonçalves',
           'email'   => 'leticiagoncalves@email.com',
           'password'=> bcrypt('123456'),
           'tipousuario'=> 'distribuidor',
         ]
         );
+
+      Telefone::create(
+        [
+          'telefone'    => '(79) 99111-2395',
+          'idUser'    => '5',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(67) 98957-4080',
+          'idUser'    => '6',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(86) 98811-4127',
+          'idUser'    => '7',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(82) 99980-5971',
+          'idUser'    => '8',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(67) 99870-6244',
+          'idUser'    => '9',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(11) 98724-3570',
+          'idUser'    => '10',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(92) 98841-8575',
+          'idUser'    => '11',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(67) 99536-4237',
+          'idUser'    => '6',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(11) 98216-7713',
+          'idUser'    => '10',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(92) 99995-6120',
+          'idUser'    => '11',
+        ]
+        );
+      Fisica::create(
+        [
+          'cpf'    => '837.432.212-84',
+          'idUser'    => '5',
+        ]
+        );
+      Fisica::create(
+        [
+          'cpf'    => '501.579.968-32',
+          'idUser'    => '6',
+        ]
+        );
+      Juridica::create(
+        [
+          'cnpj'    => '32.831.932/0001-72',
+          'inscricaoEstadual'    => '516.183.070.010',
+          'distribuidor'    => '0',
+          'idUser'    => '7',
+        ]
+        );
+      Juridica::create(
+        [
+          'cnpj'    => '74.947.958/0001-20',
+          'inscricaoEstadual'    => '273.925.520.737',
+          'distribuidor'    => '0',
+          'idUser'    => '8',
+        ]
+        );
+      Juridica::create(
+        [
+          'cnpj'    => '59.312.703/0001-06',
+          'inscricaoEstadual'    => '',
+          'distribuidor'    => '0',
+          'idUser'    => '9',
+        ]
+        );
+      Juridica::create(
+        [
+          'cnpj'    => '44.022.204/0001-07',
+          'inscricaoEstadual'    => '403.528.598/8500',
+          'distribuidor'    => '1',
+          'idUser'    => '10',
+        ]
+        );
+      Juridica::create(
+        [
+          'cnpj'    => '38.266.283/0001-90',
+          'inscricaoEstadual'    => '513.860.441/4929',
+          'distribuidor'    => '1',
+          'idUser'    => '11',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Individual - 25g',
+          'descricao' => 'Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'SM – 100g',
+          'descricao' => 'Contém 04 barras de 25g. Validade, informação nutricional e demais informações.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Display - 450 g',
+          'descricao' => 'Contém 18 barras de 25 g. Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Caixa Master Individual',
+          'descricao' => 'Com 400 barras de 25g. Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmentos que não necessitam da embalagem intermediária.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Caixa Master SM',
+          'descricao' => 'Com 56 embalagens de 100g. Peso: 5,6 Kg',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Caixa Master Display',
+          'descricao' => 'Com 32 embalagens de 450g. Peso: 14,4 Kg.',
+        ]
+        );
+        Endereco::create(
+          [
+            'rua'    => 'Rua Dolres Benfica de Aguiar',
+            'numero'    => '425',
+            'bairro'   => 'Várzea da Olaria',
+            'cidade'=> 'Itaúna',
+            'estado'=> 'MG',
+            'complemento'=> '',
+            'cep'=> '35681-353',
+            'idUser'=> '10',
+          ]
+        );
+        Endereco::create(
+          [
+            'rua'    => 'Rua Alípio José de Souza',
+            'numero'    => '407',
+            'bairro'   => 'Laranjeiras',
+            'cidade'=> 'Uberlândia',
+            'estado'=> 'MG',
+            'complemento'=> '',
+            'cep'=> '38410-226',
+            'idUser'=> '11',
+          ]
+        );
+        Endereco::create(
+          [
+            'rua'    => 'Rua VL - 40',
+            'numero'    => '817',
+            'bairro'   => 'Nova Contagem',
+            'cidade'=> 'Contagem',
+            'estado'=> 'MG',
+            'complemento'=> '',
+            'cep'=> '32050-035',
+            'idUser'=> '5',
+          ]
+        );
+        Endereco::create(
+          [
+            'rua'    => 'Rua Turmalina',
+            'numero'    => '338',
+            'bairro'   => 'Centro',
+            'cidade'=> 'Patos de Minas',
+            'estado'=> 'MG',
+            'complemento'=> '',
+            'cep'=> '38700-055',
+            'idUser'=> '6',
+          ]
+        );
+        Endereco::create(
+          [
+            'rua'    => 'Rua Santa Tereza',
+            'numero'    => '284',
+            'bairro'   => 'Santa Rita ',
+            'cidade'=> 'Timóteo',
+            'estado'=> 'MG',
+            'complemento'=> 'Cachoeira do Vale',
+            'cep'=> '38400-692',
+            'idUser'=> '7',
+          ]
+        );
+        Endereco::create(
+          [
+            'rua'    => 'Rua Padre Francisco Scrizzi',
+            'numero'    => '851',
+            'bairro'   => 'Parque São José',
+            'cidade'=> 'Belo Horizonte',
+            'estado'=> 'MG',
+            'complemento'=> '',
+            'cep'=> '35184-308',
+            'idUser'=> '8',
+          ]
+        );
+        Endereco::create(
+          [
+            'rua'    => 'Rua São Cristóvão',
+            'numero'    => '258',
+            'bairro'   => 'Lontrinha',
+            'cidade'=> 'Sete Lagoas',
+            'estado'=> 'MG',
+            'complemento'=> '',
+            'cep'=> '35701-810',
+            'idUser'=> '9',
+          ]
+        );
+        Requerimento::create(
+          [
+            'qntIndividual'    => '0',
+            'qntCaixaMasterIndividual'    => '0',
+            'qntDisplay'   => '0',
+            'qntCaixaMasterDisplay'=> '5',
+            'qntSm'=> '0',
+            'qntCaixaMasterSm'=> '10',
+            'idRecebedor'=> '10',
+            'idEmissor'=> '9',
+          ]
+        );
+        Requerimento::create(
+          [
+            'qntIndividual'    => '0',
+            'qntCaixaMasterIndividual'    => '0',
+            'qntDisplay'   => '0',
+            'qntCaixaMasterDisplay'=> '50',
+            'qntSm'=> '0',
+            'qntCaixaMasterSm'=> '0',
+            'idRecebedor'=> '10',
+            'idEmissor'=> '5',
+          ]
+        );
+        Requerimento::create(
+          [
+            'qntIndividual'    => '9',
+            'qntCaixaMasterIndividual'    => '8',
+            'qntDisplay'   => '5',
+            'qntCaixaMasterDisplay'=> '5',
+            'qntSm'=> '12',
+            'qntCaixaMasterSm'=> '23',
+            'idRecebedor'=> '10',
+            'idEmissor'=> '6',
+          ]
+        );
+        Requerimento::create(
+          [
+            'qntIndividual'    => '9',
+            'qntCaixaMasterIndividual'    => '8',
+            'qntDisplay'   => '5',
+            'qntCaixaMasterDisplay'=> '5',
+            'qntSm'=> '10',
+            'qntCaixaMasterSm'=> '25',
+            'idRecebedor'=> '11',
+            'idEmissor'=> '8',
+          ]
+        );
+        Requerimento::create(
+          [
+            'qntIndividual'    => '10',
+            'qntCaixaMasterIndividual'    => '8',
+            'qntDisplay'   => '5',
+            'qntCaixaMasterDisplay'=> '5',
+            'qntSm'=> '15',
+            'qntCaixaMasterSm'=> '20',
+            'idRecebedor'=> '10',
+            'idEmissor'=> '6',
+          ]
+        );
+        Requerimento::create(
+          [
+            'qntIndividual'    => '0',
+            'qntCaixaMasterIndividual'    => '0',
+            'qntDisplay'   => '40',
+            'qntCaixaMasterDisplay'=> '5',
+            'qntSm'=> '0',
+            'qntCaixaMasterSm'=> '25',
+            'idRecebedor'=> '10',
+            'idEmissor'=> '7',
+          ]
+        );
+        Requerimento::create(
+          [
+            'qntIndividual'    => '0',
+            'qntCaixaMasterIndividual'    => '0',
+            'qntDisplay'   => '30',
+            'qntCaixaMasterDisplay'=> '5',
+            'qntSm'=> '0',
+            'qntCaixaMasterSm'=> '5',
+            'idRecebedor'=> '11',
+            'idEmissor'=> '8',
+          ]
+        );
+
 
     }
 }
