@@ -12,8 +12,12 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<<<<<<< HEAD
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+=======
+    <link href="css/app.css" rel="stylesheet">
+>>>>>>> df7d9851dc12bee507bd2353a15f9e2ee8c82f68
 
 
 
@@ -24,6 +28,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="imagens\favicon .ico">
+    <link rel="stylesheet" href="css/main.css">
   </head>
 
   <body>
