@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Rapadura Mônada',
+    'title' => 'Sistema Ramon',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Rapadura</b>Mônada',
+    'logo' => '<b>Sistema</b>Ramon',
 
-    'logo_mini' => '<b>R</b>M',
+    'logo_mini' => '<b>S</b>R',
 
     /*
     |--------------------------------------------------------------------------

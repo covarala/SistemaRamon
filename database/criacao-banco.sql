@@ -89,10 +89,10 @@ CREATE TABLE IF NOT EXISTS BancoRamon.fisica (
 
 
 -- -----------------------------------------------------
--- Table BancoRamon.requerimento
+-- Table BancoRamon.orcamento
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS BancoRamon.requerimento (
-  idrequerimento INT NOT NULL auto_increment,
+CREATE TABLE IF NOT EXISTS BancoRamon.orcamento (
+  idorcamento INT NOT NULL auto_increment,
   qntIndividual INT NULL DEFAULT '0',
   qntDisplay INT NULL DEFAULT '0',
   qntSm INT NULL DEFAULT '0',
@@ -101,13 +101,13 @@ CREATE TABLE IF NOT EXISTS BancoRamon.requerimento (
   qntCaixaMasterIndInvidual INT NULL DEFAULT '0',
   recebedor INT NOT NULL,
   emissor INT NOT NULL,
-  PRIMARY KEY (idrequerimento),
-  CONSTRAINT fk_requerimento_users2
+  PRIMARY KEY (idorcamento),
+  CONSTRAINT fk_orcamento_users2
     FOREIGN KEY (recebedor)
     REFERENCES BancoRamon.users (idpessoasCad)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT fk_requerimento_users1
+  CONSTRAINT fk_orcamento_users1
     FOREIGN KEY (emissor)
     REFERENCES BancoRamon.users (idpessoasCad)
     ON DELETE CASCADE
@@ -122,7 +122,7 @@ Create view TotalProdutosOrcamentados AS(
     SUM(qntCaixaMasterDisplay) as CaixaMasterDisplay,
     SUM(qntSm) as SM,
     SUM(qntCaixaMasterSM) as CaixaMasterSM
-    FROM requerimento
+    FROM orcamento
   );
 
 Create view dadosUsuarioFisica AS(
@@ -252,11 +252,11 @@ INSERT INTO produto( Nome, Descrição)
 
 
 
-ALTER TABLE users ADD qntReqEnviado
+ALTER TABLE users ADD qntOrcPed
 INT NOT NULL DEFAULT '0' AFTER tipoUsuario;
 
-ALTER TABLE users ADD qntReqRecebido
-INT NOT NULL DEFAULT '0' AFTER qntReqEnviado;
+ALTER TABLE users ADD qntOrcRec
+INT NOT NULL DEFAULT '0' AFTER qntOrcPed;
 
 delimiter //
 CREATE PROCEDURE atualizaUserReq (
@@ -266,17 +266,17 @@ CREATE PROCEDURE atualizaUserReq (
     Declare qntEmissorAtual INT;
     Declare qntRecebedorAtual INT;
 
-   	set @qntEmissorAtual = (select qntReqEnviado from users, requerimento
-      where requerimento.idrequerimento = id
-      and users.idpessoasCad = requerimento.emissor
+   	set @qntEmissorAtual = (select qntOrcPed from users, orcamento
+      where orcamento.idorcamento = id
+      and users.idpessoasCad = orcamento.emissor
     );
-    set @qntRecebedorAtual = (select qntReqRecebido from users, requerimento
-      where requerimento.idrequerimento = id
-      and users.idpessoasCad = requerimento.recebedor);
+    set @qntRecebedorAtual = (select qntOrcRec from users, orcamento
+      where orcamento.idorcamento = id
+      and users.idpessoasCad = orcamento.recebedor);
 
-     UPDATE users SET qntReqEnviado = @qntEmissorAtual + 1
+     UPDATE users SET qntOrcPed = @qntEmissorAtual + 1
      WHERE idpessoasCad = idemissor;
-     UPDATE users SET qntReqRecebido = @qntRecebedorAtual + 1
+     UPDATE users SET qntOrcRec = @qntRecebedorAtual + 1
      WHERE idpessoasCad = idrecebedor;
   END//
 delimiter ;
@@ -284,34 +284,34 @@ delimiter ;
 
 
 delimiter //
-CREATE TRIGGER atualizaUser after insert ON requerimento
+CREATE TRIGGER atualizaUser after insert ON orcamento
 FOR EACH ROW
 BEGIN
-  call atualizaUserReq (new.recebedor, new.emissor, new.idrequerimento);
+  call atualizaUserReq (new.recebedor, new.emissor, new.idorcamento);
 END//
 delimiter ;
 
-  INSERT INTO requerimento(
+  INSERT INTO orcamento(
   qntIndividual, qntDisplay, qntSm,
   qntCaixaMasterDisplay, qntCaixaMasterSM,
   qntCaixaMasterIndInvidual, recebedor, emissor)
   VALUES ('10','20','30','25','0','0','3','2');
-  INSERT INTO requerimento(
+  INSERT INTO orcamento(
   qntIndividual, qntDisplay, qntSm,
   qntCaixaMasterDisplay, qntCaixaMasterSM,
   qntCaixaMasterIndInvidual, recebedor, emissor)
   VALUES ('10','20','30','25','0','0','3','3');
-  INSERT INTO requerimento(
+  INSERT INTO orcamento(
   qntIndividual, qntDisplay, qntSm,
   qntCaixaMasterDisplay, qntCaixaMasterSM,
   qntCaixaMasterIndInvidual, recebedor, emissor)
   VALUES ('50','30','30','35','0','0','3','1');
-  INSERT INTO requerimento(
+  INSERT INTO orcamento(
   qntIndividual, qntDisplay, qntSm,
   qntCaixaMasterDisplay, qntCaixaMasterSM,
   qntCaixaMasterIndInvidual, recebedor, emissor)
   VALUES ('25','0','10','25','10','30','5','3');
-  INSERT INTO requerimento(
+  INSERT INTO orcamento(
   qntIndividual, qntDisplay, qntSm,
   qntCaixaMasterDisplay, qntCaixaMasterSM,
   qntCaixaMasterIndInvidual, recebedor, emissor)
@@ -322,11 +322,11 @@ delimiter ;
 SELECT * from dadosUsuarioJuridica;
 SELECT * from dadosUsuarioFisica;
 SELECT * from telefonesUsuarios;
-SELECT * from requerimento;
+SELECT * from orcamento;
 SELECT * from TotalProdutosOrcamentados;
 
 
 DELETE FROM users WHERE idpessoasCad = 2;
 DELETE FROM users WHERE idpessoasCad = 4;
 
-DELETE FROM requerimento WHERE idrequerimento = 5;
+DELETE FROM orcamento WHERE idorcamento = 5;

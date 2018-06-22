@@ -12,13 +12,42 @@
 */
 
 Route::get('', function () {
-    return view('welcome');
+    return view('auth.login');
 });
-Route::get('/teste', function () {
-    return view('teste');
+Route::get('/teste', 'ClienteController@teste');
+Route::get('/testemaps', function () {
+
+  $config['center'] = 'Montes Claros, MG';
+  $config['zoom'] = '16';
+  $config['map_heigth'] = '500px';
+  // $config['map_width'] = '500px';
+  $config['scrollwhell'] = false;
+  $config['geocodeCaching'] = true;
+
+  GMaps::initialize($config);
+
+  $marker['position'] = 'Montes Claros, MG';
+  $marker['infowindow_content'] = 'Montes Claros';
+  GMaps::add_marker($marker);
+
+
+  $circle['center'] = 'Montes Claros, MG';
+  $circle['radius'] = '250';
+  GMaps::add_circle($circle);
+
+  $marker['position'] = 'Colegio Marista Sao Jose - Montes Claros';
+  $marker['infowindow_content'] = 'Colégio Marista';
+  $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal5/icon5.png';
+
+  GMaps::add_marker($marker);
+
+
+  $map = GMaps::create_map();
+
+  return view('teste')->with('map', $map);
 });
 
-Route::get('/home', 'HomeController@index')->name('dashboard');
+Route::get('/admin', 'HomeController@index')->name('dashboard');
 Route::get('/admin/produtos', 'HomeController@produtos');
 
 Auth::routes();

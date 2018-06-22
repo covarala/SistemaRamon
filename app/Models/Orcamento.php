@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Requerimento extends Model
+class Orcamento extends Model
 {
     //
     use Notifiable;
 
-    protected $table = "requerimento";
+    protected $table = "orcamento";
 
     protected $fillable = [
         'qntIndividual', 'qntCaixaMasterIndividual',
         'qntDisplay', 'qntCaixaMasterDisplay',
         'qntSm', 'qntCaixaMasterSm',
         'idRecebedor','idEmissor',
+        'aprovacao','valorOrc',
     ];
 }

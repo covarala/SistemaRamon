@@ -9,10 +9,10 @@ class CreateTrigger extends Migration
   public function up()
 {
     DB::unprepared('
-    CREATE TRIGGER atualizaUser after insert ON requerimento
+    CREATE TRIGGER atualizaUser after insert ON orcamento
     FOR EACH ROW
     BEGIN
-      call atualizaUserReq (new.idRecebedor, new.idEmissor, new.idRequerimento);
+      call atualizaUserReq (new.idRecebedor, new.idEmissor, new.idOrcamento);
     END
     ');
   }

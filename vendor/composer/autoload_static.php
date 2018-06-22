@@ -89,9 +89,15 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'GoogleMaps\\' => 11,
+            'GeometryLibrary\\' => 16,
+        ),
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
+            'FarhanWazir\\GoogleMaps\\' => 23,
             'Faker\\' => 6,
         ),
         'E' => 
@@ -251,9 +257,21 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'GoogleMaps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alexpechkarev/google-maps/src',
+        ),
+        'GeometryLibrary\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alexpechkarev/geometry-library',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
+        ),
+        'FarhanWazir\\GoogleMaps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps',
         ),
         'Faker\\' => 
         array (
@@ -294,6 +312,13 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
     );
 
     public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'URLify' => 
+            array (
+                0 => __DIR__ . '/..' . '/jbroadway/urlify',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -339,6 +364,7 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\ClienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClienteController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
@@ -354,7 +380,7 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'App\\Models\\Fisica' => __DIR__ . '/../..' . '/app/Models/Fisica.php',
         'App\\Models\\Juridica' => __DIR__ . '/../..' . '/app/Models/Juridica.php',
         'App\\Models\\Produto' => __DIR__ . '/../..' . '/app/Models/Produto.php',
-        'App\\Models\\Requerimento' => __DIR__ . '/../..' . '/app/Models/Requerimento.php',
+        'App\\Models\\Orcamento' => __DIR__ . '/../..' . '/app/Models/Orcamento.php',
         'App\\Models\\Telefone' => __DIR__ . '/../..' . '/app/Models/Telefone.php',
         'App\\Models\\Users' => __DIR__ . '/../..' . '/app/Models/Users.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -912,11 +938,24 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
+        'FarhanWazir\\GoogleMaps\\Containers\\isInsidePolygon' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Containers/isInsidePolygon.php',
+        'FarhanWazir\\GoogleMaps\\Facades\\GMapsFacade' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Facades/GMapsFacade.php',
+        'FarhanWazir\\GoogleMaps\\GMaps' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMaps.php',
+        'FarhanWazir\\GoogleMaps\\GMapsServiceProvider' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMapsServiceProvider.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'GeometryLibrary\\MathUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/MathUtil.php',
+        'GeometryLibrary\\PolyUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/PolyUtil.php',
+        'GeometryLibrary\\SphericalUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/SphericalUtil.php',
+        'GoogleMaps\\Directions' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/Directions.php',
+        'GoogleMaps\\Facade\\GoogleMapsFacade' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/Facade/GoogleMapsFacade.php',
+        'GoogleMaps\\GoogleMaps' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/GoogleMaps.php',
+        'GoogleMaps\\Parameters' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/Parameters.php',
+        'GoogleMaps\\ServiceProvider\\GoogleMapsServiceProvider' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/ServiceProvider/GoogleMapsServiceProvider.php',
+        'GoogleMaps\\WebService' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/WebService.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -3872,6 +3911,8 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'URLify' => __DIR__ . '/..' . '/jbroadway/urlify/URLify.php',
+        'URLifyTest' => __DIR__ . '/..' . '/jbroadway/urlify/tests/URLifyTest.php',
         'UsuariosTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsuariosTableSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',

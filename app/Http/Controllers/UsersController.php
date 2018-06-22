@@ -19,7 +19,7 @@ class UsersController extends Controller
         //
     }
 
-    
+
     public function show($id)
     {
         //
@@ -28,6 +28,7 @@ class UsersController extends Controller
           $usuarioDados = Auth()->user()->all();
         }
         dd($usuarioDados);
+        exit;
         $dados = new User;
         $dados = User::where('email', $usuarioDados['email']);
     }

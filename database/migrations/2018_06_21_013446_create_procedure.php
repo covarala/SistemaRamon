@@ -22,17 +22,17 @@ class CreateProcedure extends Migration
             Declare qntEmissorAtual INT;
             Declare qntRecebedorAtual INT;
 
-           	set @qntEmissorAtual = (select qntReqEnviado from users, requerimento
-              where requerimento.idrequerimento = id
-              and users.id = requerimento.idEmissor
+           	set @qntEmissorAtual = (select qntOrcPed from users, orcamento
+              where orcamento.idorcamento = id
+              and users.id = orcamento.idEmissor
             );
-            set @qntRecebedorAtual = (select qntReqRecebido from users, requerimento
-              where requerimento.idrequerimento = id
-              and users.id = requerimento.idRecebedor);
+            set @qntRecebedorAtual = (select qntOrcRec from users, orcamento
+              where orcamento.idorcamento = id
+              and users.id = orcamento.idRecebedor);
 
-             UPDATE users SET qntReqEnviado = @qntEmissorAtual + 1
+             UPDATE users SET qntOrcPed = @qntEmissorAtual + 1
              WHERE id = idEmissor;
-             UPDATE users SET qntReqRecebido = @qntRecebedorAtual + 1
+             UPDATE users SET qntOrcRec = @qntRecebedorAtual + 1
              WHERE id = idRecebedor;
           END
         ');

@@ -30,10 +30,30 @@
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sistema Ramon</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
+
+      <ul class="nav navbar-nav">
+          <li>
+              @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
+                  <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
+                      <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
+                  </a>
+              @else
+              <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                  <a href="#" class="nav-link"
+                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                  >
+                      <i class="fa fa-fw fa-power-off"></i>Sair</a>
+                  <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
+                      @if(config('adminlte.logout_method'))
+                          {{ method_field(config('adminlte.logout_method')) }}
+                      @endif
+                      {{ csrf_field() }}
+                  </form>
+                </li>
+              </ul>
+              @endif
+          </li>
       </ul>
     </nav>
 

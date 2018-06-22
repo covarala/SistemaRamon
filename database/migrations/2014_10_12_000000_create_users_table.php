@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->maxLength(191);
             $table->string('password');
             $table->enum('tipousuario', ['admin', 'distribuidor', 'cliente']);
-            $table->integer('qntReqRecebido')->default(0);
-            $table->integer('qntReqEnviado')->default(0);
+            $table->integer('qntOrcRec')->default(0);
+            $table->integer('qntOrcPed')->default(0);
 
             $table->rememberToken();
             $table->timestamps();

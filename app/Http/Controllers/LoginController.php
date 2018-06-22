@@ -28,11 +28,11 @@ class LoginController extends Controller
         if (Hash::check($password, $dadosBanco['password'])) {
           //check('senha para checar', 'senha ja com hash')
           $request->session()->put('email', $email);
-          $request->session()->put('id', $dadosBanco['idUser']);
-          $request->session()->put('nome', $dadosBanco['oame']);
+          $request->session()->put('id', $dadosBanco['id']);
+          $request->session()->put('nome', $dadosBanco['nome']);
 
           if ($dadosBanco['tipousuario'] === 'admin') {
-            return redirect('/home');
+            return redirect('/admin');
           }
           return redirect('/inicial');
         }else {

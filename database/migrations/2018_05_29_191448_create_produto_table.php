@@ -17,6 +17,8 @@ class CreateProdutoTable extends Migration
             $table->increments('idProduto');
             $table->string('nome');
             $table->string('descricao');
+            $table->decimal('valor', 10, 2);
+            $table->integer('idJuridica')->foreign('idJuridica')->references('idJuridica')->on('juridica')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

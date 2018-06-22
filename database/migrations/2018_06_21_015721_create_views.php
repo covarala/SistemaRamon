@@ -22,7 +22,7 @@ class CreateViews extends Migration
             SUM(qntCaixaMasterDisplay) as CaixaMasterDisplay,
             SUM(qntSm) as SM,
             SUM(qntCaixaMasterSM) as CaixaMasterSM
-            FROM requerimento
+            FROM orcamento
           );
           ');
           DB::unprepared('
