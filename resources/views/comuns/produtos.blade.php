@@ -15,28 +15,27 @@
         <p class="card-text">Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.</p>
       </div>
       <div class="card-footer">
-        <a href="detalhes" class="btn btn btn-block btn-success">Ver produto</a>
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">SM - 100g</h5>
-        <p class="card-text">Contém 04 barras de 25g.
+        <p class="card-text">Contém 04 barras de 25g.<br>
 Validade, informação nutricional e demais informações.</p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn btn-block btn-success">Ver produto</a>
+
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Display - 450g</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text">Contém 18 barras de 25 g.<br>Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.</p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn btn-block btn-success">Ver produto</a>
+
       </div>
     </div>
   </div>
@@ -46,30 +45,32 @@ Validade, informação nutricional e demais informações.</p>
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Caixa Master - Embalagem SM</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text">Com 56 embalagens de 100g.<br>
+          Peso: 5,6 Kg</p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn btn-block btn-success">Ver produto</a>
+
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Caixa Master - Embalagem 450g</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">Com 32 embalagens de 450g<br>Peso: 14,4 Kg.</p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn btn-block btn-success">Ver produto</a>
+
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Caixa Master - Embalagem Individual 10 Kg</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text">Com 400 barras de 25g.<br>
+Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmentos que não necessitam da embalagem intermediária.</p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn btn-block btn-success">Ver produto</a>
+
       </div>
     </div>
   </div>
@@ -80,9 +81,13 @@ Validade, informação nutricional e demais informações.</p>
   <div class="media">
     <img class="rounded-circle align-self-center mr-3" src="imagens\trapadura.png" width="180" height="180" alt="">
     <div class="media-body">
-      <h4 class="mt-0 font-weight-bold">Center-aligned media</h4>
-      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-      <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      <h3 class="mt-0 font-weight-bold">Qualidade Nutricional</h4>
+      <p>   A rapadura ocupa dentre os diversos tipos de açúcares disponíveis no mercado, uma posição inigualável. É evidente que este produto, do ponto de vista da nutrição, leva vantagem em relação aos produtos similares, pois traz em sua composição elementos essenciais ao organismo humano, tanto os de natureza orgânica quanto minerais e vitaminas. No grupo dos orgânicos destacam-se a sacarose, a glucose e a frutose que, consumidos pelo organismo humano, vão lhe oferecer energia necessária às suas atividades. Esses açúcares são desdobrados no organismo em açúcares simples, glicose, produzindo após várias oxidações, energia, CO² e H²O . Desses três componentes, a energia produzida é a que dá força ao organismo e sustentação à vida.</p>
+      <img class="rounded mx-auto d-block" src="imagens\table.png" alt="">
+      <p class="mb-0 text-sm font-italic">*% Valores Diários de Referência com base em uma dieta de 2.000 Kcal ou 8.400 Kj. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.<br>
+        *% Valores Diarios de referencia basados em una dieta de 2.000 Kcal o 8.400 Kj. Sus valores diarios pueden ser mayores o menores dependiendo de sus necesidades calóricas.<br>
+        *% Daily Values are based on a 2.000 Kcal or 8.400 Kj diet. Your daily values may be higher or lower depending on your calorie needs. <br>
+        ** Valor diário não estabelecido / Valor diario no establecido / Daily value not established.</p>
     </div>
   </div>
 </div>
