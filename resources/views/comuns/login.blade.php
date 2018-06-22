@@ -34,10 +34,8 @@
             <br><br>
           <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png">Entrar</h1>
           </div>
-
-          <form class="form" action="{{ route('dashboard') }}" method="post">
-            {!! csrf_field() !!}
-
+          <form class="form" action="{{ route('formulario.login') }}" method="post">
+            @csrf
             <div class="form-group">
               <label for="exampleInputEmail1">e-mail:</label>
               <label for="inputEmail" class="sr-only">Endereço de e-mail</label>
