@@ -29,4 +29,16 @@ class HomeController extends Controller
     {
         return view('admin.produtos');
     }
+    public function clientes()
+    {
+        return view('admin.clientes');
+    }
+    public function distribuidor()
+    {
+        return view('admin.distribuidor');
+    }
+    public function relatorio()
+    {
+        return view('admin.relatorio');
+    }
 }

@@ -39,11 +39,11 @@ class MainController extends Controller
     {
         return view('comuns.produtos');
     }
-    function distribuidores()
-    {
-      $dados = DB::table('dadosusuariojuridica')->select('*')->where('distribuidor', '=', '1')->get();
-      return view('comuns.distribuidores', compact('dados'));
-    }
+    // function distribuidores()
+    // {
+    //   $dados = DB::table('dadosusuariojuridica')->select('*')->where('distribuidor', '=', '1')->get();
+    //   return view('comuns.distribuidores', compact('dados'));
+    // }
     function sobre()
     {
         return view('comuns.sobre');

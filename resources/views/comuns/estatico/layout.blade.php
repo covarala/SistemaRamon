@@ -59,37 +59,50 @@ $tmp = session()->all();
             <button class="btn btn-link" type="submit"><img src="imagens\search.png" width="20" height="20" alt=""></button>
           </form>
         </ul>
-        @if(!(session()->has('email')))
-          <ul class="navbar-nav">
-            <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
-              <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                  <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
-                  Entre ou <br> cadastre-se
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="entrar">Entrar <img src="imagens\entrar.png"  class="rounded float-right" ></a>
-                  <a class="dropdown-item" href="registrar">Cadastrar <img src="imagens\register.png"  class="rounded float-right" ></a>
-                </div>
-              </li>
-            </div>
-          </ul>
-        @else
-        <ul class="navbar-nav">
-          <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
-            <li class="nav-item dropdown ">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
-                Olá, <br> {{ $tmp['nome'] }}
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="logout">Sair</a>
-                <a class="dropdown-item" href="registrar">Cadastrar</a>
+        <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
+            @guest
+            <ul class="navbar-nav">
+              <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
+                <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
+                    Entre ou <br> cadastre-se
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Entrar') }} <img src="imagens\entrar.png"  class="rounded float-right" ></a>
+                    <a class="dropdown-item"  href="{{ route('registrar') }}">{{ __('Registrar') }} <img src="imagens\register.png"  class="rounded float-right" ></a>
+                    </div>
+                </li>
               </div>
-            </li>
-          </div>
+            </ul>
+            @else
+            <ul class="navbar-nav">
+              <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
+                <li class="nav-item dropdown ">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
+                        Olá, {{ Auth::user()->nome }} <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Sair') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+              </div>
+            </ul>
+
+            @endguest
         </ul>
-        @endif
+
+
       </div>
     </nav>
     @yield('conteudo')
