@@ -70,7 +70,7 @@ $tmp = session()->all();
                     Entre ou <br> cadastre-se
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Entrar') }} <img src="imagens\entrar.png"  class="rounded float-right" ></a>
+                    <a class="dropdown-item" href="{{ route('entrar') }}">{{ __('Entrar') }} <img src="imagens\entrar.png"  class="rounded float-right" ></a>
                     <a class="dropdown-item"  href="{{ route('registrar') }}">{{ __('Registrar') }} <img src="imagens\register.png"  class="rounded float-right" ></a>
                     </div>
                 </li>

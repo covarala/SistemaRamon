@@ -50,18 +50,20 @@ Route::get('/testemaps', function () {
   return view('teste')->with('map', $map);
 });
 
-Route::get('/admin', 'HomeController@index')->name('dashboard');
+Route::get('/admin/dashboard', 'HomeController@index')->name('admin.dashboard');
 Route::get('/admin/produtos', 'HomeController@produtos')->name('admin.produtos');
 Route::get('/admin/clientes', 'HomeController@clientes')->name('admin.clientes');
 Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
 Route::get('/admin/relatorio', 'HomeController@relatorio')->name('admin.relatorio');
+Route::get('/admin/visaocliente', 'HomeController@visaocliente')->name('admin.visaocliente');
+Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
 
 Auth::routes();
 
-// Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
+Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
 
 Route::get('/inicial', 'MainController@inicial');
-Route::get('/entrar', 'MainController@login');
+Route::get('/entrar', 'MainController@login')->name('entrar');
 Route::post('/formulario/registrar', 'LoginController@register')->name('formulario.register');
 Route::get('/registrar', 'MainController@register')->name('registrar');
 

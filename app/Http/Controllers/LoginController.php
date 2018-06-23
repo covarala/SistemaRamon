@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\User;
 use App\Models\Endereco;
 use App\Models\Fisica;
 use App\Models\Juridica;
@@ -11,6 +12,7 @@ use App\Models\Telefone;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -21,7 +23,7 @@ class LoginController extends Controller
       $email =  $request->get('email');
       $password =  $request->get('password');
 
-      $dadosBanco = Users::where('email', '=' ,$email)->first();
+      $dadosBanco = User::where('email', '=' ,$email)->first();
 
 
       if ($email === $dadosBanco['email']) {
@@ -33,14 +35,15 @@ class LoginController extends Controller
           $request->session()->put('nome', $dadosBanco['nome']);
 
           if ($dadosBanco['tipousuario'] === 'admin') {
-            return redirect('/admin');
+            Auth::login($dadosBanco);
+            return redirect('/admin/dashboard');
           }
           return redirect('/inicial');
         }else {
-          return redirect('/entrar');
+          return redirect()->route('entrar')->with('status', 'Email ou Senha Incorretos!');
         }
       }
-      return redirect('/entrar');
+      return redirect()->route('entrar')->with('status', 'Email ou Senha Incorretos!');
     }
 
     public function logout(Request $request)
