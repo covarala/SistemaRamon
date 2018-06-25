@@ -50,4 +50,8 @@ class HomeController extends Controller
     {
         return view('admin.visaodistribuidor');
     }
+    public function calculadistanica()
+    {
+      return null;
+    }
 }

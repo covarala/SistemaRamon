@@ -10,9 +10,9 @@ use App\Models\Fisica;
 use App\Models\Juridica;
 use App\Models\Telefone;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-use Auth;
 
 class LoginController extends Controller
 {
@@ -24,7 +24,8 @@ class LoginController extends Controller
       $password =  $request->get('password');
 
       $dadosBanco = User::where('email', '=' ,$email)->first();
-
+      $tmp = 'null';
+      $request->session()->put('email');
 
       if ($email === $dadosBanco['email']) {
         // se existe Email
@@ -40,9 +41,12 @@ class LoginController extends Controller
           }
           return redirect('/inicial');
         }else {
+
           return redirect()->route('entrar')->with('status', 'Email ou Senha Incorretos!');
         }
+
       }
+
       return redirect()->route('entrar')->with('status', 'Email ou Senha Incorretos!');
     }
 
@@ -72,7 +76,6 @@ class LoginController extends Controller
         if ($dados['email'] === $dadosBanco['email']) {
           return redirect()->route('registrar')->with('status', 'Email já cadastrado!');
         }
-
         $dadosUsers = [
           'nome' => $dados['name'],
           'sobrenome' => $dados['sobrenome'],
@@ -132,7 +135,28 @@ class LoginController extends Controller
         }
         return redirect('/inicial');
         // return response()->json(['success' => true]);
+      }
+
+    public function deslogar()
+    {
+
+
+      if (Auth::check()){
+        // se tem usuario logado.
+        Auth::logout();
+        session()->forget('email');
+        session()->forget('nome');
+        session()->forget('id');
+      }
+      session()->forget('email');
+      session()->forget('nome');
+      session()->forget('id');
+
+      return redirect('/inicial');
     }
 
-
+    public function atualizaDados(Request $request)
+    {
+      $dados = $request->all();
+    }
 }

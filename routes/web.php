@@ -61,6 +61,7 @@ Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name
 Auth::routes();
 
 Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
+Route::get('/logout', 'LoginController@deslogar')->name('logout');
 
 Route::get('/inicial', 'MainController@inicial');
 Route::get('/entrar', 'MainController@login')->name('entrar');

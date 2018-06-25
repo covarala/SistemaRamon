@@ -246,7 +246,7 @@
               </div>
               @endif
             </div>
-            div class="form-group col-md-6">
+            <div class="form-group col-md-6">
               <label for="inputPassword">Confirmar Senha</label>
               <input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirmar Senha">
               @if (session('status'))
@@ -336,10 +336,6 @@
 
 
       </div>
-
-    </div>
-
-
 
     </div>
 
