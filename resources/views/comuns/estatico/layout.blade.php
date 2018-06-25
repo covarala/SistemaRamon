@@ -1,5 +1,8 @@
 <?php
 $tmp = session()->all();
+if (!isset($tmp['email'])) {
+  $tmp['email']=null;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +64,7 @@ $tmp = session()->all();
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
-            @guest
+            @if($tmp['email'] === null)
             <ul class="navbar-nav">
               <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
                 <li class="nav-item dropdown ">
@@ -82,7 +85,7 @@ $tmp = session()->all();
                 <li class="nav-item dropdown ">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
-                        Olá, {{ Auth::user()->nome }} <span class="caret"></span>
+                        Olá, {{ $tmp['nome'] }} <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -99,7 +102,7 @@ $tmp = session()->all();
               </div>
             </ul>
 
-            @endguest
+            @endif
         </ul>
 
 
