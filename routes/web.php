@@ -53,10 +53,12 @@ Route::get('/testemaps', function () {
 Route::get('/admin/dashboard', 'HomeController@index')->name('admin.dashboard');
 Route::get('/admin/produtos', 'HomeController@produtos')->name('admin.produtos');
 Route::get('/admin/clientes', 'HomeController@clientes')->name('admin.clientes');
+Route::get('/admin/usuarios', 'HomeController@usuarios')->name('admin.usuarios');
 Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
 Route::get('/admin/relatorio', 'HomeController@relatorio')->name('admin.relatorio');
 Route::get('/admin/visaocliente', 'HomeController@visaocliente')->name('admin.visaocliente');
 Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
+Route::get('/admin/excluir/usuario', 'HomeController@visaodistribuidor')->name('excluir.usuario');
 
 Auth::routes();
 

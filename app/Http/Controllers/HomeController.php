@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Users;
+use App\User;
+use App\Models\Endereco;
+use App\Models\Fisica;
+use App\Models\Juridica;
+use App\Models\Telefone;
+use DB;
 
 class HomeController extends Controller
 {
@@ -32,7 +39,14 @@ class HomeController extends Controller
     }
     public function clientes()
     {
-        return view('admin.clientes');
+      $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->get();  
+      return view('admin.clientes',compact('clientes'));
+    }
+    public function usuarios()
+    {
+
+      $usuarios = DB::table('users')->orderBy('nome', 'asc')->get();
+        return view('admin.usuarios', compact('usuarios'));
     }
     public function distribuidor()
     {

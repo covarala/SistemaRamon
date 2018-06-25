@@ -109,7 +109,7 @@ class LoginController extends Controller
 
         Endereco::create($dadosEndereco);
 
-        if ($dadosUsers['tipousuario'] === 'representante') {
+        if ($dadosUsers['tipousuario'] === 'distribuidor' || $dados['tipopessoa'] === 'juridica') {
           // code...
           $dadosJuridica = [
             'idUser' => $idUsers,
@@ -124,14 +124,6 @@ class LoginController extends Controller
             'cpf' => $dados['cpf']
           ];
           Fisica::create($dadosFisica);
-        }
-        if ($dados['tipopessoa'] === 'juridica') {
-          // code...
-          $dadosJuridica = [
-            'idUser' => $idUsers,
-            'cnpj' => $dados['cnpj']
-          ];
-          Juridica::create($dadosJuridica);
         }
         return redirect('/inicial');
         // return response()->json(['success' => true]);
@@ -158,5 +150,70 @@ class LoginController extends Controller
     public function atualizaDados(Request $request)
     {
       $dados = $request->all();
+
+      if ($dados['tipousuario'] === 'juridica') {
+        // code...
+        $dadosJuridica = DadosUsuarioJuridica::where('email', '=', $dados['email']);
+      }
+      else {
+        // code...
+        if ($dados['tipousuario'] === 'fisica') {
+        $dadosFisica = DadosUsuarioFisica::where('email', '=', $dados['email']);
+      }
+    }
+    $dadosUsers = [
+      'nome' => $dados['name'],
+      'sobrenome' => $dados['sobrenome'],
+      'password' => $dados['password'],
+      'email' => $dados['email'],
+      'tipousuario' => $dados['tipousuario'],
+    ];
+
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // foreach ($dados as $dado => $value) {
+    //   // code...
+    //   if ($dadosUsers["$dado"] === $dado) {
+    //     // code...
+    //   }
+    // }
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+    // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////
+
+    $dadosTel = [
+      'telefone' => $dados['telefone'],
+      'idUser' => $idUsers,
+    ];
+    $dadosEndereco = [
+      'rua' => $dados['rua'],
+      'numero' => $dados['numero'],
+      'bairro' => $dados['bairro'],
+      'cidade' => $dados['cidade'],
+      'estado' => $dados['estado'],
+      'complemento' => $dados['complemento'],
+      'cep' => $dados['cep'],
+      'idUser' => $idUsers,
+    ];
+
+    $dadosJuridica = [
+        'idUser' => $idUsers,
+        'cnpj' => $dados['cnpj']
+      ];
+
+    $dadosFisica = [
+        'idUser' => $idUsers,
+        'cpf' => $dados['cpf']
+      ];
+
+
+
+
+
     }
 }

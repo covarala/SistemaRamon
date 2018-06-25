@@ -57,6 +57,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.usuarios') }}">
+                  <span data-feather="shopping-cart"></span>
+                  Usuários
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.clientes') }}">
                   <span data-feather="shopping-cart"></span>
                   Clientes
