@@ -12,7 +12,10 @@
 */
 
 Route::get('', function () {
-    return view('auth.login');
+    return view('comuns.inicial');
+});
+Route::get('home', function () {
+    return view('comuns.inicial');
 });
 Route::get('/teste', 'ClienteController@teste');
 Route::get('/testemaps', function () {
@@ -47,23 +50,27 @@ Route::get('/testemaps', function () {
   return view('teste')->with('map', $map);
 });
 
-Route::get('/admin', 'HomeController@index')->name('dashboard');
-Route::get('/admin/produtos', 'HomeController@produtos');
+Route::get('/admin/dashboard', 'HomeController@index')->name('admin.dashboard');
+Route::get('/admin/produtos', 'HomeController@produtos')->name('admin.produtos');
+Route::get('/admin/clientes', 'HomeController@clientes')->name('admin.clientes');
+Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
+Route::get('/admin/relatorio', 'HomeController@relatorio')->name('admin.relatorio');
+Route::get('/admin/visaocliente', 'HomeController@visaocliente')->name('admin.visaocliente');
+Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
 
 Auth::routes();
 
 Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
 
 Route::get('/inicial', 'MainController@inicial');
-Route::get('/entrar', 'MainController@login');
-Route::get('/formulario/register', 'LoginController@register')->name('formulario.register');
+Route::get('/entrar', 'MainController@login')->name('entrar');
+Route::post('/formulario/registrar', 'LoginController@register')->name('formulario.register');
 Route::get('/registrar', 'MainController@register')->name('registrar');
-Route::get('/logout', 'LoginController@logout')->name('botao.logout');
 
 
 Route::get('/inicial', 'MainController@inicial')->name('inicial');
 Route::get('/produtos', 'MainController@produtos')->name('produtos');
 Route::get('/sobre', 'MainController@sobre')->name('sobre');
 Route::get('/contatos', 'MainController@contatos')->name('contatos');
-Route::get('/distribuidores', 'MainController@distribuidores')->name('distribuidores');
+// Route::get('/distribuidores', 'MainController@distribuidores')->name('distribuidores');
 Route::get('/detalhes', 'MainController@detalhes')->name('detalhes');

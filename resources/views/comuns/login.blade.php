@@ -19,7 +19,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="imagens\favicon .ico">
+    <link rel="shortcut icon" href="{{ asset('imagens\favicon .ico')}}">
   </head>
   <body class="">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
@@ -28,11 +28,10 @@
     </nav>
 
     <div class="container">
-
       <div class="login-form col-md-4 offset-md-4">
           <div class="form-group mb-4">
             <br><br>
-          <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png">Entrar</h1>
+            <h1 class="text-center h3 mb-3 font-weight-normal"><img src="imagens\chave.png">Entrar</h1>
           </div>
           <form class="form" action="{{ route('formulario.login') }}" method="post">
             @csrf
@@ -40,20 +39,16 @@
               <label for="exampleInputEmail1">e-mail:</label>
               <label for="inputEmail" class="sr-only">Endereço de e-mail</label>
               <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Ex. joaodasilva@gmail.com" required="" autofocus="">
-              @if ($errors->has('email'))
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $errors->first('email') }}</strong>
-                  </span>
-              @endif
+
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">senha:</label>
               <label for="inputPassword" class="sr-only">senha</label>
               <input type="password" name="password" id="inputPassword" class="form-control" placeholder="" required="">
-              @if ($errors->has('password'))
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $errors->first('password') }}</strong>
-                  </span>
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
               @endif
             </div>
             <button class="btn btn-lg btn-success btn-block" type="submit">Continuar</button>

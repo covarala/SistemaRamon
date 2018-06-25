@@ -8,11 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     //
-    
+
     protected $table = "users";
 
     protected $fillable = [
-        'name', 'email', 'password', 'tipousuario'
+      'nome', 'sobrenome', 'email', 'password', 'tipoUsuario',
+      'qntOrcRec','qntOrcPed',
     ];
 
     protected $hidden = [

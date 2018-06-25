@@ -48,12 +48,26 @@
         <!–– formulário da pessoa fisica  : ––>
         <div class="col-md-6 order-md-1 offset-md-3">
 
-        <form class="needs-validation" action="{{ route('formulario.register') }}" novalidate>
+        <form class="needs-validation" method="post" action="{{ route('formulario.register') }}" novalidate>
           {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
-              <label for="inputName">Nome Completo</label>
-              <input type="text" name="name" class="form-control" id="inputName"  placeholder="nome completo">
+              <label for="inputName">Nome</label>
+              <input type="text" name="name" class="form-control"  id="inputName"  placeholder="Nome">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
+            </div>
+            <div class="form-group col-md-8">
+              <label for="inputName">Sobrenome</label>
+              <input type="text" name="sobrenome" class="form-control" id="inputSobrenome"  placeholder="Sobrenome">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-4 " >
               <label for="inputPhoneNumber">Telefone</label>
@@ -66,30 +80,69 @@
             <div class="form-group col-md-6">
               <label for="inputCPF">CPF</label>
               <input type="text" name="cpf" class="form-control" id="inputCPF" placeholder="CPF">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputEmail">E-mail</label>
               <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-6">
               <label for="inputPassword">Senha</label>
               <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Confirmar Senha</label>
+              <input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirmar Senha">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
           </div>
           <div class="form-group">
             <label for="inputStreet">Rua</label>
             <input type="text" name="rua" class="form-control" id="inputStreet" placeholder="Rua">
+            @if (session('status'))
+            <div class="alert alert-danger">
+              {{ session('status') }}
+            </div>
+            @endif
           </div>
           <div class="form-row">
             <div class="form-group col-md-7">
               <label for="inputBairro">Bairro</label>
               <input type="text" name="bairro" class="form-control" id="inputBairro" placeholder="Bairro">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-3">
               <label for="inputHnumber">Número</label>
               <input type="text" name="numero" class="form-control" id="inputHnumber" placeholder="Número">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-2">
               <label for="inputCommplemento">Complemento</label>
@@ -100,10 +153,20 @@
             <div class="form-group col-md-6">
               <label for="inputCity">Cidade</label>
               <input type="text" name="cidade" class="form-control" id="inputCity">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-3 offset-sm-1">
               <label for="inputCEP">CEP</label>
               <input type="text" name="cep" class="form-control" id="inputCPF">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-2">
               <label for="inputState ">Estado</label>
@@ -134,12 +197,17 @@
 
         <div class="col-md-6 order-md-1 offset-md-3">
 
-        <form class="needs-validation" action="{{ route('formulario.register') }}" novalidate>
+        <form class="needs-validation" method="post" action="{{ route('formulario.register') }}" novalidate>
           {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
               <label for="inputRN">Razão social</label>
               <input type="text" name="name" class="form-control" id="inputRN"  placeholder="razão social da empresa">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <input type="hidden" name="tipousuario" value="cliente" class="form-control" >
             <input type="hidden" name="tipopessoa" value="juridica" class="form-control" >
@@ -152,30 +220,69 @@
             <div class="form-group col-md-6">
               <label for="inputCPF">CNPJ</label>
               <input type="text" name="cnpj" class="form-control" id="inputCPF" placeholder="CNPJ">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputEmail">E-mail</label>
               <input type="email" name="email" name="email" class="form-control" id="inputEmail" placeholder="E-mail">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-6">
               <label for="inputPassword">Senha</label>
               <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
+            </div>
+            div class="form-group col-md-6">
+              <label for="inputPassword">Confirmar Senha</label>
+              <input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirmar Senha">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
           </div>
           <div class="form-group">
             <label for="inputStreet">Rua</label>
             <input type="text"name="rua" class="form-control" id="inputStreet" placeholder="Rua">
+            @if (session('status'))
+            <div class="alert alert-danger">
+              {{ session('status') }}
+            </div>
+            @endif
           </div>
           <div class="form-row">
             <div class="form-group col-md-7">
               <label for="inputBairro">Bairro</label>
               <input type="text" name="bairro" class="form-control" id="inputBairro" placeholder="Bairro">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-3">
               <label for="inputHnumber">Número</label>
               <input type="text" name="numero" class="form-control" id="inputHnumber" placeholder="Número">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-2">
               <label for="inputCommplemento">Complemento</label>
@@ -186,10 +293,20 @@
             <div class="form-group col-md-6">
               <label for="inputCity">Cidade</label>
               <input type="text" name="cidade" class="form-control" id="inputCity">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-3 offset-sm-1">
               <label for="inputCEP">CEP</label>
               <input type="text" name="cep" class="form-control" id="inputCPF">
+              @if (session('status'))
+              <div class="alert alert-danger">
+                {{ session('status') }}
+              </div>
+              @endif
             </div>
             <div class="form-group col-md-2">
               <label for="inputState">Estado</label>

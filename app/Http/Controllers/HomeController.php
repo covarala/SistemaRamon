@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -28,5 +29,25 @@ class HomeController extends Controller
     public function produtos()
     {
         return view('admin.produtos');
+    }
+    public function clientes()
+    {
+        return view('admin.clientes');
+    }
+    public function distribuidor()
+    {
+        return view('admin.distribuidor');
+    }
+    public function relatorio()
+    {
+        return view('admin.relatorio');
+    }
+    public function visaocliente()
+    {
+        return view('admin.visaocliente');
+    }
+    public function visaodistribuidor()
+    {
+        return view('admin.visaodistribuidor');
     }
 }

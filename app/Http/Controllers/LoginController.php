@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\User;
 use App\Models\Endereco;
 use App\Models\Fisica;
 use App\Models\Juridica;
 use App\Models\Telefone;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -20,7 +23,7 @@ class LoginController extends Controller
       $email =  $request->get('email');
       $password =  $request->get('password');
 
-      $dadosBanco = Users::where('email', '=' ,$email)->first();
+      $dadosBanco = User::where('email', '=' ,$email)->first();
 
 
       if ($email === $dadosBanco['email']) {
@@ -32,14 +35,15 @@ class LoginController extends Controller
           $request->session()->put('nome', $dadosBanco['nome']);
 
           if ($dadosBanco['tipousuario'] === 'admin') {
-            return redirect('/admin');
+            Auth::login($dadosBanco);
+            return redirect('/admin/dashboard');
           }
           return redirect('/inicial');
         }else {
-          return redirect('/entrar');
+          return redirect()->route('entrar')->with('status', 'Email ou Senha Incorretos!');
         }
       }
-      return redirect('/entrar');
+      return redirect()->route('entrar')->with('status', 'Email ou Senha Incorretos!');
     }
 
     public function logout(Request $request)
@@ -52,22 +56,30 @@ class LoginController extends Controller
     {
         //
         $dados = $request->all();
+        foreach ($dados as $dado) {
+          if ($dado === null) {
+            if ($dado !== 'telefone' || $dado !== 'complemento') {
 
-        $dadosBanco = Users::where('email', '=' ,$email)->first();
-        if ($email === $dadosBanco['email']) {
-          return redirect('registrar');
+              return redirect()->route('registrar')->with('status', 'Campo obrigatório!')->withInput();
+            }
+          }
         }
-        $dados['password'] = bcrypt($dados['password']);
+        if ($dados['password'] !== $dados['password_confirm']) {
+          return redirect()->route('registrar')->with('status', 'Senhas diferentes!');
+        }
+        $dados['password'] = Hash::make($dados['password']);
+        $dadosBanco = Users::where('email', '=' ,$dados['email'])->first();
+        if ($dados['email'] === $dadosBanco['email']) {
+          return redirect()->route('registrar')->with('status', 'Email já cadastrado!');
+        }
 
-        // $dadosUsers = new Users
         $dadosUsers = [
-          'name' => $dados['name'],
+          'nome' => $dados['name'],
+          'sobrenome' => $dados['sobrenome'],
           'password' => $dados['password'],
           'email' => $dados['email'],
           'tipousuario' => $dados['tipousuario'],
         ];
-
-        // $dadosUsers->save();
 
         Users::create($dadosUsers);
 
@@ -76,7 +88,7 @@ class LoginController extends Controller
 
         $dadosTel = [
           'telefone' => $dados['telefone'],
-          'user_id' => $idUsers,
+          'idUser' => $idUsers,
         ];
         Telefone::create($dadosTel);
 
@@ -89,7 +101,7 @@ class LoginController extends Controller
           'estado' => $dados['estado'],
           'complemento' => $dados['complemento'],
           'cep' => $dados['cep'],
-          'user_id' => $idUsers,
+          'idUser' => $idUsers,
         ];
 
         Endereco::create($dadosEndereco);
@@ -97,7 +109,7 @@ class LoginController extends Controller
         if ($dadosUsers['tipousuario'] === 'representante') {
           // code...
           $dadosJuridica = [
-            'user_id' => $idUsers,
+            'idUser' => $idUsers,
             'cnpj' => $dados['cnpj']
           ];
           Juridica::create($dadosJuridica);
@@ -105,7 +117,7 @@ class LoginController extends Controller
         if ($dados['tipopessoa'] === 'fisica') {
           // code...
           $dadosFisica = [
-            'user_id' => $idUsers,
+            'idUser' => $idUsers,
             'cpf' => $dados['cpf']
           ];
           Fisica::create($dadosFisica);
@@ -113,7 +125,7 @@ class LoginController extends Controller
         if ($dados['tipopessoa'] === 'juridica') {
           // code...
           $dadosJuridica = [
-            'user_id' => $idUsers,
+            'idUser' => $idUsers,
             'cnpj' => $dados['cnpj']
           ];
           Juridica::create($dadosJuridica);
@@ -121,7 +133,6 @@ class LoginController extends Controller
         return redirect('/inicial');
         // return response()->json(['success' => true]);
     }
-
 
 
 }

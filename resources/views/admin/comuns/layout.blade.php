@@ -12,8 +12,15 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<<<<<<< HEAD
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+=======
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+>>>>>>> f26c07672d997e522b73a6d8dca20ff05422150b
 
 
 
@@ -33,7 +40,7 @@
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+          <a class="nav-link" href="{{ route('logout') }}">Sign out</a>
         </li>
       </ul>
     </nav>
@@ -44,43 +51,43 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="../home">
+                <a class="nav-link active" href="{{ route('admin.dashboard') }}">
                   <span data-feather="home"></span>
                   Painel de controle <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="admin/produtos">
+                <a class="nav-link" href="{{ route('admin.produtos') }}">
                   <span data-feather="file"></span>
                   Produtos
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="admin/clientes">
+                <a class="nav-link" href="{{ route('admin.clientes') }}">
                   <span data-feather="shopping-cart"></span>
                   Clientes
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="admin/distribuidores">
+                <a class="nav-link" href="{{ route('admin.distribuidor') }}">
                   <span data-feather="users"></span>
                   Distribuidores
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="admin/relatorios">
+                <a class="nav-link" href="{{ route('admin.relatorio') }}">
                   <span data-feather="bar-chart-2"></span>
                   Relatório
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../inicial">
+                <a class="nav-link" href="{{ route('admin.visaocliente') }}">
                   <span data-feather="layers"></span>
                   Visão do Cliente
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../distribuidor/inicial">
+                <a class="nav-link" href="{{ route('admin.visaodistribuidor') }}">
                   <span data-feather="layers"></span>
                   Visão do Distribuidor
                 </a>
