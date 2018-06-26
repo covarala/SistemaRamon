@@ -51,20 +51,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.produtos') }}">
-                  <span data-feather="file"></span>
-                  Produtos
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.usuarios') }}">
-                  <span data-feather="shopping-cart"></span>
+                  <span data-feather="users"></span>
                   Usuários
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.clientes') }}">
-                  <span data-feather="shopping-cart"></span>
+                  <span data-feather="users"></span>
                   Clientes
                 </a>
               </li>
@@ -72,6 +66,12 @@
                 <a class="nav-link" href="{{ route('admin.distribuidor') }}">
                   <span data-feather="users"></span>
                   Distribuidores
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.produtos') }}">
+                  <span data-feather="shopping-cart"></span>
+                  Produtos
                 </a>
               </li>
               <li class="nav-item">

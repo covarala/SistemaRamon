@@ -486,31 +486,31 @@
     },
     {
         "name": "farhanwazir/laravelgooglemaps",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "2.3.8",
+        "version_normalized": "2.3.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/farhanwazir/laravelgooglemaps.git",
-            "reference": "8451e3b0de386e3b779c142692b71645ea75357e"
+            "reference": "4d2b7bc2ec61297cd553750bca8ba8f67daf5f8a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/farhanwazir/laravelgooglemaps/zipball/8451e3b0de386e3b779c142692b71645ea75357e",
-            "reference": "8451e3b0de386e3b779c142692b71645ea75357e",
+            "url": "https://api.github.com/repos/farhanwazir/laravelgooglemaps/zipball/4d2b7bc2ec61297cd553750bca8ba8f67daf5f8a",
+            "reference": "4d2b7bc2ec61297cd553750bca8ba8f67daf5f8a",
             "shasum": ""
         },
         "require": {
             "laravel/framework": "5.*",
             "php": ">=5.6.0"
         },
-        "time": "2018-03-30T21:00:53+00:00",
+        "time": "2017-07-02T10:53:22+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
                 "dev-master": "2.5.x-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "FarhanWazir\\GoogleMaps\\": "src/FarhanWazir/GoogleMaps/"

@@ -35,11 +35,12 @@ class HomeController extends Controller
     }
     public function produtos()
     {
-        return view('admin.produtos');
+        $produtos = DB::table('produto')->orderBy('nome', 'asc')->get();
+        return view('admin.produtos',compact('produtos'));
     }
     public function clientes()
     {
-      $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->get();  
+      $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->get();
       return view('admin.clientes',compact('clientes'));
     }
     public function usuarios()
@@ -50,7 +51,8 @@ class HomeController extends Controller
     }
     public function distribuidor()
     {
-        return view('admin.distribuidor');
+        $distribuidores = DB::table('users')->where('tipousuario','=','distribuidor')->orderBy('nome', 'asc')->get();
+        return view('admin.distribuidor', compact('distribuidores'));
     }
     public function relatorio()
     {

@@ -2,14 +2,14 @@
 @section('conteudo')
 <style media="screen">
   #titulo{
-    background-color: #3c8dbc;
+    background-color: #0d823b;
     color: #fff;
   }
 </style>
       <div class="title" id="titulo">
         <div class="row">
-          <div class="col-md-12 col-md-offset-4">
-            <h2>Usuários Cadastrados</h2>
+          <div class="col-md-8 col-md-offset-2">
+            <h2><br> Usuários Cadastrados</h2>
             <br>
 
           </div>

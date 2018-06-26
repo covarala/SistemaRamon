@@ -2,14 +2,14 @@
 @section('conteudo')
 <style media="screen">
   #titulo{
-    background-color: #3c8dbc;
+    background-color: #0d823b;
     color: #fff;
   }
 </style>
       <div class="title" id="titulo">
         <div class="row">
           <div class="col-md-12 col-md-offset-4">
-            <h2>Usuários Cadastrados</h2>
+            <h2><br>Clientes Cadastrados</h2>
             <br>
 
           </div>
@@ -22,6 +22,7 @@
       <th scope="col">#</th>
       <th scope="col">Nome</th>
       <th scope="col">E-mail</th>
+      <th scope="col">Telefone</th>
       <th scope="col">Ações</th>
 
     </tr>
@@ -33,9 +34,9 @@
         <th>{{ $cont }}</th>
         <th>{{ $cliente->nome }}</th>
         <th>{{ $cliente->email }}</th>
+        <th></th>
         <th>
           <a href="{{ route('excluir.usuario', $cliente->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
-
         </th>
       </tr>
       <?php $cont++; ?>
