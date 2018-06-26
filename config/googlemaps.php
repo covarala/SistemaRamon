@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'key'       => 'AIzaSyBMqDrCSCF_fUuHxq-q2h0lPYrducEjCRY',
+    'key'       => env('GOOGLE_MAPS_GEOCODING_API_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------

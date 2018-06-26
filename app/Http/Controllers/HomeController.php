@@ -10,6 +10,8 @@ use App\Models\Endereco;
 use App\Models\Fisica;
 use App\Models\Juridica;
 use App\Models\Telefone;
+use App\Models\ViewTelefone;
+
 use DB;
 
 class HomeController extends Controller
@@ -41,7 +43,8 @@ class HomeController extends Controller
     public function clientes()
     {
       $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->get();
-      return view('admin.clientes',compact('clientes'));
+      $telefones = ViewTelefone::all();
+      return view('admin.clientes',compact('clientes', 'telefones'));
     }
     public function usuarios()
     {
@@ -52,7 +55,9 @@ class HomeController extends Controller
     public function distribuidor()
     {
         $distribuidores = DB::table('users')->where('tipousuario','=','distribuidor')->orderBy('nome', 'asc')->get();
-        return view('admin.distribuidor', compact('distribuidores'));
+        $telefones = ViewTelefone::all();
+
+        return view('admin.distribuidor', compact('distribuidores', 'telefones'));
     }
     public function relatorio()
     {
@@ -67,6 +72,15 @@ class HomeController extends Controller
         return view('admin.visaodistribuidor');
     }
     public function calculadistanica()
+    {
+      return null;
+    }
+
+    public function atualizadistribuidor()
+    {
+      return null;
+    }
+    public function excluidistribuidor()
     {
       return null;
     }

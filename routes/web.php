@@ -50,15 +50,29 @@ Route::get('/testemaps', function () {
   return view('teste')->with('map', $map);
 });
 
+//Rotas Admin Principais
 Route::get('/admin/dashboard', 'HomeController@index')->name('admin.dashboard');
 Route::get('/admin/produtos', 'HomeController@produtos')->name('admin.produtos');
 Route::get('/admin/clientes', 'HomeController@clientes')->name('admin.clientes');
 Route::get('/admin/usuarios', 'HomeController@usuarios')->name('admin.usuarios');
-Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
 Route::get('/admin/relatorio', 'HomeController@relatorio')->name('admin.relatorio');
-Route::get('/admin/visaocliente', 'HomeController@visaocliente')->name('admin.visaocliente');
-Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
 Route::get('/admin/excluir/usuario', 'HomeController@visaodistribuidor')->name('excluir.usuario');
+
+//Rotas Produtos
+Route::get('/admin/atualiza/produto', 'HomeController@atualizaproduto')->name('atualiza.produto');
+Route::get('/admin/exclui/produto', 'HomeController@excluiproduto')->name('exclui.produto');
+
+//Rotas Clientes
+Route::get('/admin/visaocliente', 'HomeController@visaocliente')->name('admin.visaocliente');
+Route::get('/admin/atualiza/cliente', 'HomeController@atualizacliente')->name('atualiza.cliente');
+Route::get('/admin/exclui/cliente', 'HomeController@excluicliente')->name('exclui.cliente');
+
+
+//Routas Distribuidores
+Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
+Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
+Route::get('/admin/atualiza/distribuidor', 'HomeController@atualizadistribuidor')->name('atualiza.distribuidor');
+Route::get('/admin/exclui/distribuidor', 'HomeController@excluidistribuidor')->name('exclui.distribuidor');
 
 Auth::routes();
 

@@ -32,15 +32,18 @@
         <th>{{ $cont }}</th>
         <th>{{ $distribuidor->nome }}</th>
         <th>{{ $distribuidor->email }}</th>
-        <th></th>
-        <th><div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Opções</button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuBotton">
-          <a class="dropdown-item" href="#">Adicionar</a>
-          <a class="dropdown-item" href="#">Editar</a>
-          <a class="dropdown-item" href="#">Excluir</a>
-        </div></div></th>
+        <th>
+
+          @foreach ($telefones as $telefone => $value)
+            @if($distribuidor->nome === $value['nome'])
+             {{ $value->telefone.' / ' }}
+            @endif
+          @endforeach
+        </th>
+        <th>
+          <a href="{{ route('atualiza.distribuidor', $distribuidor->id) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('exclui.distribuidor', $distribuidor->id) }}" class="btn btn-xs btn-danger"  id="">Excluir</a>
+        </th>
       </tr>
       <?php $cont++; ?>
       @endforeach

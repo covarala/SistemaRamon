@@ -34,9 +34,16 @@
         <th>{{ $cont }}</th>
         <th>{{ $cliente->nome }}</th>
         <th>{{ $cliente->email }}</th>
-        <th></th>
         <th>
-          <a href="{{ route('excluir.usuario', $cliente->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
+          @foreach ($telefones as $telefone => $value)
+            @if($cliente->nome === $value['nome'])
+             {{ $value->telefone.' / ' }}
+            @endif
+          @endforeach
+        </th>
+        <th>
+          <a href="{{ route('atualiza.cliente', $cliente->id) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('exclui.cliente', $cliente->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
         </th>
       </tr>
       <?php $cont++; ?>

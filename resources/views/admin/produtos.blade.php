@@ -34,8 +34,9 @@
         <th>{{ $produto->nome }}</th>
         <th>{{ $produto->descricao }}</th>
         <th>
-          <a href="{{ route('excluir.produto', $produto->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
-          <a href=>Editar
+          <a href="{{ route('atualiza.produto', $produto->id) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('exclui.produto', $produto->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
+
         </th>
       </tr>
       <?php $cont++; ?>

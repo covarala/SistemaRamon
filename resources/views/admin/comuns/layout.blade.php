@@ -31,10 +31,10 @@
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sistema Ramon</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <input class="form-control form-control-dark w-100" type="text" placeholder="" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="{{ route('logout') }}">Sign out</a>
+          <a class="nav-link" href="{{ route('logout') }}">Sair</a>
         </li>
       </ul>
     </nav>
@@ -50,11 +50,16 @@
                   Painel de controle <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.usuarios') }}">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{{ route('admin.usuarios') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span data-feather="users"></span>
                   Usuários
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">
+                    <span></span>teste<span class="sr-only">(current)</span>
+                  </a>
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.clientes') }}">
