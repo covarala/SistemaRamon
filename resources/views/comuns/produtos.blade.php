@@ -3,8 +3,31 @@
 <div class="album py-5 bg-light">
   <div class="container col-md-9  offset-md-auto mb-5">
     <ul class="nav justify-content-end">
-      <button type="button" class="efeito efeito-6">Gostou dos nossos produtos?</button>
+      <button type="button" class="efeito efeito-6" data-toggle="modal" data-target="#ModalOrçamento">Gostou dos nossos produtos?</button>
     </ul>
+    <!-- Modal -->
+    <div class="modal fade" id="ModalOrçamento" tabindex="-1" role="dialog" aria-labelledby="ModalLabelOrçamento" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="ModalLabelOrçamento">Orçamento</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
 <!-- Primeira linha -->
   <div class="card-deck mb-3">
