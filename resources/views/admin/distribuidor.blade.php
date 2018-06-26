@@ -11,7 +11,6 @@
           <div class="col-md-12 col-md-offset-4">
             <h2><br>Distribuidores Cadastrados</h2>
             <br>
-
           </div>
         </div>
       </div>
@@ -23,8 +22,7 @@
       <th scope="col">Nome</th>
       <th scope="col">E-mail</th>
       <th scope="col">Telefone</th>
-      <th scope="col">Ações</th>
-
+      <th scope="col"> Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -35,10 +33,14 @@
         <th>{{ $distribuidor->nome }}</th>
         <th>{{ $distribuidor->email }}</th>
         <th></th>
-        <th>
-          <a href="{{ route('excluir.usuario', $distribuidor->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
-          <a href=>Cadastrar
-        </th>
+        <th><div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Opções</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuBotton">
+          <a class="dropdown-item" href="#">Adicionar</a>
+          <a class="dropdown-item" href="#">Editar</a>
+          <a class="dropdown-item" href="#">Excluir</a>
+        </div></div></th>
       </tr>
       <?php $cont++; ?>
       @endforeach

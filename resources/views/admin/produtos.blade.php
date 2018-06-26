@@ -35,7 +35,7 @@
         <th>{{ $produto->descricao }}</th>
         <th>
           <a href="{{ route('excluir.produto', $produto->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
-          <a href=>Cadastrar
+          <a href=>Editar
         </th>
       </tr>
       <?php $cont++; ?>
