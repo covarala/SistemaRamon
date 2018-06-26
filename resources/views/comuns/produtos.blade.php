@@ -1,10 +1,12 @@
 @extends('comuns.estatico.layout')
 @section('conteudo')
 <div class="album py-5 bg-light">
-  <div class="container col-md-9  offset-md-auto mb-5">
+  <div class="container col-md-9  offset-md-auto mb-5 ">
     <ul class="nav justify-content-end">
-      <button type="button" class="efeito efeito-6" data-toggle="modal" data-target="#ModalOrçamento">Gostou dos nossos produtos?</button>
-    </ul>
+      <a data-toggle="modal" data-target="#ModalOrçamento">
+    <button type="button" class="efeito efeito-6" data-toggle="modal" data-target="#ModalOrçamento">Gostou dos nossos produtos?</button>
+      </a>
+  </ul>
     <!-- Modal -->
     <div class="modal fade" id="ModalOrçamento" tabindex="-1" role="dialog" aria-labelledby="ModalLabelOrçamento" aria-hidden="true">
       <div class="modal-dialog" role="document">

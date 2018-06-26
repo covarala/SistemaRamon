@@ -115,9 +115,11 @@
     transform-origin: left bottom;
     transform: rotateX(90deg);
     box-shadow: 0 5px 0 #25723c;
+    cursor: pointer;
 }
 
 .efeito-6:hover {
     transform-origin: center bottom;
     transform: rotateX(-90deg) translateY(100%);
+    cursor: pointer;
 }
