@@ -22,6 +22,7 @@
       <th scope="col">#</th>
       <th scope="col">Nome</th>
       <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
       <th scope="col">Ações</th>
 
     </tr>
@@ -34,8 +35,15 @@
         <th>{{ $produto->nome }}</th>
         <th>{{ $produto->descricao }}</th>
         <th>
-          <a href="{{ route('atualiza.produto', $produto->id) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-          <a href="{{ route('exclui.produto', $produto->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
+          @foreach ($valorProdutos as $valorProduto)
+            @if($valorProduto->idProduto === $produto->idProduto)
+              {{ $valorProduto->valor }}
+            @endif
+          @endforeach
+        </th>
+        <th>
+          <a href="{{ route('atualiza.produto', $produto->idProduto) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('exclui.produto', $produto->idProduto) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
 
         </th>
       </tr>

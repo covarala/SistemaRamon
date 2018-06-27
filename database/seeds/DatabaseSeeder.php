@@ -7,6 +7,8 @@ use App\Models\Fisica;
 use App\Models\Juridica;
 use App\Models\Telefone;
 use App\Models\Produto;
+use App\Models\ProdutoDistribuidor;
+use App\Models\ValorProduto;
 use App\Models\Orcamento;
 
 class DatabaseSeeder extends Seeder
@@ -230,42 +232,42 @@ class DatabaseSeeder extends Seeder
           'idUser'    => '11',
         ]
         );
-      // Produto::create(
-      //   [
-      //     'nome' => 'Individual - 25g',
-      //     'descricao' => 'Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.',
-      //   ]
-      //   );
-      // Produto::create(
-      //   [
-      //     'nome' => 'SM – 100g',
-      //     'descricao' => 'Contém 04 barras de 25g. Validade, informação nutricional e demais informações.',
-      //   ]
-      //   );
-      // Produto::create(
-      //   [
-      //     'nome' => 'Display - 450 g',
-      //     'descricao' => 'Contém 18 barras de 25 g. Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.',
-      //   ]
-      //   );
-      // Produto::create(
-      //   [
-      //     'nome' => 'Caixa Master Individual',
-      //     'descricao' => 'Com 400 barras de 25g. Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmentos que não necessitam da embalagem intermediária.',
-      //   ]
-      //   );
-      // Produto::create(
-      //   [
-      //     'nome' => 'Caixa Master SM',
-      //     'descricao' => 'Com 56 embalagens de 100g. Peso: 5,6 Kg',
-      //   ]
-      //   );
-      // Produto::create(
-      //   [
-      //     'nome' => 'Caixa Master Display',
-      //     'descricao' => 'Com 32 embalagens de 450g. Peso: 14,4 Kg.',
-      //   ]
-      //   );
+      Produto::create(
+        [
+          'nome' => 'Individual - 25g',
+          'descricao' => 'Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'SM – 100g',
+          'descricao' => 'Contém 04 barras de 25g. Validade, informação nutricional e demais informações.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Display - 450 g',
+          'descricao' => 'Contém 18 barras de 25 g. Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Caixa Master Individual',
+          'descricao' => 'Com 400 barras de 25g. Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmentos que não necessitam da embalagem intermediária.',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Caixa Master SM',
+          'descricao' => 'Com 56 embalagens de 100g. Peso: 5,6 Kg',
+        ]
+        );
+      Produto::create(
+        [
+          'nome' => 'Caixa Master Display',
+          'descricao' => 'Com 32 embalagens de 450g. Peso: 14,4 Kg.',
+        ]
+        );
         Endereco::create(
           [
             'rua'    => 'Rua Dolres Benfica de Aguiar',
@@ -434,6 +436,128 @@ class DatabaseSeeder extends Seeder
             'idEmissor'=> '8',
           ]
         );
+
+        ValorProduto::create(
+          [
+            'idProduto' => '1',
+            // 'valor' => '',
+          ]
+          );
+        ValorProduto::create(
+          [
+            'idProduto' => '2',
+            // 'valor' => '',
+          ]
+          );
+        ValorProduto::create(
+          [
+            'idProduto' => '3',
+            // 'valor' => '',
+          ]
+          );
+        ValorProduto::create(
+          [
+            'idProduto' => '4',
+            // 'valor' => '',
+          ]
+          );
+        ValorProduto::create(
+          [
+            'idProduto' => '5',
+            // 'valor' => '',
+          ]
+          );
+        ValorProduto::create(
+          [
+            'idProduto' => '6',
+            // 'valor' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '4',
+            'idProduto' => '1',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '4',
+            'idProduto' => '2',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '4',
+            'idProduto' => '3',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '4',
+            'idProduto' => '4',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '4',
+            'idProduto' => '5',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '4',
+            'idProduto' => '6',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '5',
+            'idProduto' => '1',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '5',
+            'idProduto' => '2',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '5',
+            'idProduto' => '3',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '5',
+            'idProduto' => '4',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '5',
+            'idProduto' => '5',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '5',
+            'idProduto' => '6',
+            // 'qnt' => '',
+          ]
+          );
+
 
 
     }

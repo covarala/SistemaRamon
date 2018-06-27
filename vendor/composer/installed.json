@@ -656,6 +656,51 @@
         ]
     },
     {
+        "name": "finalbytes/google-distance-matrix-api",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/finalbytes/google-distance-matrix-api.git",
+            "reference": "709eaa63eb3352274a063182d1ed5ce96cabe723"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/finalbytes/google-distance-matrix-api/zipball/709eaa63eb3352274a063182d1ed5ce96cabe723",
+            "reference": "709eaa63eb3352274a063182d1ed5ce96cabe723",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.2",
+            "php": ">=7.0"
+        },
+        "time": "2017-07-26T19:35:42+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "FinalBytes\\GoogleDistanceMatrix\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kevin Kersjens",
+                "email": "mail@finalbytes.nl",
+                "homepage": "https://finalbytes.nl"
+            }
+        ],
+        "description": "Google distance matrix API - Estimate travel time and distance for multiple destinations.",
+        "keywords": [
+            "distance matrix",
+            "google api",
+            "google distance matrix"
+        ]
+    },
+    {
         "name": "fzaninotto/faker",
         "version": "v1.7.1",
         "version_normalized": "1.7.1.0",
@@ -4586,6 +4631,64 @@
             "debug",
             "dump"
         ]
+    },
+    {
+        "name": "teampickr/php-google-maps-distance-matrix",
+        "version": "0.2",
+        "version_normalized": "0.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/teampickr/php-google-maps-distance-matrix.git",
+            "reference": "63b296f04a66596c73f833808569bb07967cef25"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/teampickr/php-google-maps-distance-matrix/zipball/63b296f04a66596c73f833808569bb07967cef25",
+            "reference": "63b296f04a66596c73f833808569bb07967cef25",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.3",
+            "php": ">7.0"
+        },
+        "require-dev": {
+            "illuminate/support": "^5.4||^5.5||^5.6",
+            "phpunit/phpunit": "^6.0",
+            "vlucas/phpdotenv": "^2.4"
+        },
+        "suggest": {
+            "illuminate/support": "Allows you to use this package from within Laravel"
+        },
+        "time": "2018-03-14T09:09:03+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "TeamPickr\\DistanceMatrix\\Frameworks\\Laravel\\DistanceMatrixServiceProvider"
+                ],
+                "aliases": {
+                    "DistanceMatrix": "TeamPickr\\DistanceMatrix\\Frameworks\\Laravel\\DistanceMatrix"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "TeamPickr\\DistanceMatrix\\": "src/",
+                "TeamPickr\\DistanceMatrix\\Tests\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan Martin",
+                "email": "jm@pickr.works"
+            }
+        ],
+        "description": "PHP Implementation of the Google Maps Distance Matrix API"
     },
     {
         "name": "theseer/tokenizer",

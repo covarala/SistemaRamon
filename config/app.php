@@ -154,6 +154,7 @@ return [
         FarhanWazir\GoogleMaps\GMapsServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         Spatie\Geocoder\GeocoderServiceProvider::class,
+
         //Admin LTE
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
@@ -219,6 +220,7 @@ return [
         'GMaps' => FarhanWazir\GoogleMaps\Facades\GMapsFacade::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
         'Geocoder' => Spatie\Geocoder\Facades\Geocoder::class,
+
     ],
 
 ];

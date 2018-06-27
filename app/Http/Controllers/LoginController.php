@@ -36,9 +36,11 @@ class LoginController extends Controller
           $request->session()->put('nome', $dadosBanco['nome']);
 
           if ($dadosBanco['tipousuario'] === 'admin') {
+            $request->session()->put('tipousuario', $dadosBanco['tipousuario']);
             Auth::login($dadosBanco);
             return redirect('/admin/dashboard');
           }
+          $request->session()->put('tipousuario', $dadosBanco['tipousuario']);
           return redirect('/inicial');
         }else {
 

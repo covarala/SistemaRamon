@@ -13,11 +13,11 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
-        '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
+        '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
     );
@@ -40,6 +40,8 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
+            'TeamPickr\\DistanceMatrix\\Tests\\' => 31,
+            'TeamPickr\\DistanceMatrix\\' => 25,
         ),
         'S' => 
         array (
@@ -104,6 +106,7 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         ),
         'F' => 
         array (
+            'FinalBytes\\GoogleDistanceMatrix\\' => 32,
             'Fideloper\\Proxy\\' => 16,
             'FarhanWazir\\GoogleMaps\\' => 23,
             'Faker\\' => 6,
@@ -156,6 +159,14 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'TeamPickr\\DistanceMatrix\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/tests',
+        ),
+        'TeamPickr\\DistanceMatrix\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src',
         ),
         'Symfony\\Polyfill\\Php72\\' => 
         array (
@@ -293,6 +304,10 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         array (
             0 => __DIR__ . '/..' . '/alexpechkarev/geometry-library',
         ),
+        'FinalBytes\\GoogleDistanceMatrix\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -388,6 +403,8 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -397,7 +414,6 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\MainController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainController.php',
-        'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -409,8 +425,11 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'App\\Models\\Juridica' => __DIR__ . '/../..' . '/app/Models/Juridica.php',
         'App\\Models\\Orcamento' => __DIR__ . '/../..' . '/app/Models/Orcamento.php',
         'App\\Models\\Produto' => __DIR__ . '/../..' . '/app/Models/Produto.php',
+        'App\\Models\\ProdutoDistribuidor' => __DIR__ . '/../..' . '/app/Models/ProdutoDistribuidor.php',
         'App\\Models\\Telefone' => __DIR__ . '/../..' . '/app/Models/Telefone.php',
         'App\\Models\\Users' => __DIR__ . '/../..' . '/app/Models/Users.php',
+        'App\\Models\\ValorProduto' => __DIR__ . '/../..' . '/app/Models/ValorProduto.php',
+        'App\\Models\\ViewEnderecoJuridica' => __DIR__ . '/../..' . '/app/Models/ViewEnderecoJuridica.php',
         'App\\Models\\ViewTelefone' => __DIR__ . '/../..' . '/app/Models/ViewTelefone.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -976,6 +995,17 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Exception\\DestinationException' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Exception/DestinationException.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Exception\\Exception' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Exception/Exception.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Exception\\OriginException' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Exception/OriginException.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Exception\\ResponseException' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Exception/ResponseException.php',
+        'FinalBytes\\GoogleDistanceMatrix\\GoogleDistanceMatrix' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/GoogleDistanceMatrix.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Response\\Address' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Response/Address.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Response\\Distance' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Response/Distance.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Response\\Duration' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Response/Duration.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Response\\Element' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Response/Element.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Response\\GoogleDistanceMatrixResponse' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Response/GoogleDistanceMatrixResponse.php',
+        'FinalBytes\\GoogleDistanceMatrix\\Response\\Row' => __DIR__ . '/..' . '/finalbytes/google-distance-matrix-api/src/Response/Row.php',
         'GeometryLibrary\\MathUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/MathUtil.php',
         'GeometryLibrary\\PolyUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/PolyUtil.php',
         'GeometryLibrary\\SphericalUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/SphericalUtil.php',
@@ -4000,6 +4030,28 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
+        'TeamPickr\\DistanceMatrix\\Avoid' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Avoid.php',
+        'TeamPickr\\DistanceMatrix\\Contracts\\LicenseContract' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Contracts/LicenseContract.php',
+        'TeamPickr\\DistanceMatrix\\DistanceMatrix' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/DistanceMatrix.php',
+        'TeamPickr\\DistanceMatrix\\Frameworks\\Laravel\\DistanceMatrix' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Frameworks/Laravel/DistanceMatrix.php',
+        'TeamPickr\\DistanceMatrix\\Frameworks\\Laravel\\DistanceMatrixServiceProvider' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Frameworks/Laravel/DistanceMatrixServiceProvider.php',
+        'TeamPickr\\DistanceMatrix\\Licenses\\PremiumLicense' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Licenses/PremiumLicense.php',
+        'TeamPickr\\DistanceMatrix\\Licenses\\StandardLicense' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Licenses/StandardLicense.php',
+        'TeamPickr\\DistanceMatrix\\Request\\DistanceMatrixRequest' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Request/DistanceMatrixRequest.php',
+        'TeamPickr\\DistanceMatrix\\Response\\DistanceMatrixResponse' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Response/DistanceMatrixResponse.php',
+        'TeamPickr\\DistanceMatrix\\Response\\Element' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Response/Element.php',
+        'TeamPickr\\DistanceMatrix\\Response\\Row' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Response/Row.php',
+        'TeamPickr\\DistanceMatrix\\Stack\\LicenseMiddleware' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Stack/LicenseMiddleware.php',
+        'TeamPickr\\DistanceMatrix\\Tests\\AbstractTestCase' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/tests/AbstractTestCase.php',
+        'TeamPickr\\DistanceMatrix\\Tests\\DistanceMatrixRequestTest' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/tests/DistanceMatrixRequestTest.php',
+        'TeamPickr\\DistanceMatrix\\Tests\\DistanceMatrixTest' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/tests/DistanceMatrixTest.php',
+        'TeamPickr\\DistanceMatrix\\Tests\\PremiumLicenseTest' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/tests/PremiumLicenseTest.php',
+        'TeamPickr\\DistanceMatrix\\Tests\\StandardLicenseTest' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/tests/StandardLicenseTest.php',
+        'TeamPickr\\DistanceMatrix\\TrafficModel' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/TrafficModel.php',
+        'TeamPickr\\DistanceMatrix\\TransitMode' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/TransitMode.php',
+        'TeamPickr\\DistanceMatrix\\TransitRouting' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/TransitRouting.php',
+        'TeamPickr\\DistanceMatrix\\TravelMode' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/TravelMode.php',
+        'TeamPickr\\DistanceMatrix\\Unit' => __DIR__ . '/..' . '/teampickr/php-google-maps-distance-matrix/src/Unit.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

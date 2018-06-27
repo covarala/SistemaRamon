@@ -17,7 +17,6 @@ class ClienteController extends Controller
     public function teste()
     {
       // code...
-      $teste = Users::find('1')->first();
-      dd($teste);
+      return view('teste');
     }
 }

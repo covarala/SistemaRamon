@@ -1,20 +1,36 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Teste</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html>
+<body>
 
 
 
-        {!! $map['js'] !!}
-    </head>
-    <body>
-      {!! $map['html'] !!}
-    </body>
+<button id="getCoordenadas" onclick="getLocation()">Clique Aqui</button>
+<script type="text/javascript">
+
+var x=document.getElementById("getCoordenadas");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(getPosition);
+    }
+  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+  }
+function getPosition(position)
+  {
+
+  var posicaoLat = position.coords.latitude
+  var posicaoLon = position.coords.longitude
+  x.innerHTML=
+  '<form class="hidden" id="formLocalizacao" action="{{ route('formulario.localizacao') }}" method="post">'+
+    '{{ csrf_field() }}'+
+    '<input type="hidden" name="posicaoLon"  value="'+ posicaoLon +'">'+
+    '<input type="hidden" name="posicaoLat"  value="'+ posicaoLat +'">' +
+  '</form>';
+
+  document.getElementById("formLocalizacao").submit();
+  }
+</script>
+
+</body>
 </html>

@@ -3,6 +3,9 @@ $tmp = session()->all();
 if (!isset($tmp['email'])) {
   $tmp['email']=null;
 }
+if (!isset($tmp['tipousuario'])) {
+$tmp['tipousuario']=null;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,22 +50,7 @@ if (!isset($tmp['email'])) {
           <li class="nav-item active">
             <a class="nav-link text-white" href="sobre">Sobre<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link text-white" href="contatos">Contatos<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link text-white" href="distribuidores">Distribuidores<span class="sr-only">(current)</span></a>
-          </li>
         </ul>
-
-        <ul class="navbar-nav mr-auto">
-          <form class="form-inline my-2 my-sm-0" method="GET">
-            {!! csrf_field() !!}
-            <input name="search" class="form-control" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-link" type="submit"><img src="imagens\search.png" width="20" height="20" alt=""></button>
-          </form>
-        </ul>
-        <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @if($tmp['email'] === null)
             <ul class="navbar-nav">
@@ -80,8 +68,14 @@ if (!isset($tmp['email'])) {
               </div>
             </ul>
             @else
+            <ul class="navbar-nav ml-auto">
             <ul class="navbar-nav">
               <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
+                @if(isset($tmp['tipousuario']) && $tmp['tipousuario'] === 'admin')
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="admin/dashboard">Voltar ao painel de controle<span class="sr-only">(current)</span></a>
+                </li>
+                @else
                 <li class="nav-item dropdown ">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       <img src="imagens\login.png" width="37" height="37"  alt="" style="float:left; margin:0 10px 10px 0;">
@@ -102,6 +96,7 @@ if (!isset($tmp['email'])) {
               </div>
             </ul>
 
+            @endif
             @endif
         </ul>
 
@@ -127,5 +122,33 @@ if (!isset($tmp['email'])) {
       <p class="text-sm-center">Rapadura Mônada: Faz. Itapiraçaba - Local denominado Sto Antônio -
 Rod. Januária Brejo do Amparo, 5090 - Zona Rural - Januária / MG – CEP 39.480-000</p>
     </div>
+
+    <script type="text/javascript">
+
+    var x=document.getElementById("getCoordenadas");
+    function getLocation()
+      {
+      if (navigator.geolocation)
+        {
+        navigator.geolocation.getCurrentPosition(getPosition);
+        }
+      else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+      }
+    function getPosition(position)
+      {
+
+      var posicaoLat = position.coords.latitude
+      var posicaoLon = position.coords.longitude
+      x.innerHTML=
+      '<form class="hidden" id="formLocalizacao" action="{{ route('formulario.localizacao') }}" method="post">'+
+        '{{ csrf_field() }}'+
+        '<input type="hidden" name="posicaoLon"  value="'+ posicaoLon +'">'+
+        '<input type="hidden" name="posicaoLat"  value="'+ posicaoLat +'">' +
+      '</form>';
+
+      document.getElementById("formLocalizacao").submit();
+      }
+    </script>
+
   </footer>
 </html>

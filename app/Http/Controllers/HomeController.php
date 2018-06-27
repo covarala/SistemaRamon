@@ -9,6 +9,8 @@ use App\User;
 use App\Models\Endereco;
 use App\Models\Fisica;
 use App\Models\Juridica;
+use App\Models\Produto;
+use App\Models\ValorProduto;
 use App\Models\Telefone;
 use App\Models\ViewTelefone;
 
@@ -38,12 +40,14 @@ class HomeController extends Controller
     public function produtos()
     {
         $produtos = DB::table('produto')->orderBy('nome', 'asc')->get();
-        return view('admin.produtos',compact('produtos'));
+        $valorProdutos = DB::table('valorproduto')->get();
+        return view('admin.produtos',compact('produtos', 'valorProdutos'));
     }
     public function clientes()
     {
       $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->get();
-      $telefones = ViewTelefone::all();
+      $telefones = DB::table('telefonesusuarios')->get();
+
       return view('admin.clientes',compact('clientes', 'telefones'));
     }
     public function usuarios()
@@ -65,15 +69,24 @@ class HomeController extends Controller
     }
     public function visaocliente()
     {
-        return view('admin.visaocliente');
+        return view('comuns.inicial');
     }
     public function visaodistribuidor()
     {
         return view('admin.visaodistribuidor');
     }
-    public function calculadistanica()
+
+      public function viewAtualizaProduto($idProduto)
+      {
+
+        $valorProduto = ValorProduto::where('idProduto','=', "$idProduto")->first();
+        $produto =  Produto::where('idProduto','=', "$idProduto")->first();
+        return view('admin/atualiza/produto', compact('produto', 'valorProduto'));
+      }
+
+    public function updateProduto(Request $request)
     {
-      return null;
+      dd($request);
     }
 
     public function atualizadistribuidor()

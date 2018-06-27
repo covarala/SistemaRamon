@@ -11,43 +11,14 @@
 |
 */
 
-Route::get('', function () {
-    return view('comuns.inicial');
-});
+
 Route::get('home', function () {
     return view('comuns.inicial');
 });
-Route::get('/teste', 'ClienteController@teste');
-Route::get('/testemaps', function () {
-
-  $config['center'] = 'Montes Claros, MG';
-  $config['zoom'] = '16';
-  $config['map_heigth'] = '500px';
-  // $config['map_width'] = '500px';
-  $config['scrollwhell'] = false;
-  $config['geocodeCaching'] = true;
-
-  GMaps::initialize($config);
-
-  $marker['position'] = 'Montes Claros, MG';
-  $marker['infowindow_content'] = 'Montes Claros';
-  GMaps::add_marker($marker);
-
-
-  $circle['center'] = 'Montes Claros, MG';
-  $circle['radius'] = '250';
-  GMaps::add_circle($circle);
-
-  $marker['position'] = 'Colegio Marista Sao Jose - Montes Claros';
-  $marker['infowindow_content'] = 'Colégio Marista';
-  $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal5/icon5.png';
-
-  GMaps::add_marker($marker);
-
-
-  $map = GMaps::create_map();
-
-  return view('teste')->with('map', $map);
+Route::get('/teste', 'ApiController@encontraDistribuidor');
+Route::get('/testeGetCordenadas', function ()
+{
+  return view('teste');
 });
 
 //Rotas Admin Principais
@@ -58,17 +29,18 @@ Route::get('/admin/usuarios', 'HomeController@usuarios')->name('admin.usuarios')
 Route::get('/admin/relatorio', 'HomeController@relatorio')->name('admin.relatorio');
 Route::get('/admin/excluir/usuario', 'HomeController@visaodistribuidor')->name('excluir.usuario');
 
-//Rotas Produtos
-Route::get('/admin/atualiza/produto', 'HomeController@atualizaproduto')->name('atualiza.produto');
-Route::get('/admin/exclui/produto', 'HomeController@excluiproduto')->name('exclui.produto');
+//Rotas Admin Produtos
+Route::get('/admin/atualiza/produto/{idProduto}', 'HomeController@viewAtualizaProduto')->name('atualiza.produto');
+Route::post('/admin/update/produto/{idProduto}', 'HomeController@updateProduto')->name('update.produto');
+Route::get('/admin/exclui/produto/{idProduto}', 'HomeController@excluiproduto')->name('exclui.produto');
 
-//Rotas Clientes
-Route::get('/admin/visaocliente', 'HomeController@visaocliente')->name('admin.visaocliente');
+//Rotas Admin Clientes
+Route::get('/', 'HomeController@visaocliente')->name('admin.visaocliente');
 Route::get('/admin/atualiza/cliente', 'HomeController@atualizacliente')->name('atualiza.cliente');
 Route::get('/admin/exclui/cliente', 'HomeController@excluicliente')->name('exclui.cliente');
 
 
-//Routas Distribuidores
+//Rotas Admin Distribuidores
 Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
 Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
 Route::get('/admin/atualiza/distribuidor', 'HomeController@atualizadistribuidor')->name('atualiza.distribuidor');
@@ -84,6 +56,7 @@ Route::get('/entrar', 'MainController@login')->name('entrar');
 Route::post('/formulario/registrar', 'LoginController@register')->name('formulario.register');
 Route::get('/registrar', 'MainController@register')->name('registrar');
 
+Route::post('/formulario/localizacao', 'ApiController@localizacao')->name('formulario.localizacao');
 
 Route::get('/inicial', 'MainController@inicial')->name('inicial');
 Route::get('/produtos', 'MainController@produtos')->name('produtos');

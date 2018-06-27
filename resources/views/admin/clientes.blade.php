@@ -36,7 +36,7 @@
         <th>{{ $cliente->email }}</th>
         <th>
           @foreach ($telefones as $telefone => $value)
-            @if($cliente->nome === $value['nome'])
+            @if($cliente->nome === $value->nome)
              {{ $value->telefone.' / ' }}
             @endif
           @endforeach
