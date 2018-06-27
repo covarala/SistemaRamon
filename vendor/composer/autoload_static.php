@@ -987,7 +987,7 @@ class ComposerStaticInit723855877d90ad0283995e682746232e
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
         'FarhanWazir\\GoogleMaps\\Containers\\isInsidePolygon' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Containers/isInsidePolygon.php',
-        'FarhanWazir\\GoogleMaps\\Facades\\GMapsFacade' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Facades/GMapsFacade.php',
+        'FarhanWazir\\GoogleMaps\\Facade\\GMapsFacade' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Facades/GMapsFacade.php',
         'FarhanWazir\\GoogleMaps\\GMaps' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMaps.php',
         'FarhanWazir\\GoogleMaps\\GMapsServiceProvider' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMapsServiceProvider.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
