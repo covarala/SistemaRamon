@@ -588,7 +588,7 @@ return array(
     'Faker\\UniqueGenerator' => $vendorDir . '/fzaninotto/faker/src/Faker/UniqueGenerator.php',
     'Faker\\ValidGenerator' => $vendorDir . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
     'FarhanWazir\\GoogleMaps\\Containers\\isInsidePolygon' => $vendorDir . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Containers/isInsidePolygon.php',
-    'FarhanWazir\\GoogleMaps\\Facades\\GMapsFacade' => $vendorDir . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Facades/GMapsFacade.php',
+    'FarhanWazir\\GoogleMaps\\Facade\\GMapsFacade' => $vendorDir . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Facades/GMapsFacade.php',
     'FarhanWazir\\GoogleMaps\\GMaps' => $vendorDir . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMaps.php',
     'FarhanWazir\\GoogleMaps\\GMapsServiceProvider' => $vendorDir . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMapsServiceProvider.php',
     'Fideloper\\Proxy\\TrustProxies' => $vendorDir . '/fideloper/proxy/src/TrustProxies.php',
