@@ -80,6 +80,7 @@ class ApiController extends Controller
           $menorDistancia = $value;
         }
       }
+      dd($menorDistancia);
 
       return $menorDistancia;
     }
