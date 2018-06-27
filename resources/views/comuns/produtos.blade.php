@@ -9,20 +9,52 @@
   </ul>
     <!-- Modal -->
     <div class="modal fade" id="ModalOrçamento" tabindex="-1" role="dialog" aria-labelledby="ModalLabelOrçamento" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-center" id="ModalLabelOrçamento">Orçamento</h5>
+            <h5 class="modal-title text-center text-success font-weight-bold" id="ModalLabelOrçamento">Orçamento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            ...
+            <h6 class="text offset-sm-1 py-4 text-success font-weight-bold">Informe a quantidade desejada de cada produto:</h6>
+            <form class="offset-sm-1">
+            <div class="form-group row">
+              <label for="inputPassword" class="col-form-label">Individual</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" placeholder="Qtd">
+              </div>
+              <label for="inputPassword" class="col-form-label">SM</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" placeholder="Qtd">
+              </div>
+              <label for="inputPassword" class="col-form-label">Display</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" placeholder="Qtd">
+              </div>
+            </div>
+            <h6 class="text justify-content-start py-4 ">Tipos de Caixa Master:</h6>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-form-label">Individual</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" placeholder="Qtd">
+              </div>
+              <label for="inputPassword" class="col-form-label">SM</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" placeholder="Qtd">
+              </div>
+              <label for="inputPassword" class="col-form-label">Display</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" placeholder="Qtd">
+              </div>
+            </div>
+          </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success">Save changes</button>
+            <h6 class="text justify-content-start py-4 text-danger font-weight-bold">Atenção !!! Aceite a permição da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você !</h6>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-success">Continuar</button>
           </div>
         </div>
       </div>
