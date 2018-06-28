@@ -6,13 +6,9 @@
     color: #fff;
   }
 </style>
-      <div class="title" id="titulo">
-        <div class="row">
-          <div class="col-md-12 col-md-offset-4">
-            <h2><br>Distribuidores Cadastrados</h2>
-            <br>
-          </div>
-        </div>
+      <div class="col-md-12 col-md-offset-4">
+        <h2><br>Distribuidores Cadastrados</h2>
+        <br>
       </div>
 <div class="table-responsive">
 <table class="table table-striped table-bordered table-hover order-column">
