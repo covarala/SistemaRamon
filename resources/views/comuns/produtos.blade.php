@@ -19,7 +19,7 @@
           </div>
           <div class="modal-body">
             <h6 class="text offset-sm-1 py-4 text-success font-weight-bold">Informe a quantidade desejada de cada produto:</h6>
-            <form class="offset-sm-1">
+            <form class="offset-sm-1" method="POST" action="{{ route('realizacao.orcamento') }}">
             <div class="form-group row">
               <label for="inputPassword" class="col-form-label">Individual</label>
               <div class="col-sm-2">

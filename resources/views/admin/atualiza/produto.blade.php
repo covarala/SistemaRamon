@@ -13,11 +13,13 @@
     <label for="" class="sr-only"></label>
     <input value="<?= $produto->nome ?>" name="nome" type="text" class="form-control" placeholder="Nome" required autofocus>
     <label class="sr-only"></label>
-    <input value="<?= $produto->descricao ?>" name="emailSistema" type="email"  class="form-control" id="" placeholder="Email sistema" required>
+    <input value="<?= $produto->descricao ?>" name="descricao" type="text"  class="form-control" id="" placeholder="Descrição " >
     <label class="sr-only"></label>
-    <input value="<?= $valorProduto->valor ?>" name="emailSistema" type="email"  class="form-control" id="" placeholder="Valor Produto" required>
+    <input value="<?= $valorProduto->valor ?>" name="valorProduto" type="text"  class="form-control" id="" placeholder="Valor Produto" required>
 
-    
+    <button type="submit" name="button">Atualizar</button>
+
+
   </form>
 </div>
 </div>
