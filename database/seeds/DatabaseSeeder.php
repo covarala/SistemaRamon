@@ -119,6 +119,15 @@ class DatabaseSeeder extends Seeder
           'tipousuario'=> 'distribuidor',
         ]
         );
+      Users::create(
+        [
+          'nome'    => 'Lucas',
+          'sobrenome'    => 'Guimarães Pereira',
+          'email'   => 'lucasgp59@gmail.com',
+          'password'=> bcrypt('123456'),
+          'tipousuario'=> 'distribuidor',
+        ]
+        );
 
       Telefone::create(
         [
@@ -232,6 +241,14 @@ class DatabaseSeeder extends Seeder
           'idUser'    => '11',
         ]
         );
+      Juridica::create(
+        [
+          'cnpj'    => '38.256.283/0001-90',
+          'inscricaoEstadual'    => '513.945.441/4929',
+          'distribuidor'    => '1',
+          'idUser'    => '12',
+        ]
+        );
       Produto::create(
         [
           'nome' => 'Individual - 25g',
@@ -342,6 +359,18 @@ class DatabaseSeeder extends Seeder
         );
         Endereco::create(
           [
+            'rua'    => 'rua goias',
+            'numero'    => '460 ',
+            'bairro'   => 'Cintra',
+            'cidade'=> 'Montes Claros',
+            'estado'=> 'MG',
+            'complemento'=> '',
+            'cep'=> '39400-393',
+            'idUser'=> '12',
+          ]
+        );
+        Endereco::create(
+          [
             'rua'    => 'Rua São Cristóvão',
             'numero'    => '258',
             'bairro'   => 'Lontrinha',
@@ -349,7 +378,7 @@ class DatabaseSeeder extends Seeder
             'estado'=> 'MG',
             'complemento'=> '',
             'cep'=> '35701-810',
-            'idUser'=> '9',
+            'idUser'=> '11',
           ]
         );
         Orcamento::create(
@@ -511,6 +540,48 @@ class DatabaseSeeder extends Seeder
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '4',
+            'idProduto' => '6',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '6',
+            'idProduto' => '1',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '6',
+            'idProduto' => '2',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '6',
+            'idProduto' => '3',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '6',
+            'idProduto' => '4',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '6',
+            'idProduto' => '5',
+            // 'qnt' => '',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '6',
             'idProduto' => '6',
             // 'qnt' => '',
           ]
