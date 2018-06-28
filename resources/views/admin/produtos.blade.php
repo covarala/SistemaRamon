@@ -37,7 +37,46 @@
           @endforeach
         </th>
         <th>
-          <a href="{{ route('atualiza.produto', $produto->idProduto) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a  class="btn btn-xs btn-sucess"  data-toggle="modal" data-target="#editarModal">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Editar Produto</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  
+                  <div class="register-box">
+                    <div class="register-box-body">
+                    <form class="form-signin" name="novaSenha" method="POST" action="{{ route('update.produto', $produto->idProduto) }}">
+                      {!! csrf_field() !!}
+
+                      <input type="hidden" name="id" value="<?= $produto->idProduto ?>" />
+
+                      <h1 class="h3 mb-3 font-weight-normal" align="center">Atualiza | Produto</h1>
+
+                      <label for="" class="sr-only"></label>
+                      <input value="<?= $produto->nome ?>" name="nome" type="text" class="form-control" placeholder="Nome" required autofocus>
+                      <label class="sr-only"></label>
+                      <input value="<?= $produto->descricao ?>" name="emailSistema" type="email"  class="form-control" id="" placeholder="Email sistema" required>
+                      <label class="sr-only"></label>
+                      <input value="<?= $valorProduto->valor ?>" name="emailSistema" type="email"  class="form-control" id="" placeholder="Valor Produto" required>
+
+
+                    </form>
+                  </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary"  type="submit">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <a href="{{ route('exclui.produto', $produto->idProduto) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
 
         </th>
