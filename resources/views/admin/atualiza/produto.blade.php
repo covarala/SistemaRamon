@@ -17,7 +17,7 @@
     <label class="sr-only"></label>
     <input value="<?= $valorProduto->valor ?>" name="emailSistema" type="email"  class="form-control" id="" placeholder="Valor Produto" required>
 
-    <button class="btn btn-lg btn-primary btn-block"   type="submit" >Atualizar</button>
+    
   </form>
 </div>
 </div>

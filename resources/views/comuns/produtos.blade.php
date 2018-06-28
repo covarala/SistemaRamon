@@ -52,7 +52,7 @@
           </form>
           </div>
           <div class="modal-footer">
-            <h6 class="text justify-content-start py-4 text-danger font-weight-bold">Atenção !!! Aceite a permição da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você !</h6>
+            <h6 class="text justify-content-start py-4 text-danger font-weight-bold">Atenção !!! Permita a utilização da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você !</h6>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             <button type="submit" class="btn btn-success">Continuar</button>
           </div>
@@ -66,7 +66,7 @@
 <!-- Primeira linha -->
   <div class="card-deck mb-3">
     <div class="card">
-      <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
+      <img class="card-img-top" src="imagens\unidadecomsombra.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Individual - 25g</h5>
         <p class="card-text">Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.</p>
@@ -75,7 +75,7 @@
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
+      <img class="card-img-top" src="imagens\SMcomsombra.png" width="208" height="225" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">SM - 100g</h5>
         <p class="card-text">Contém 04 barras de 25g.<br>
