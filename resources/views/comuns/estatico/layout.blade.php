@@ -123,32 +123,6 @@ $tmp['tipousuario']=null;
 Rod. Januária Brejo do Amparo, 5090 - Zona Rural - Januária / MG – CEP 39.480-000</p>
     </div>
 
-    <script type="text/javascript">
-
-    var x=document.getElementById("getCoordenadas");
-    function getLocation()
-      {
-      if (navigator.geolocation)
-        {
-        navigator.geolocation.getCurrentPosition(getPosition);
-        }
-      else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
-      }
-    function getPosition(position)
-      {
-
-      var posicaoLat = position.coords.latitude
-      var posicaoLon = position.coords.longitude
-      x.innerHTML=
-      '<form class="hidden" id="formLocalizacao" action="{{ route('formulario.localizacao') }}" method="post">'+
-        '{{ csrf_field() }}'+
-        '<input type="hidden" name="posicaoLon"  value="'+ posicaoLon +'">'+
-        '<input type="hidden" name="posicaoLat"  value="'+ posicaoLat +'">' +
-      '</form>';
-
-      document.getElementById("formLocalizacao").submit();
-      }
-    </script>
-
+    
   </footer>
 </html>

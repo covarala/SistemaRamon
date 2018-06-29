@@ -56,7 +56,7 @@ Route::get('/entrar', 'MainController@login')->name('entrar');
 Route::post('/formulario/registrar', 'LoginController@register')->name('formulario.register');
 Route::get('/registrar', 'MainController@register')->name('registrar');
 
-Route::post('/formulario/localizacao', 'ApiController@localizacao')->name('formulario.localizacao');
+Route::post('/localizacao', 'ApiController@localizacao')->name('formulario.localizacao');
 
 Route::get('/inicial', 'MainController@inicial')->name('inicial');
 Route::get('/produtos', 'MainController@produtos')->name('produtos');
@@ -64,3 +64,4 @@ Route::get('/sobre', 'MainController@sobre')->name('sobre');
 Route::get('/contatos', 'MainController@contatos')->name('contatos');
 // Route::get('/distribuidores', 'MainController@distribuidores')->name('distribuidores');
 Route::get('/detalhes', 'MainController@detalhes')->name('detalhes');
+Route::post('/orcamento', 'MainController@realizaOrcamento')->name('realizacao.orcamento');

@@ -506,126 +506,126 @@ class DatabaseSeeder extends Seeder
           [
             'idJuridica' => '4',
             'idProduto' => '1',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '4',
             'idProduto' => '2',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '4',
             'idProduto' => '3',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '4',
             'idProduto' => '4',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '4',
             'idProduto' => '5',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '4',
             'idProduto' => '6',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '6',
             'idProduto' => '1',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '6',
             'idProduto' => '2',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '6',
             'idProduto' => '3',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '6',
             'idProduto' => '4',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '6',
             'idProduto' => '5',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '6',
             'idProduto' => '6',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '5',
             'idProduto' => '1',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '5',
             'idProduto' => '2',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '5',
             'idProduto' => '3',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '5',
             'idProduto' => '4',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '5',
             'idProduto' => '5',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
         ProdutoDistribuidor::create(
           [
             'idJuridica' => '5',
             'idProduto' => '6',
-            // 'qnt' => '',
+            'qnt' => '500',
           ]
           );
 

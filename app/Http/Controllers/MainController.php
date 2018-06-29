@@ -53,4 +53,13 @@ class MainController extends Controller
 
       return view('comuns.detalhes');
     }
+
+    public function realizaOrcamento(Request $request)
+    {
+      dd($request->caixaMasterIndividual);
+    }
+
+
+
+
 }

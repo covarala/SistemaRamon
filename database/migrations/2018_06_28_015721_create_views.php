@@ -27,7 +27,9 @@ class CreateViews extends Migration
           ');
           DB::unprepared('
           Create view dadosUsuarioFisica AS(
-          SELECT nome as Nome,
+          SELECT
+            fisica.idFisica,
+            nome as Nome,
             email as Email,
             cpf as CPF,
             CONCAT(rua,", ", numero,", ",bairro,". ",cidade," - ",estado," ",complemento)
@@ -48,7 +50,9 @@ class CreateViews extends Migration
           ');
           DB::unprepared('
           Create view dadosUsuarioJuridica AS(
-            SELECT nome as Nome,
+            SELECT
+            juridica.idJuridica,
+            nome as Nome,
             email as Email,
             CNPJ as CNPJ,
             inscricaoEstadual as InscricaoEstadual,
@@ -78,6 +82,18 @@ class CreateViews extends Migration
             ORDER BY b.IdUser ASC
           );
         ');
+          DB::unprepared('
+          Create view qntProdutosDistribuidores AS(
+            SELECT j.idJuridica, u.nome as nomeUser,
+            u.qntOrcRec, prod.idProduto, prod.nome as nomeProduto,
+            p.qnt as qntProdDist from juridica as j, users as u,
+            produtodistribuidor as p, produto as prod
+            where u.id = j.idUser AND p.idJuridica = j.idJuridica
+            AND j.distribuidor = true
+            AND prod.idProduto = p.idProduto
+            ORDER BY idJuridica
+          );
+        ');
       }
 
       public function down()
@@ -86,5 +102,6 @@ class CreateViews extends Migration
           DB::unprepared('DROP view `dadosUsuarioFisica`;');
           DB::unprepared('DROP view `dadosUsuarioJuridica`;');
           DB::unprepared('DROP view `telefonesUsuarios`;');
+          DB::unprepared('DROP view `qntProdutosDistribuidores`;');
       }
 }

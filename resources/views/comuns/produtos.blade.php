@@ -4,9 +4,10 @@
   <div class="container col-md-9  offset-md-auto mb-5 ">
     <ul class="nav justify-content-end">
       <a data-toggle="modal" data-target="#ModalOrçamento">
-    <button type="button" class="efeito efeito-6" data-toggle="modal" data-target="#ModalOrçamento">Gostou dos nossos produtos?</button>
+        <button type="button" class="efeito efeito-6" data-toggle="modal" data-target="#ModalOrçamento">Gostou dos nossos produtos?</button>
       </a>
-  </ul>
+    </ul>
+
     <!-- Modal -->
     <div class="modal fade" id="ModalOrçamento" tabindex="-1" role="dialog" aria-labelledby="ModalLabelOrçamento" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -19,43 +20,76 @@
           </div>
           <div class="modal-body">
             <h6 class="text offset-sm-1 py-4 text-success font-weight-bold">Informe a quantidade desejada de cada produto:</h6>
-            <form class="offset-sm-1" method="POST" action="{{ route('realizacao.orcamento') }}">
+            <form class="offset-sm-1" id="formLocalizacao" action="{{ route('formulario.localizacao') }}" method="post">
+                {!! csrf_field() !!}
             <div class="form-group row">
               <label for="inputPassword" class="col-form-label">Individual</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" placeholder="Qtd">
+                <input name="individual" type="number" min="0" max="400" class="form-control" placeholder="Qtd">
               </div>
               <label for="inputPassword" class="col-form-label">SM</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" placeholder="Qtd">
+                <input min="0" max="56" name="sm" type="number" class="form-control" placeholder="Qtd">
               </div>
               <label for="inputPassword" class="col-form-label">Display</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" placeholder="Qtd">
+                <input min="0" max="32" name="display" type="number" class="form-control" placeholder="Qtd">
               </div>
             </div>
             <h6 class="text justify-content-start py-4 ">Tipos de Caixa Master:</h6>
             <div class="form-group row">
               <label for="inputPassword" class="col-form-label">Individual</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" placeholder="Qtd">
+                <input min="0" name="caixaMasterIndividual" type="number" class="form-control" placeholder="Qtd">
               </div>
               <label for="inputPassword" class="col-form-label">SM</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" placeholder="Qtd">
+                <input min="0" name="caixaMasterSm" type="number" class="form-control" placeholder="Qtd">
               </div>
               <label for="inputPassword" class="col-form-label">Display</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" placeholder="Qtd">
+                <input min="0" name="caixaMasterDisplay" type="number" class="form-control" placeholder="Qtd">
               </div>
             </div>
-          </form>
           </div>
+
+          <input id="posicaoLon" type="hidden" name="posicaoLon"  value="">
+          <input id="posicaoLat" type="hidden" name="posicaoLat"  value="">
+
           <div class="modal-footer">
             <h6 class="text justify-content-start py-4 text-danger font-weight-bold">Atenção !!! Permita a utilização da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você !</h6>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="submit" class="btn btn-success">Continuar</button>
+            <button type="button" id="getCoordenadas" class="btn btn-success" onclick="getLocation()">Continuar</button>
           </div>
+        </form>
+        <script type="text/javascript">
+        var x=document.getElementById("getCoordenadas");
+        function getLocation()
+          {
+          if (navigator.geolocation)
+            {
+            navigator.geolocation.getCurrentPosition(getPosition);
+            }
+          else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+          }
+        function getPosition(position)
+          {
+
+          var posicaoLat = position.coords.latitude;
+          var posicaoLon = position.coords.longitude;
+
+          document.getElementById("posicaoLat").value = posicaoLat;
+          document.getElementById("posicaoLon").value = posicaoLon;
+          // x.innerHTML=
+          // '<form class="hidden" id="" action="{{ route('formulario.localizacao') }}" method="post">'+
+          //   '{{ csrf_field() }}'+
+          //   '<input type="hidden" name="posicaoLon"  value="'+ posicaoLon +'">'+
+          //   '<input type="hidden" name="posicaoLat"  value="'+ posicaoLat +'">' +
+          // '</form>';
+
+          document.getElementById("formLocalizacao").submit();
+          }
+        </script>
         </div>
       </div>
     </div>

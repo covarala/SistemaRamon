@@ -86,7 +86,18 @@ class HomeController extends Controller
 
     public function updateProduto(Request $request)
     {
-      dd($request);
+      $dadosValorProduto = [
+        'idProduto' => $request->idProduto,
+        'valor'  =>  $request->valorProduto,
+      ];
+      $dadosProduto = [
+        'nome'  =>  $request->nome,
+        'descricao'  =>  $request->descricao,
+      ];
+      $updateProduto = Produto::where('idProduto', '=', $request->idProduto)->update($dadosProduto);
+      $updateValorProduto = ValorProduto::where('idProduto', '=', $request->idProduto)->update($dadosValorProduto);
+
+      return redirect()->route('admin.produtos')->with('status', 'Editado com sucesso!');
     }
 
     public function atualizadistribuidor()
