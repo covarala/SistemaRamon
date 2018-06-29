@@ -43,8 +43,7 @@ class ApiController extends Controller
         'ids' => $idsJuridicas,
         'coordenadas' => $coordenadas,
       ];
-      dd($dados);
-      return $coordenadas;
+      return $dados;
     }
 
     public function calculaMenorDistanica()
@@ -52,13 +51,7 @@ class ApiController extends Controller
       $cont = 0;
 
 
-      $dadosQntProdutosDistribuidores = DB::table('qntProdutosDistribuidores')->get();
-
-      $enderecos = DB::table('dadosusuariojuridica')->where('distribuidor','=', true)->get();
-
-
-
-      $dadosDistribuidores = $this->coordenadasDistribuidor($enderecos);
+      // dd($dadosDistribuidores);
 
       foreach ($dadosDistribuidores as $key => $value) {
         foreach ($value as $keyValue => $endDist) {
@@ -128,17 +121,16 @@ class ApiController extends Controller
       );
 
       foreach ($dadosParaOrcamento as $key => $value) {
-        // code...
         if($value === null)
         {
           $dadosParaOrcamento[$key] = "0";
         }
       }
 
-      $this->setDadosParaOrcamento($dadosParaOrcamento);
+      // $this->setDadosParaOrcamento($dadosParaOrcamento);
 
+      $this->encontraDistribuidor($dadosParaOrcamento);
       // $this->calculaMenorDistanica();
-      $this->encontraDistribuidor();
     }
 
     public function getEnderecoUsuario($coordenadas)
@@ -148,8 +140,18 @@ class ApiController extends Controller
       return $endereco;
     }
 
-      public function encontraDistribuidor()
+      public function encontraDistribuidor($qntProdParaOrcamento)
     {
+      $dadosQntProdutosDistribuidores = DB::table('qntProdutosDistribuidores')->get();
+
+      dd($dadosQntProdutosDistribuidores);
+      $enderecos = DB::table('dadosusuariojuridica')->where('distribuidor','=', true)->get();
+      $dadosDistribuidores = $this->coordenadasDistribuidor($enderecos);
+
+      // Mexer AQUI
+      // Mexer AQUI
+      // Mexer AQUI
+      // Mexer AQUI
       $tmp = $this->calculaMenorDistanica();
       $this->realizaOrcamento();
       return null;
