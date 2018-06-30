@@ -220,8 +220,7 @@
       </div>
       <div class="tab-pane fade" id="pills-juridica" role="tabpanel" aria-labelledby="pills-juridica-tab">
 
-        <div class="col-md-6 order-md-1 offset-md-3">
-
+      <div class="col-md-6 order-md-1 offset-md-3">
         <form class="needs-validation" method="post" action="{{ route('formulario.register') }}" novalidate>
           {!! csrf_field() !!}
           <div class="form-row">

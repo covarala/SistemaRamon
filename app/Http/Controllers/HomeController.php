@@ -37,13 +37,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+      return view('admin.dashboard');
     }
     public function produtos()
     {
-        $produtos = DB::table('produto')->orderBy('nome', 'asc')->get();
-        $valorProdutos = DB::table('valorproduto')->get();
-        return view('admin.produtos',compact('produtos', 'valorProdutos'));
+      $produtos = DB::table('produto')->orderBy('nome', 'asc')->get();
+      $valorProdutos = DB::table('valorproduto')->get();
+      return view('admin.produtos',compact('produtos', 'valorProdutos'));
     }
     public function clientes()
     {
@@ -54,9 +54,8 @@ class HomeController extends Controller
     }
     public function usuarios()
     {
-
       $usuarios = DB::table('users')->orderBy('nome', 'asc')->get();
-        return view('admin.usuarios', compact('usuarios'));
+      return view('admin.usuarios', compact('usuarios'));
     }
     public function distribuidor()
     {
@@ -75,7 +74,7 @@ class HomeController extends Controller
     }
     public function visaodistribuidor()
     {
-        return view('admin.visaodistribuidor');
+        return view('distribuidor.inicial');
     }
 
     public function viewAtualizaProduto($idProduto)
@@ -132,7 +131,6 @@ class HomeController extends Controller
 
       return redirect()->route('admin.produtos')->with('status', 'Editado com sucesso!');
     }
-    
     public function cadastroProduto(Request $request)
     {
       $dados = $request->all();
@@ -177,6 +175,10 @@ class HomeController extends Controller
 
     }
 
+    public function viewCadastroDistribuidor()
+    {
+      return view('admin/cadastro/distribuidor');
+    }
     public function atualizaDistribuidor()
     {
       return null;
@@ -188,6 +190,11 @@ class HomeController extends Controller
     public function cadastraDistribuidor()
     {
       // code...
+    }
+    public function viewAtualizaDistribuidor ($idDistribuidor)
+    {
+      $distribuidor = Juridica::where('idUser','=', "$idDistribuidor")->first();
+      return view('admin/atualiza/distribuidor', compact('distribuidor'));
     }
 
 

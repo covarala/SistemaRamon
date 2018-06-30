@@ -26,13 +26,15 @@ Route::get('/admin/dashboard', 'HomeController@index')->name('admin.dashboard');
 Route::get('/admin/produtos', 'HomeController@produtos')->name('admin.produtos');
 Route::get('/admin/clientes', 'HomeController@clientes')->name('admin.clientes');
 Route::get('/admin/usuarios', 'HomeController@usuarios')->name('admin.usuarios');
+Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
 Route::get('/admin/relatorio', 'HomeController@relatorio')->name('admin.relatorio');
-Route::get('/admin/excluir/usuario', 'HomeController@visaodistribuidor')->name('excluir.usuario');
 
 //Rotas Admin Usuários
 Route::get('/admin/atualiza/usuario/{idUsuario}', 'HomeController@viewAtualizaUsuario')->name('atualiza.usuario');
 Route::post('/admin/update/usuario/{idUsuario}', 'HomeController@updateUsuario')->name('update.usuario');
 Route::get('/admin/exclui/usuario/{idUsuario}', 'HomeController@excluiUsuario')->name('exclui.usuario');
+Route::get('/admin/view/cadastro/usuario', 'HomeController@viewCadastroUsuario')->name('view.cadastro.usuario');
+Route::post('/admin/cadastro/usuario', 'HomeController@cadastroUsuario')->name('cadastro.usuario');
 
 //Rotas Admin Produtos
 Route::get('/admin/atualiza/produto/{idProduto}', 'HomeController@viewAtualizaProduto')->name('atualiza.produto');
@@ -41,34 +43,33 @@ Route::get('/admin/exclui/produto/{idProduto}', 'HomeController@excluiProduto')-
 Route::get('/admin/view/cadastro/produto', 'HomeController@viewCadastroProduto')->name('view.cadastro.produto');
 Route::post('/admin/cadastro/produto', 'HomeController@cadastroProduto')->name('cadastro.produto');
 
+//Rotas Admin Distribuidores
+Route::get('/admin/atualiza/distribuidor/{idDistribuidor}', 'HomeController@viewAtualizaDistribuidor')->name('atualiza.distribuidor');
+Route::post('/admin/update/distribuidor/{idDistribuidor}', 'HomeController@updateDistribuidor')->name('update.distribuidor');
+Route::get('/admin/exclui/distribuidor/{idDistribuidor}', 'HomeController@excluiDistribuidor')->name('exclui.distribuidor');
+Route::get('/admin/view/cadastro/distribuidor', 'HomeController@viewCadastroDistribuidor')->name('view.cadastro.distribuidor');
+Route::post('/admin/cadastro/distribuidor', 'HomeController@cadastroDistribuidor')->name('cadastro.distribuidor');
+Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
+
 //Rotas Admin Clientes
 Route::get('/admin/visao/cliente', 'HomeController@visaocliente')->name('admin.visaocliente');
 Route::get('/admin/atualiza/cliente', 'HomeController@atualizacliente')->name('atualiza.cliente');
 Route::get('/admin/exclui/cliente', 'HomeController@excluicliente')->name('exclui.cliente');
 
-
-//Rotas Admin Distribuidores
-Route::get('/admin/distribuidor', 'HomeController@distribuidor')->name('admin.distribuidor');
-Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
-Route::get('/admin/atualiza/distribuidor', 'HomeController@atualizadistribuidor')->name('atualiza.distribuidor');
-Route::get('/admin/exclui/distribuidor', 'HomeController@excluidistribuidor')->name('exclui.distribuidor');
-
 Auth::routes();
 
-Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
-Route::get('/logout', 'LoginController@deslogar')->name('logout');
-
-Route::get('/inicial', 'MainController@inicial');
-Route::get('/entrar', 'MainController@login')->name('entrar');
-Route::post('/formulario/registrar', 'LoginController@register')->name('formulario.register');
-Route::get('/registrar', 'MainController@register')->name('registrar');
-
-Route::post('/localizacao', 'ApiController@localizacao')->name('formulario.localizacao');
-
+//Rotas Clientes Não registrados
 Route::get('/inicial', 'MainController@inicial')->name('inicial');
+Route::get('/entrar', 'MainController@login')->name('entrar');
+Route::get('/registrar', 'MainController@register')->name('registrar');
+Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
+Route::post('/formulario/registrar', 'LoginController@register')->name('formulario.register');
 Route::get('/produtos', 'MainController@produtos')->name('produtos');
 Route::get('/sobre', 'MainController@sobre')->name('sobre');
 Route::get('/contatos', 'MainController@contatos')->name('contatos');
-// Route::get('/distribuidores', 'MainController@distribuidores')->name('distribuidores');
-Route::get('/detalhes', 'MainController@detalhes')->name('detalhes');
+
 Route::post('/orcamento', 'MainController@realizaOrcamento')->name('realizacao.orcamento');
+
+//Rotas Clientes Resgistrados
+Route::post('/localizacao', 'ApiController@localizacao')->name('formulario.localizacao');
+Route::get('/logout', 'LoginController@deslogar')->name('logout');
