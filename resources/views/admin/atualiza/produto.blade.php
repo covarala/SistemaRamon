@@ -1,7 +1,7 @@
 @extends('admin.comuns.layout')
 @section('conteudo')
-
 <div class="register-box">
+  <div class="form-signin">
   <div class="register-box-body">
   <form class="form-signin" name="novaSenha" method="POST" action="{{ route('update.produto', $produto->idProduto) }}">
     {!! csrf_field() !!}
@@ -17,7 +17,7 @@
     <label class="sr-only"></label>
     <input value="<?= $valorProduto->valor ?>" name="valorProduto" type="text"  class="form-control" id="" placeholder="Valor Produto" required>
 
-    <button type="submit" name="button">Atualizar</button>
+    <button class="btn btn-primary btn-block"type="submit" name="button">Atualizar</button>
 
 
   </form>

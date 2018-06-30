@@ -44,8 +44,8 @@
           @endforeach
         </th>
         <th>
-          <a href="{{ route('atualiza.produto', $produto->idProduto) }}" class="btn btn-primary  active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-          <a href="{{ route('exclui.produto', $produto->idProduto) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
+          <a href="{{ route('atualiza.produto', $produto->idProduto) }}" class="btn btn-primary btn-block active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('exclui.produto', $produto->idProduto) }}" class="btn btn-danger btn-block active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
 
         </th>
       </tr>
