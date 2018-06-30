@@ -93,10 +93,11 @@ $tmp['tipousuario']=null;
                         </form>
                     </div>
                 </li>
+                @endif
+                
               </div>
             </ul>
 
-          @endif
         </ul>
       @endif
 

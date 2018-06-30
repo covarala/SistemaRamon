@@ -29,6 +29,7 @@ class CreateViews extends Migration
           Create view dadosUsuarioFisica AS(
           SELECT
             fisica.idFisica,
+            users.id as idUser,
             nome as Nome,
             email as Email,
             cpf as CPF,
@@ -52,6 +53,7 @@ class CreateViews extends Migration
           Create view dadosUsuarioJuridica AS(
             SELECT
             juridica.idJuridica,
+            users.id as idUser,
             nome as Nome,
             email as Email,
             CNPJ as CNPJ,
@@ -84,7 +86,7 @@ class CreateViews extends Migration
         ');
           DB::unprepared('
           Create view qntProdutosDistribuidores AS(
-            SELECT j.idJuridica, u.nome as nomeUser,
+            SELECT u.id as idUser, j.idJuridica, u.nome as nomeUser,
             u.qntOrcRec, prod.idProduto, prod.nome as nomeProduto,
             p.qnt as qntProdDist from juridica as j, users as u,
             produtodistribuidor as p, produto as prod

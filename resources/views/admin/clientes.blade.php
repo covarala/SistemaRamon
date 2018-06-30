@@ -6,7 +6,7 @@
     color: #fff;
   }
 </style>
-  
+
       <div class="col-md-12 col-md-offset-4">
         <h2><br>Clientes Cadastrados</h2>
         <br>
@@ -39,7 +39,7 @@
           @endforeach
         </th>
         <th>
-          <a href="{{ route('atualiza.cliente', $cliente->id) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('atualiza.cliente', $cliente->id) }}" class="btn btn-primary btn-xs active"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
           <a href="{{ route('exclui.cliente', $cliente->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
         </th>
       </tr>

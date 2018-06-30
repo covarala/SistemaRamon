@@ -37,7 +37,8 @@
           @endforeach
         </th>
         <th>
-          <a href="{{ route('atualiza.distribuidor', $distribuidor->id) }}" class="btn btn-xs btn-sucess"  id="">Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('atualiza.distribuidor', $distribuidor->id) }}" class="btn btn-primary btn-xs active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+
           <a href="{{ route('exclui.distribuidor', $distribuidor->id) }}" class="btn btn-xs btn-danger"  id="">Excluir</a>
         </th>
       </tr>

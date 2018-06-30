@@ -170,10 +170,35 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputState ">Estado</label>
-              <select id="inputState " name="estado" value="MG" class="form-control custom-select">
-                <option selected></option>
-                <option>MG</option>
-                <option>SP</option>
+              <select id="inputState">
+                <option value="">Selecione</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espirito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
               </select>
             </div>
           </div>
@@ -240,18 +265,18 @@
             <div class="form-group col-md-6">
               <label for="inputPassword">Senha</label>
               <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha">
-              @if (session('status'))
+              @if (session('status-senha'))
               <div class="alert alert-danger">
-                {{ session('status') }}
+                {{ session('status-senha') }}
               </div>
               @endif
             </div>
             <div class="form-group col-md-6">
               <label for="inputPassword">Confirmar Senha</label>
               <input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirmar Senha">
-              @if (session('status'))
+              @if (session('status-senha'))
               <div class="alert alert-danger">
-                {{ session('status') }}
+                {{ session('status-senha') }}
               </div>
               @endif
             </div>
@@ -310,10 +335,35 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputState">Estado</label>
-              <select id="inputState" name="estado" value="MG" class="form-control custom-select">
-                <option selected></option>
-                <option>MG</option>
-                <option>SP</option>
+              <select id="inputState">
+                <option value="">Selecione</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espirito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
               </select>
             </div>
           </div>

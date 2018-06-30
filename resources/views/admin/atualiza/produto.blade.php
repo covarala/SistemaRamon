@@ -17,6 +17,9 @@
     <label class="sr-only"></label>
     <input value="<?= $valorProduto->valor ?>" name="valorProduto" type="text"  class="form-control" id="" placeholder="Valor Produto" required>
 
+    <label for="imagem">Imagem:</label>
+    <input type="file" name="imagem"/>
+    
     <button class="btn btn-primary btn-block"type="submit" name="button">Atualizar</button>
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ViewEnderecoJuridica;
 use App\Models\Orcamento;
+use App\Models\ProdutoDistribuidor;
 use Spatie\Geocoder\Facades\Geocoder;
 use GoogleMaps\Facade\GoogleMapsFacade;
 
@@ -14,13 +15,19 @@ class ApiController extends Controller
 {
     //
 
+      // foreach ($novasQnt as $novaQnt => $value) {
+      //   dd($value['idJuridica']);
+      //   ProdutoDistribuidor::where('idJuridica', $value['idJuridica'])
+      //   ->where('idProduto', $value['idProduto'])
+      //   ->update(['qnt' => $value['novaQnt']]);
+      // }
+
     public function __construct()
     {
       $enderecoUsuario = null;
     }
-
-    private $dadosOrcamento = null;
-
+    private $qntProdParaOrcamento = null;
+    private $novasQnt = null;
 
     private function coordenadasDistribuidor($enderecos)
     {
@@ -33,64 +40,85 @@ class ApiController extends Controller
 
         foreach ($valores as $dado => $value) {
           if ($dado === 'Endereco') {
-            $coordenadas[$cont] = Geocoder::getCoordinatesForAddress($value, $apikey);
-            $idsJuridicas[$cont] = $enderecos[$cont]->idJuridica;
+            $coordenadas[$cont] = [
+              'coordenadas' => Geocoder::getCoordinatesForAddress($value, $apikey),
+              'idJuridica' => $enderecos[$cont]->idJuridica,
+              'idUser' => $enderecos[$cont]->idUser,
+            ];
             $cont++;
           }
         }
       }
-      $dados = [
-        'ids' => $idsJuridicas,
-        'coordenadas' => $coordenadas,
-      ];
-      return $dados;
+      // dd($coordenadas);
+      return $coordenadas;
     }
 
-    public function calculaMenorDistanica()
+    public function calculaMenorDistanica($idDistribuidores)
     {
       $cont = 0;
+      $contador = 0;
+
+      foreach ($idDistribuidores as $idDistribuidor => $value) {
+        $enderecos[$contador] = DB::table('dadosusuariojuridica')->where('distribuidor','=', true)
+          ->where('idUser', $value['idUser'])->first();
+          $contador++;
+      }
 
 
-      // dd($dadosDistribuidores);
+
+
+      $dadosDistribuidores = $this->coordenadasDistribuidor($enderecos);
+
 
       foreach ($dadosDistribuidores as $key => $value) {
-        foreach ($value as $keyValue => $endDist) {
-          if ($keyValue === 'formatted_address') {
-            $distancias[$cont] = \GoogleMaps::load('distancematrix')
+        $indexesDistribuidores = $dadosDistribuidores[$cont];
+        $coordenadasDistribuidores = $indexesDistribuidores['coordenadas'];
+        $formattedAddress = $coordenadasDistribuidores['formatted_address'];
+
+        $distancias[$cont] = [
+          'distancia' => \GoogleMaps::load('distancematrix')
             ->setParam([
-              'origins'       => $this->enderecoUsuario,
-              'destinations'  => $endDist,
-              'mode' => 'car',
-              'language' => 'GB'
-            ])
-            ->getResponseByKey('rows.elements.distance');
-            // ->get('');
-            $cont++;
-          }
-        }
+                        'origins'       => $this->enderecoUsuario,
+                        'destinations'  => $formattedAddress,
+                        'mode' => 'car',
+                        'language' => 'GB'
+                      ])->getResponseByKey('rows.elements.distance'),
+            'idUser'=> $value['idUser'],
+            'idJuridica'=> $value['idJuridica'],
+           ];
+        // ->get('');
+        $cont++;
       }
 
       $cont2 = 0;
 
-      foreach ($distancias as $distancia) {
-        $result = $distancia;
+      foreach ($distancias as $distancia => $value) {
+        $result = $value['distancia'];
         $rows = $result['rows'];
         $row = $rows[0];
         $elements = $row['elements'];
         $element = $elements[0];
         $distances = $element['distance'];
         $distance = $distances['value'];
-        $todasDistancias[$cont2] = $distance;
+        $todasDistancias[$cont2] = [
+          'idUser' => $value['idUser'],
+          'idJuridica' => $value['idJuridica'],
+          'distancia' => $distance,
+        ];
         $cont2++;
       }
 
       $menorDistancia = $todasDistancias[0];
       foreach ($todasDistancias as $key => $value) {
-        if ($menorDistancia > $value) {
-          $menorDistancia = $value;
+
+        if ($menorDistancia['distancia'] > $value['distancia']) {
+          $menorDistancia = [
+            'idUser' => $value['idUser'],
+            'idJuridica' => $value['idJuridica'],
+            'menorDistancia' => $value['menorDistancia'],
+          ];
         }
       }
-      dd($menorDistancia);
 
       return $menorDistancia;
     }
@@ -110,27 +138,34 @@ class ApiController extends Controller
       $this->setEndereco($endereco['formatted_address']);
 
       // dd($request->individual);
-      $dadosParaOrcamento = array(
-        '1' => $request->individual,
-        '2' => $request->sm,
-        '3' => $request->display,
-        '4' => $request->caixaMasterIndividual,
-        '5' => $request->caixaMasterSm,
-        '6' => $request->caixaMasterDisplay,
+      $qntProdParaOrcamento = array(
+        '0' => $request->individual,
+        '1' => $request->sm,
+        '2' => $request->display,
+        '3' => $request->caixaMasterIndividual,
+        '4' => $request->caixaMasterSm,
+        '5' => $request->caixaMasterDisplay,
 
       );
 
-      foreach ($dadosParaOrcamento as $key => $value) {
+      foreach ($qntProdParaOrcamento as $key => $value) {
         if($value === null)
         {
-          $dadosParaOrcamento[$key] = "0";
+          $qntProdParaOrcamento[$key] = "0";
         }
       }
 
-      // $this->setDadosParaOrcamento($dadosParaOrcamento);
+      $this->setQntProdParaOrcamento($qntProdParaOrcamento);
 
-      $this->encontraDistribuidor($dadosParaOrcamento);
-      // $this->calculaMenorDistanica();
+      $valorOrcamentoPorProduto = $this->realizaOrcamento();
+
+      return view('comuns.produtos', compact('valorOrcamentoPorProduto'));
+
+      $idDistribuidores = $this->encontraDistribuidor();
+
+      $menorDistancia = $this->calculaMenorDistanica($idDistribuidores);
+
+
     }
 
     public function getEnderecoUsuario($coordenadas)
@@ -140,49 +175,121 @@ class ApiController extends Controller
       return $endereco;
     }
 
-      public function encontraDistribuidor($qntProdParaOrcamento)
+    public function encontraDistribuidor()
     {
-      $dadosQntProdutosDistribuidores = DB::table('qntProdutosDistribuidores')->get();
+      $distribuidores = DB::table('juridica')->where('distribuidor','=', true)->get();
+      $distribuidoresPossiveis = [];
+      $cont = 0;
+      foreach ($distribuidores as $distribuidor => $value) {
+        $novasQnt = $this->verificaDistribuidor($value->idUser);
+        if($novasQnt !== false)
+        {
 
-      dd($dadosQntProdutosDistribuidores);
-      $enderecos = DB::table('dadosusuariojuridica')->where('distribuidor','=', true)->get();
-      $dadosDistribuidores = $this->coordenadasDistribuidor($enderecos);
-
-      // Mexer AQUI
-      // Mexer AQUI
-      // Mexer AQUI
-      // Mexer AQUI
-      $tmp = $this->calculaMenorDistanica();
-      $this->realizaOrcamento();
-      return null;
+          $distribuidoresPossiveis[$cont] = [
+            'idUser' => $value->idUser,
+            'idJuridica' => $value->idJuridica,
+          ];
+          $cont++;
+        }
+        else {
+          $distribuidoresPossiveis[$cont] = [
+            'idUser' => '13',
+            'idJuridica' => '7',
+          ];
+        }
+      }
+      return $distribuidoresPossiveis;
     }
 
-    public function setEndereco($endereco)
+    public function verificaDistribuidor($idDistribuidor)
     {
-      $this->enderecoUsuario = $endereco;
+
+      $qntProdParaOrcamento = $this->getQntProdParaOrcamento();
+      $qntProdDistribuidor = $this->qntProdDistribuidor($idDistribuidor);
+
+      $verificaQnt = [];
+      $contador2 = 0;
+
+        $contador = 0;
+        $produtos = $qntProdDistribuidor['produtos'];
+        foreach ($produtos as $produto => $valor) {
+
+          if ($valor['qnt'] - $qntProdParaOrcamento[$contador] > 50) {
+            $novaQnt = $valor['qnt'] - $qntProdParaOrcamento[$contador];
+            $orcamento = true;
+          }
+          else {
+            $novaQnt = $valor['qnt'] ;
+            $orcamento = false;
+          }
+
+          $verificaQnt[$contador] = [
+            'idUser' => $idDistribuidor,
+            'idJuridica' => $qntProdDistribuidor['idJuridica'],
+            'idProduto' => $valor['idProduto'],
+            'nomeProduto' => $valor['nome'],
+            'novaQnt' => $novaQnt,
+            'orcamento' => $orcamento,
+          ];
+          $contador++;
+        }
+
+      $novasQnt = $verificaQnt;
+      $this->setNovasQnt($novasQnt);
+
+      foreach ($novasQnt as $key => $value) {
+        if ($value['orcamento'] === false) {
+          return false;
+        }
+      }
+
+      return $novasQnt;
     }
-    public function setDadosParaOrcamento($dados)
+
+
+    public function qntProdDistribuidor($idDistribuidor)
     {
-      $this->dadosOrcamento = $dados;
-      // dd($this->dadosOrcamento);
+
+      $dadoJuridica = DB::table('dadosusuariojuridica')->where('distribuidor','=', true)->where('idUser', '=', $idDistribuidor)->first();
+      $dadosQntProdutosDistribuidores = DB::table('qntProdutosDistribuidores')->where('idJuridica','=',$dadoJuridica->idJuridica)->get();
+
+      $contador = 0;
+      $produtosDist =[];
+
+        foreach ($dadosQntProdutosDistribuidores as $key => $value) {
+
+
+        $produtosDist[$contador] = [
+          'idProduto' => $value->idProduto,
+          'nome' => $value->nomeProduto,
+          'qnt' => $value->qntProdDist,
+        ];
+        $contador++;
+        }
+      $qntProdDistribuidor = [
+        'nome' => $dadoJuridica->Nome,
+        'idJuridica' => $dadoJuridica->idJuridica,
+        'produtos' => $produtosDist,
+      ];
+      return $qntProdDistribuidor;
     }
 
     public function realizaOrcamento()
     {
       $valorProduto = array();
       $valorPorProdutoOrcamento = array();
-      $cont = 1;
+      $cont = 0;
+      $dadosParaOrcamento = $this->qntProdParaOrcamento;
 
       $valores = DB::table('valorproduto')->select('idProduto','valor')->get();
-      $dadosParaOrcamento = $this->dadosOrcamento;
       foreach ($valores as $valor => $value) {
-        if ($value->idProduto == $cont) {
+        if ($value->idProduto == $cont+1) {
           $valorProduto[$cont] = $value->valor;
         }
         $cont++;
       }
 
-      $cont = 1;
+      $cont = 0;
 
       $valorOrcamentoTotal = 0;
 
@@ -192,9 +299,34 @@ class ApiController extends Controller
         $cont++;
       }
 
-      dd($valorOrcamentoTotal);
-
+      return $valorPorProdutoOrcamento;
     }
 
+    public function setEndereco($endereco)
+    {
+      $this->enderecoUsuario = $endereco;
+    }
+    public function getEndereco()
+    {
+      return $this->enderecoUsuario;
+    }
+
+    public function setQntProdParaOrcamento($qntProdParaOrcamento)
+    {
+      $this->qntProdParaOrcamento = $qntProdParaOrcamento;
+    }
+    public function getQntProdParaOrcamento()
+    {
+      return $this->qntProdParaOrcamento;
+    }
+
+    public function setNovasQnt($novasQnt)
+    {
+      $this->novasQnt = $novasQnt;
+    }
+    public function getNovasQnt()
+    {
+      return $this->novasQnt;
+    }
 
 }

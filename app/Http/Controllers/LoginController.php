@@ -24,7 +24,6 @@ class LoginController extends Controller
       $password =  $request->get('password');
 
       $dadosBanco = User::where('email', '=' ,$email)->first();
-      $tmp = 'null';
       $request->session()->put('email');
 
       if ($email === $dadosBanco['email']) {
@@ -52,12 +51,6 @@ class LoginController extends Controller
       return redirect()->route('entrar')->with('status', 'Email ou Senha Incorretos!');
     }
 
-    public function logout(Request $request)
-    {
-      $request->session()->flush();
-      return redirect('/inicial');
-    }
-
     public function register(Request $request)
     {
         //
@@ -70,8 +63,11 @@ class LoginController extends Controller
             }
           }
         }
+        if ($dados['password'] == null || $dados['password_confirm'] == null) {
+          return redirect()->route('registrar')->with('status-senha', 'Senha não pode ser nula!');
+        }
         if ($dados['password'] !== $dados['password_confirm']) {
-          return redirect()->route('registrar')->with('status', 'Senhas diferentes!');
+          return redirect()->route('registrar')->with('status-senha', 'Senhas diferentes!');
         }
         $dados['password'] = Hash::make($dados['password']);
         $dadosBanco = Users::where('email', '=' ,$dados['email'])->first();

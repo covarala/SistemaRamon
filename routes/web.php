@@ -29,10 +29,17 @@ Route::get('/admin/usuarios', 'HomeController@usuarios')->name('admin.usuarios')
 Route::get('/admin/relatorio', 'HomeController@relatorio')->name('admin.relatorio');
 Route::get('/admin/excluir/usuario', 'HomeController@visaodistribuidor')->name('excluir.usuario');
 
+//Rotas Admin Usuários
+Route::get('/admin/atualiza/usuario/{idUsuario}', 'HomeController@viewAtualizaUsuario')->name('atualiza.usuario');
+Route::post('/admin/update/usuario/{idUsuario}', 'HomeController@updateUsuario')->name('update.usuario');
+Route::get('/admin/exclui/usuario/{idUsuario}', 'HomeController@excluiUsuario')->name('exclui.usuario');
+
 //Rotas Admin Produtos
 Route::get('/admin/atualiza/produto/{idProduto}', 'HomeController@viewAtualizaProduto')->name('atualiza.produto');
 Route::post('/admin/update/produto/{idProduto}', 'HomeController@updateProduto')->name('update.produto');
-Route::get('/admin/exclui/produto/{idProduto}', 'HomeController@excluiproduto')->name('exclui.produto');
+Route::get('/admin/exclui/produto/{idProduto}', 'HomeController@excluiProduto')->name('exclui.produto');
+Route::get('/admin/view/cadastro/produto', 'HomeController@viewCadastroProduto')->name('view.cadastro.produto');
+Route::post('/admin/cadastro/produto', 'HomeController@cadastroProduto')->name('cadastro.produto');
 
 //Rotas Admin Clientes
 Route::get('/', 'HomeController@visaocliente')->name('admin.visaocliente');

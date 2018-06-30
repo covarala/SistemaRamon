@@ -5,9 +5,25 @@
     background-color: #0d823b;
     color: #fff;
   }
+  #cadEvento{
+    padding-right: 30px;
+    margin-left: 87%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #0d823b;
+    color: white;
+    border-radius: 4.56px;
+  }
 </style>
+
+
+
 <div class="col-md-12 col-md-offset-4">
-  <h2><br>Produtos Cadastrados</h2>
+  <h2>
+    <br>
+    Produtos Cadastrados
+    <a type="button" href="{{ route('view.cadastro.produto') }}"  id="cadEvento" class="btn btn-outline-primary btn-lg">Cadastrar novo</a>
+  </h2>
   <br>
 </div>
 <div class="table-responsive">

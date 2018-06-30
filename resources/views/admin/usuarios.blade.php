@@ -32,7 +32,8 @@
         <th>{{ $usuario->email }}</th>
         <th>{{ $usuario->tipousuario }}</th>
         <th>
-          <a href="{{ route('excluir.usuario', $usuario->id) }}" class="btn btn-danger  active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
+          <a href="{{ route('atualiza.usuario', $usuario->id) }}" class="btn btn-primary btn-xs active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+          <a href="{{ route('excluir.usuario', $usuario->id) }}" class="btn btn-danger btn-xs active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
 
         </th>
       </tr>

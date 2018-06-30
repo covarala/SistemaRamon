@@ -128,6 +128,15 @@ class DatabaseSeeder extends Seeder
           'tipousuario'=> 'distribuidor',
         ]
         );
+        Users::create(
+          [
+            'nome'    => 'Rapadura',
+            'sobrenome'    => 'Mônada',
+            'email'   => 'rapaduramonada@email.com',
+            'password'=> bcrypt('123456'),
+            'tipousuario'=> 'admin',
+          ]
+        );
 
       Telefone::create(
         [
@@ -189,6 +198,18 @@ class DatabaseSeeder extends Seeder
           'idUser'    => '11',
         ]
         );
+      Telefone::create(
+        [
+          'telefone'    => '(92) 98845-6120',
+          'idUser'    => '13',
+        ]
+        );
+      Telefone::create(
+        [
+          'telefone'    => '(38) 98851-6120',
+          'idUser'    => '13',
+        ]
+        );
       Fisica::create(
         [
           'cpf'    => '837.432.212-84',
@@ -247,6 +268,14 @@ class DatabaseSeeder extends Seeder
           'inscricaoEstadual'    => '513.945.441/4929',
           'distribuidor'    => '1',
           'idUser'    => '12',
+        ]
+        );
+      Juridica::create(
+        [
+          'cnpj'    => '38.956.283/0001-90',
+          'inscricaoEstadual'    => '845.945.441/4929',
+          'distribuidor'    => '1',
+          'idUser'    => '13',
         ]
         );
       Produto::create(
@@ -371,14 +400,14 @@ class DatabaseSeeder extends Seeder
         );
         Endereco::create(
           [
-            'rua'    => 'Rua São Cristóvão',
-            'numero'    => '258',
-            'bairro'   => 'Lontrinha',
-            'cidade'=> 'Sete Lagoas',
+            'rua'    => 'Rod. Januária Brejo do Amparo Januária',
+            'numero'    => '5090',
+            'bairro'   => 'Zona Rural',
+            'cidade'=> 'Januária',
             'estado'=> 'MG',
             'complemento'=> '',
-            'cep'=> '35701-810',
-            'idUser'=> '11',
+            'cep'=> '39480-000',
+            'idUser'=> '13',
           ]
         );
         Orcamento::create(
@@ -542,6 +571,48 @@ class DatabaseSeeder extends Seeder
             'idJuridica' => '4',
             'idProduto' => '6',
             'qnt' => '500',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '7',
+            'idProduto' => '1',
+            'qnt' => '5000',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '7',
+            'idProduto' => '2',
+            'qnt' => '5000',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '7',
+            'idProduto' => '3',
+            'qnt' => '5000',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '7',
+            'idProduto' => '4',
+            'qnt' => '5000',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '7',
+            'idProduto' => '5',
+            'qnt' => '5000',
+          ]
+          );
+        ProdutoDistribuidor::create(
+          [
+            'idJuridica' => '7',
+            'idProduto' => '6',
+            'qnt' => '5000',
           ]
           );
         ProdutoDistribuidor::create(
