@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ImagensProdutos extends Model
 {
     //
-    protected $table = "imagensprodutos";
+    protected $table = "imagensproduto";
 
     protected $fillable = [
         'idProduto', 'nomeHash',

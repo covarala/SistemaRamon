@@ -104,34 +104,35 @@ class HomeController extends Controller
         'nome'  =>  $request->nome,
         'descricao'  =>  $request->descricao,
       ];
-      $updateProduto = Produto::where('idProduto', '=', $request->idProduto)->update($dadosProduto);
-      $updateValorProduto = ValorProduto::where('idProduto', '=', $request->idProduto)->update($dadosValorProduto);
+      // $updateProduto = Produto::where('idProduto', '=', $request->idProduto)->update($dadosProduto);
+      // $updateValorProduto = ValorProduto::where('idProduto', '=', $request->idProduto)->update($dadosValorProduto);
 
       $img = $request->file('imagem');
+
       if ($img = $request->hasFile('imagem')) {
 
         $img = $request->file('imagem');
-        $diretorioImg = storage_path("app\public\produto\\$idProduto->nome");
+        $diretorioImg = storage_path("app\public\produto\\".$dadosValorProduto['idProduto']);
 
         $dadosImagem = [
-          'idProduto' => $idProduto->id,
+          'idProduto' => $dadosValorProduto['idProduto'],
           'nomeHash' => $img->hashName(),
           'extensao' => $img->getClientOriginalExtension(),
           'nomeImagem' => $img->getClientOriginalName(),
           'diretorio' => $diretorioImg,
         ];
-        $upload  = $img->store('public/produto'.'/'.$dados['nome']);
+        $upload  = $img->store('public/produto'.'/'.$dadosImagem['nomeHash']);
 
         ImagensProdutos::create($dadosImagem);
-
-
         if ( !$upload ){
-          return redirect()->route('admin.produtos')->with('status', 'Falha ao fazer upload')->withInput();
+          return redirect()->route('admin.produtos')->with('status', 'Falha ao fazer upload da imagem')->withInput();
         }
+
       }
-      
+
       return redirect()->route('admin.produtos')->with('status', 'Editado com sucesso!');
     }
+    
     public function cadastroProduto(Request $request)
     {
       $dados = $request->all();
@@ -142,37 +143,38 @@ class HomeController extends Controller
       ];
 
 
-      $idProduto = Produto::create($dadosProduto);
       $dadosValorProduto = [
         'idProduto' => $idProduto->id,
         'valor' => $dados['valorProduto'],
       ];
 
-      ValorProduto::create($dadosValorProduto);
 
       $img = $request->file('imagem');
+
       if ($img = $request->hasFile('imagem')) {
 
         $img = $request->file('imagem');
-        $diretorioImg = storage_path("app\public\produto\\$idProduto->nome");
+        $diretorioImg = storage_path("app\public\produto\\".$dadosValorProduto['idProduto']);
 
         $dadosImagem = [
-          'idProduto' => $idProduto->id,
+          'idProduto' => $dadosValorProduto['idProduto'],
           'nomeHash' => $img->hashName(),
           'extensao' => $img->getClientOriginalExtension(),
           'nomeImagem' => $img->getClientOriginalName(),
           'diretorio' => $diretorioImg,
         ];
-        $upload  = $img->store('public/produto'.'/'.$dados['nome']);
+        $upload  = $img->store('public/produto'.'/'.$dadosImagem['nomeHash']);
 
+        Produto::create($dadosProduto);
+        ValorProduto::create($dadosValorProduto);
         ImagensProdutos::create($dadosImagem);
-
-
         if ( !$upload ){
-          return redirect()->route('admin.produtos')->with('status', 'Falha ao fazer upload')->withInput();
+          return redirect()->route('admin.produtos')->with('status', 'Falha ao fazer upload da imagem')->withInput();
         }
+        return redirect()->route('admin.produtos')->with('status', 'Cadastrado com sucesso!');
       }
-      return redirect()->route('admin.produtos')->with('status', 'Cadastrado com sucesso!');
+      return redirect()->route('admin.produtos')->with('status', 'Erro ao cadastrar!');
+
     }
 
     public function atualizaDistribuidor()

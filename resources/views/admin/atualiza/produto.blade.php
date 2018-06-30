@@ -3,7 +3,8 @@
 <div class="register-box">
   <div class="form-signin">
   <div class="register-box-body">
-  <form class="form-signin" name="novaSenha" method="POST" action="{{ route('update.produto', $produto->idProduto) }}">
+  <form enctype="multipart/form-data" class="form-signin" name="novaSenha" method="POST" action="{{ route('update.produto', $produto->idProduto) }}">
+
     {!! csrf_field() !!}
 
     <input type="hidden" name="id" value="<?= $produto->idProduto ?>" />
@@ -19,7 +20,7 @@
 
     <label for="imagem">Imagem:</label>
     <input type="file" name="imagem"/>
-    
+
     <button class="btn btn-primary btn-block"type="submit" name="button">Atualizar</button>
 
 
