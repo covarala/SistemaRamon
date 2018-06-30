@@ -14,14 +14,15 @@
     <label for="" class="sr-only"></label>
     <input value="<?= $produto->nome ?>" name="nome" type="text" class="form-control" placeholder="Nome" required autofocus>
     <label class="sr-only"></label>
-    <input value="<?= $produto->descricao ?>" name="descricao" type="text"  class="form-control" id="" placeholder="Descrição " >
-    <label class="sr-only"></label>
     <input value="<?= $valorProduto->valor ?>" name="valorProduto" type="text"  class="form-control" id="" placeholder="Valor Produto" required>
 
+    <textarea name="descricao" type="text"  class="form-control" id="" placeholder="Descrição " id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label class="sr-only"></label>
+<br>
     <label for="imagem">Imagem:</label>
     <input type="file" name="imagem"/>
-
-    <button class="btn btn-primary btn-block"type="submit" name="button">Atualizar</button>
+    <br><br>
+    <button class="btn btn-primary btn-block py-1"type="submit" name="button">Atualizar</button>
 
 
   </form>

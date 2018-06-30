@@ -19,12 +19,10 @@
 
 
 <div class="col-md-12 col-md-offset-4">
-  <h2>
-    <br>
-    Produtos Cadastrados
-    <a type="button" href="{{ route('view.cadastro.produto') }}"  id="cadEvento" class="btn btn-outline-primary btn-lg">Cadastrar novo</a>
-  </h2>
+  <h2><br>Produtos Cadastrados</h2>
+  <a type="button" href="{{ route('view.cadastro.produto') }}"  id="cadEvento" class="btn btn-success btn-lg py-1 offset-10">Cadastrar novo</a>
   <br>
+
 </div>
 <div class="table-responsive">
   <div class="">

@@ -8,6 +8,8 @@
 </style>
       <div class="col-md-12 col-md-offset-4">
         <h2><br>Distribuidores Cadastrados</h2>
+        <a type="button" href="{{ route('view.cadastro.distribuidor') }}"  id="cadEvento" class="btn btn-success btn-lg py-1 offset-10">Cadastrar novo</a>
+        <br>
         <br>
       </div>
 <div class="table-responsive">

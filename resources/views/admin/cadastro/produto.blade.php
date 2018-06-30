@@ -12,14 +12,14 @@
 
     <label for="" class="sr-only">Nome</label>
     <input value="" name="nome" type="text" class="form-control" placeholder="Nome" required autofocus>
-    <label class="sr-only"></label>
-    <input value="" name="descricao" type="text"  class="form-control" id="" placeholder="Descrição " >
 
     <label class="sr-only"></label>
     <input value="" name="valorProduto" type="text"  class="form-control" id="" placeholder="Valor Produto" required>
+    <label class="sr-only"></label>
+    <textarea name="descricao" type="text"  class="form-control" id="" placeholder="Descrição " id="exampleFormControlTextarea1" rows="3"></textarea>
 
     <label for="imagem">Imagem:</label>
-    
+
     <input type="file" name="imagem"/>
 
     <br>
