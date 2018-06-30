@@ -42,7 +42,7 @@ Route::get('/admin/view/cadastro/produto', 'HomeController@viewCadastroProduto')
 Route::post('/admin/cadastro/produto', 'HomeController@cadastroProduto')->name('cadastro.produto');
 
 //Rotas Admin Clientes
-Route::get('/', 'HomeController@visaocliente')->name('admin.visaocliente');
+Route::get('/admin/visao/cliente', 'HomeController@visaocliente')->name('admin.visaocliente');
 Route::get('/admin/atualiza/cliente', 'HomeController@atualizacliente')->name('atualiza.cliente');
 Route::get('/admin/exclui/cliente', 'HomeController@excluicliente')->name('exclui.cliente');
 

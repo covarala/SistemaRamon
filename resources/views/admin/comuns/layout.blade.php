@@ -50,16 +50,11 @@
                   Painel de controle <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{{ route('admin.usuarios') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.usuarios') }}" role="button">
                   <span data-feather="users"></span>
                   Usuários
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">
-                    <span></span>teste<span class="sr-only">(current)</span>
-                  </a>
-                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.clientes') }}">

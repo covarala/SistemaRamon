@@ -376,7 +376,7 @@
             </div>
           </div>
           <div class="col-md-4 offset-md-4 mb-3">
-          <button type="submit" class="btn btn-success btn-block">criar seu cadastar</button>
+          <button type="submit" class="btn btn-success btn-block">Criar seu cadastro</button>
         </div>
         </form>
 

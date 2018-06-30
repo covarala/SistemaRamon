@@ -11,13 +11,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="imagens\1.JPG" width="550" height="550" alt="First slide">
+          <img class="d-block w-100" src="{{ asset('imagens\1.JPG')}}" width="550" height="550" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="imagens\2.JPG" width="550" height="550" alt="Second slide">
+          <img class="d-block w-100" src="{{ asset('imagens\2.JPG')}}" width="550" height="550" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="imagens\3.JPG" width="550" height="550" alt="Third slide">
+          <img class="d-block w-100" src="{{ asset('imagens\3.JPG')}}" width="550" height="550" alt="Third slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -38,7 +38,7 @@
       <div class="card-group">
         <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Contém 04 barras de 25g.
@@ -49,7 +49,7 @@ Validade, informação nutricional e demais informações.</p>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -59,7 +59,7 @@ Validade, informação nutricional e demais informações.</p>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top" src="imagens\rapadura-monada.png" width="208" height="225" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>

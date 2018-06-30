@@ -19,6 +19,7 @@
     <input value="" name="valorProduto" type="text"  class="form-control" id="" placeholder="Valor Produto" required>
 
     <label for="imagem">Imagem:</label>
+    
     <input type="file" name="imagem"/>
 
     <br>
