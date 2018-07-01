@@ -17,6 +17,6 @@ class Orcamento extends Model
         'qntDisplay', 'qntCaixaMasterDisplay',
         'qntSm', 'qntCaixaMasterSm',
         'idRecebedor','idEmissor',
-        'aprovacao','valorOrc',
+        'aprovacao','valor',
     ];
 }

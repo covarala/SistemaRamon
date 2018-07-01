@@ -280,37 +280,37 @@ class DatabaseSeeder extends Seeder
         );
       Produto::create(
         [
-          'nome' => 'Individual - 25g',
+          'nome' => 'Individual',
           'descricao' => 'Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.',
         ]
         );
       Produto::create(
         [
-          'nome' => 'SM – 100g',
+          'nome' => 'SM',
           'descricao' => 'Contém 04 barras de 25g. Validade, informação nutricional e demais informações.',
         ]
         );
       Produto::create(
         [
-          'nome' => 'Display - 450 g',
+          'nome' => 'Display',
           'descricao' => 'Contém 18 barras de 25 g. Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.',
         ]
         );
       Produto::create(
         [
-          'nome' => 'Caixa Master Individual',
+          'nome' => 'CaixaMasterIndividual',
           'descricao' => 'Com 400 barras de 25g. Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmentos que não necessitam da embalagem intermediária.',
         ]
         );
       Produto::create(
         [
-          'nome' => 'Caixa Master SM',
+          'nome' => 'CaixaMasterSm',
           'descricao' => 'Com 56 embalagens de 100g. Peso: 5,6 Kg',
         ]
         );
       Produto::create(
         [
-          'nome' => 'Caixa Master Display',
+          'nome' => 'CaixaMasterDisplay',
           'descricao' => 'Com 32 embalagens de 450g. Peso: 14,4 Kg.',
         ]
         );
@@ -498,37 +498,37 @@ class DatabaseSeeder extends Seeder
         ValorProduto::create(
           [
             'idProduto' => '1',
-            // 'valor' => '',
+            'valor' => '1.00',
           ]
           );
         ValorProduto::create(
           [
             'idProduto' => '2',
-            // 'valor' => '',
+            'valor' => '2.00',
           ]
           );
         ValorProduto::create(
           [
             'idProduto' => '3',
-            // 'valor' => '',
+            'valor' => '3.00',
           ]
           );
         ValorProduto::create(
           [
             'idProduto' => '4',
-            // 'valor' => '',
+            'valor' => '5.00',
           ]
           );
         ValorProduto::create(
           [
             'idProduto' => '5',
-            // 'valor' => '',
+            'valor' => '9.00',
           ]
           );
         ValorProduto::create(
           [
             'idProduto' => '6',
-            // 'valor' => '',
+            'valor' => '16.00',
           ]
           );
         ProdutoDistribuidor::create(

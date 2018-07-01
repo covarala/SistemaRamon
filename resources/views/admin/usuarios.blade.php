@@ -9,8 +9,12 @@
       <div class="col-md-8 col-md-offset-2">
         <h2><br> Usuários Cadastrados</h2>
         <br>
-
       </div>
+      @if (session('status'))
+      <div class="alert alert-info">
+      	{{ session('status') }}
+      </div>
+      @endif
 <div class="table-responsive">
 <table class="table table-striped table-bordered table-hover order-column">
   <thead>

@@ -30,12 +30,14 @@
         {{ session('status-senha') }}
       </div>
       @endif
+      <br>
     <label class="sr-only">Selecione o tipo de usuário</label>
-    <select>
+    <select class="form-control">
       <option value="">Selecione o tipo de usuário</option>
       <option value="admin">Administrador</option>
       <option value="distribuidor">Distribuidor</option>
     </select>
+    <br>
 
     <button class="btn btn-primary btn-block"type="submit" name="button">Atualizar</button>
 

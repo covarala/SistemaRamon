@@ -39,6 +39,10 @@ class LoginController extends Controller
             Auth::login($dadosBanco);
             return redirect('/admin/dashboard');
           }
+          if ($dadosBanco['tipousuario'] === 'distribuidor') {
+            $request->session()->put('tipousuario', $dadosBanco['tipousuario']);
+            return redirect('/distribuidor/inicial/'.$dadosBanco['id']);
+          }
           $request->session()->put('tipousuario', $dadosBanco['tipousuario']);
           return redirect('/inicial');
         }else {
@@ -129,18 +133,15 @@ class LoginController extends Controller
 
     public function deslogar()
     {
-
-
       if (Auth::check()){
         // se tem usuario logado.
         Auth::logout();
         session()->forget('email');
         session()->forget('nome');
         session()->forget('id');
+        return redirect('/inicial');
       }
-      session()->forget('email');
-      session()->forget('nome');
-      session()->forget('id');
+      session()->flush();
 
       return redirect('/inicial');
     }

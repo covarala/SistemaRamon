@@ -42,7 +42,7 @@ $tmp['tipousuario']=null;
       <div class="collapse navbar-collapse row" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-white" href="{{ route('inicial') }}">Inicio<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="{{ route('distribuidor.inicial', $tmp['id']) }}">Orçamentos Recebidos<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link text-white" href="{{ route('produtos') }}">Produtos<span class="sr-only">(current)</span></a>

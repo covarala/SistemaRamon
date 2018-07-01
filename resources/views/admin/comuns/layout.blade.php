@@ -26,6 +26,7 @@
     <![endif]-->
     <link rel="shortcut icon" href="imagens\favicon .ico">
     <link rel="stylesheet" href="{{ asset('css/main.css')}}">
+    @yield('cabecalho')
   </head>
 
   <body>

@@ -44,11 +44,9 @@ Route::get('/admin/view/cadastro/produto', 'HomeController@viewCadastroProduto')
 Route::post('/admin/cadastro/produto', 'HomeController@cadastroProduto')->name('cadastro.produto');
 
 //Rotas Admin Distribuidores
-Route::get('/admin/atualiza/distribuidor/{idDistribuidor}', 'HomeController@viewAtualizaDistribuidor')->name('atualiza.distribuidor');
-Route::post('/admin/update/distribuidor/{idDistribuidor}', 'HomeController@updateDistribuidor')->name('update.distribuidor');
+Route::post('/admin/update/distribuidor/{idDistribuidor}', 'HomeController@changeDistribuidor')->name('form.change.distribuidor');
 Route::get('/admin/exclui/distribuidor/{idDistribuidor}', 'HomeController@excluiDistribuidor')->name('exclui.distribuidor');
-Route::get('/admin/view/cadastro/distribuidor', 'HomeController@viewCadastroDistribuidor')->name('view.cadastro.distribuidor');
-Route::post('/admin/cadastro/distribuidor', 'HomeController@cadastroDistribuidor')->name('cadastro.distribuidor');
+Route::get('/admin/view/juridicas/cadastras', 'HomeController@viewJuridicasCadastradas')->name('view.juridicas.cadastradas');
 Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
 
 //Rotas Admin Clientes
@@ -60,6 +58,7 @@ Auth::routes();
 
 //Rotas Clientes Não registrados
 Route::get('/inicial', 'MainController@inicial')->name('inicial');
+Route::get('/ ', 'MainController@inicial');
 Route::get('/entrar', 'MainController@login')->name('entrar');
 Route::get('/registrar', 'MainController@register')->name('registrar');
 Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
@@ -68,8 +67,11 @@ Route::get('/produtos', 'MainController@produtos')->name('produtos');
 Route::get('/sobre', 'MainController@sobre')->name('sobre');
 Route::get('/contatos', 'MainController@contatos')->name('contatos');
 
-Route::post('/orcamento', 'MainController@realizaOrcamento')->name('realizacao.orcamento');
+//Rotas Distribuidores Resgistrados
+Route::get('/distribuidor/inicial/{idDistribuidor}', 'MainController@distribuidorInicial')->name('distribuidor.inicial');
+
 
 //Rotas Clientes Resgistrados
-Route::post('/localizacao', 'ApiController@localizacao')->name('formulario.localizacao');
+Route::post('/formulario/produtos', 'ApiController@getMenorDistancia')->name('formulario.localizacao');
+Route::post('/formulario/realiza/orcamento', 'MainController@realizaOrcamento')->name('efetivacao.orcamento');
 Route::get('/logout', 'LoginController@deslogar')->name('logout');

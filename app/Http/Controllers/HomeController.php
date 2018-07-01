@@ -47,7 +47,7 @@ class HomeController extends Controller
     }
     public function clientes()
     {
-      $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->get();
+      $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->orderBy('qntOrcPed')->get();
       $telefones = DB::table('telefonesusuarios')->get();
 
       return view('admin.clientes',compact('clientes', 'telefones'));
@@ -59,7 +59,8 @@ class HomeController extends Controller
     }
     public function distribuidor()
     {
-        $distribuidores = DB::table('users')->where('tipousuario','=','distribuidor')->orderBy('nome', 'asc')->get();
+        $distribuidores = DB::table('users')->join('juridica', 'id', '=', 'idUser')
+        ->where('distribuidor','=',true)->orderBy('nome', 'asc')->get();
         $telefones = ViewTelefone::all();
 
         return view('admin.distribuidor', compact('distribuidores', 'telefones'));
@@ -175,26 +176,37 @@ class HomeController extends Controller
 
     }
 
-    public function viewCadastroDistribuidor()
+    public function viewJuridicasCadastradas()
     {
-      return view('admin/cadastro/distribuidor');
+      $distribuidores = DB::table('users')->join('juridica', 'id', '=', 'idUser')->get();
+      return view('admin/cadastro/distribuidor', compact('distribuidores'));
     }
-    public function atualizaDistribuidor()
+    public function changeDistribuidor(Request $request, $idUser)
     {
-      return null;
+
+      if ($request['atual'] === 'distribuidor')
+      {
+        Juridica::where('idUser','=',$idUser)->update(['distribuidor' => false]);
+        Users::where('id','=',$idUser)->update(['tipousuario' => 'cliente']);
+      }
+      else {
+        Juridica::where('idUser',$idUser)->update(['distribuidor' => true]);
+        Users::where('id','=',$idUser)->update(['tipousuario' => 'distribuidor']);
+
+      }
+      if ($request['exclusao'] === 'false') {
+        return redirect()->route('view.juridicas.cadastradas')->with('status', 'Alterado com sucesso!');
+      }else {
+        return redirect()->route('admin.distribuidor')->with('status', 'Removido com sucesso!');
+
+      }
     }
-    public function excluiDistribuidor()
+    public function excluiDistribuidor($idUser)
     {
-      return null;
-    }
-    public function cadastraDistribuidor()
-    {
-      // code...
-    }
-    public function viewAtualizaDistribuidor ($idDistribuidor)
-    {
-      $distribuidor = Juridica::where('idUser','=', "$idDistribuidor")->first();
-      return view('admin/atualiza/distribuidor', compact('distribuidor'));
+      $request = new Request;
+      $request['atual'] = 'distribuidor';
+      $request['exclusao'] = 'true';
+      $this->changeDistribuidor($request , $idUser);
     }
 
 
@@ -204,7 +216,6 @@ class HomeController extends Controller
 
       return view('admin/atualiza/usuario', compact('usuario'));
     }
-
     public function updateUsuario(Request $request)
     {
       $dados = $request->all();
@@ -237,5 +248,16 @@ class HomeController extends Controller
       $updateUsuario = Users::where('id', '=', $request->idUsuario)->update($dadosUsuario);
 
       return redirect()->route('admin.usuarios')->with('status', 'Editado com sucesso!');
+    }
+    public function excluiUsuario($idUser)
+    {
+      $dadoUser = Users::find($idUser);
+      if($dadoUser->tipousuario === 'admin')
+      {
+        Users::destroy($idUser);
+      }
+      else {
+        return redirect()->route('admin.usuarios')->with('status', 'Não é possível remover usuários que não são administradores!');
+      }
     }
 }

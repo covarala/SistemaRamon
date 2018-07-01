@@ -8,47 +8,53 @@
 </style>
       <div class="col-md-12 col-md-offset-4">
         <h2><br>Distribuidores Cadastrados</h2>
-        <a type="button" href="{{ route('view.cadastro.distribuidor') }}"  id="cadEvento" class="btn btn-success btn-lg py-1 offset-10">Cadastrar novo</a>
+        <a type="button" href="{{ route('view.juridicas.cadastradas') }}"  id="cadEvento" class="btn btn-success btn-lg py-1 offset-10">Cadastrar novo</a>
         <br>
         <br>
       </div>
-<div class="table-responsive">
-<table class="table table-striped table-bordered table-hover order-column">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">E-mail</th>
-      <th scope="col">Telefone</th>
-      <th scope="col"> Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php $cont = 1; ?>
-      @foreach ($distribuidores as $distribuidor)
-      <tr>
-        <th>{{ $cont }}</th>
-        <th>{{ $distribuidor->nome }}</th>
-        <th>{{ $distribuidor->email }}</th>
-        <th>
+      @if (session('status'))
+      <div class="alert alert-info">
+      	{{ session('status') }}
+      </div>
+      @endif
 
-          @foreach ($telefones as $telefone => $value)
-            @if($distribuidor->nome === $value['nome'])
-             {{ $value->telefone.' / ' }}
-            @endif
-          @endforeach
-        </th>
-        <th>
-          <a href="{{ route('atualiza.distribuidor', $distribuidor->id) }}" class="btn btn-primary btn-xs active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
 
-          <a href="{{ route('exclui.distribuidor', $distribuidor->id) }}" class="btn btn-xs btn-danger"  id="">Excluir</a>
-        </th>
-      </tr>
-      <?php $cont++; ?>
-      @endforeach
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover order-column">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Telefone</th>
+              <th scope="col"> Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php $cont = 1; ?>
+            @foreach ($distribuidores as $distribuidor)
+            <tr>
+              <th>{{ $cont }}</th>
+              <th>{{ $distribuidor->nome }}</th>
+              <th>{{ $distribuidor->email }}</th>
+              <th>
 
-  </tbody>
-</table>
-  </div>
+                @foreach ($telefones as $telefone => $value)
+                @if($distribuidor->nome === $value['nome'])
+                {{ $value->telefone.' / ' }}
+                @endif
+                @endforeach
+              </th>
+              <th>
+                <a href="{{ route('view.juridicas.cadastradas') }}" class="btn btn-primary btn-xs active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="{{ route('exclui.distribuidor', $distribuidor->id) }}" class="btn btn-xs btn-danger"  onclick="return confirm('Você tem certeza que deseja excluí-lo(a)? Essa ação não o excluirá da base de dados!')">Excluir</a>
+              </th>
+            </tr>
+            <?php $cont++; ?>
+            @endforeach
+
+          </tbody>
+        </table>
+      </div>
 
 @endsection

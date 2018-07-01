@@ -1,176 +1,208 @@
 @extends('admin.comuns.layout')
+
+@section('cabecalho')
+
+<style media="screen">
+
+	.switch{
+			width:120px;
+			height:28px;
+			margin:0;
+
+
+			position:relative;
+		}
+
+		.switch input{
+			display:block;
+			width:100%;
+			height: 100%;
+
+			position:absolute;
+			top:0;
+			left:0;
+			z-index: 10;
+
+			opacity: 0;
+			cursor: pointer;
+
+		}
+
+		.switch label{
+			display: block;
+			width: 100%;
+			height: 100%;
+
+			background: -moz-linear-gradient(#750000, #B20000);
+			background: -ms-linear-gradient(#750000, #B20000);
+			background: -o-linear-gradient(#750000, #B20000);
+			background: -webkit-linear-gradient(#750000, #B20000);
+			background: linear-gradient(#750000, #B20000);
+
+			border-radius: 40px;
+		}
+
+		.switch label:after{
+			content: "";
+
+			position: absolute;
+			top: -10px;
+			right: -20px;
+			bottom: -10px;
+			left: -10px;
+			z-index: -1;
+
+			background: -moz-linear-gradient(#EEEEEE, #AAAAAA);
+			background: -ms-linear-gradient(#EEEEEE, #AAAAAA);
+			background: -o-linear-gradient(#EEEEEE, #AAAAAA);
+			background: -webkit-linear-gradient(#EEEEEE, #AAAAAA);
+			background: linear-gradient(#EEEEEE, #AAAAAA);
+
+			border-radius: inherit;
+
+		}
+
+		.switch label span{
+			display: block;
+			width: 40%;
+			height: 100%;
+			background: #C0C0C0;
+
+			position: absolute;
+			z-index: 2;
+			right: 60%;
+			top: 0;
+
+			background: -moz-linear-gradient(#E0E0E0, #A0A0A0);
+			background: -ms-linear-gradient(#E0E0E0, #A0A0A0);
+			background: -o-linear-gradient(#E0E0E0, #A0A0A0);
+			background: -webkit-linear-gradient(#E0E0E0, #A0A0A0);
+			background: linear-gradient(#E0E0E0, #A0A0A0);
+
+			border-radius: inherit;
+
+		}
+
+		.switch label span:after {
+			content: "";
+
+			position: absolute;
+			left: 15%;
+			top: 25%;
+
+			width: 70%;
+			height: 50%;
+
+			background: -moz-linear-gradient(#F7F7F7, #CCCCCC);
+			background: -ms-linear-gradient(#F7F7F7, #CCCCCC);
+			background: -o-linear-gradient(#F7F7F7, #CCCCCC);
+			background: -webkit-linear-gradient(#F7F7F7, #CCCCCC);
+			background: linear-gradient(#F7F7F7, #CCCCCC);
+			border-radius: inherit;
+		}
+
+		.switch label span:before {
+			content: "";
+
+			position: absolute;
+			top: 50%;
+			margin-top: -12px;
+			right: -50%;
+
+			text-transform: uppercase;
+			font-weight: bold;
+			font-family: Arial, sans-serif;
+			font-size: 12px;
+
+			color: #fff;
+
+		}
+
+		.switch input:checked ~ label {
+
+			background: -moz-linear-gradient(#004010, #1A6600);
+			background: -ms-linear-gradient(#004010, #1A6600);
+			background: -o-linear-gradient(#004010, #1A6600);
+			background: -webkit-linear-gradient(#004010, #1A6600);
+			background: linear-gradient(#004010, #1A6600);
+		}
+
+		.switch input:checked ~ label span{
+			right: -2px;
+		}
+
+		.switch input:checked ~ label span:before {
+			content: "Aprovado";
+			right: 100%;
+
+		}
+
+
+</style>
+@endsection
+
 @section('conteudo')
-<div class="container">
-<div class="register-box">
-  <div class="form-signin">
 
-  <div class="register-box-body">
-
-
-      <form class="needs-validation" method="post" action="{{ route('formulario.register') }}" novalidate>
-        {!! csrf_field() !!}
-        <div class="form-row">
-          <div class="form-group col-md-8">
-            <label for="inputRN">Razão social</label>
-            <input type="text" name="name" class="form-control" id="inputRN"  placeholder="razão social da empresa">
-            @if (session('status'))
-            <div class="alert alert-danger">
-              {{ session('status') }}
-            </div>
-            @endif
-          </div>
-          <input type="hidden" name="tipousuario" value="cliente" class="form-control" >
-          <input type="hidden" name="tipopessoa" value="juridica" class="form-control" >
-          <div class="form-group col-md-4 " >
-            <label for="inputPhoneNumber">Telefone</label>
-            <input type="text" name="telefone" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCPF">CNPJ</label>
-            <input type="text" name="cnpj" class="form-control" id="inputCPF" placeholder="CNPJ">
-            @if (session('status'))
-            <div class="alert alert-danger">
-              {{ session('status') }}
-            </div>
-            @endif
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail">E-mail</label>
-            <input type="email" name="email" name="email" class="form-control" id="inputEmail" placeholder="E-mail">
-            @if (session('status'))
-            <div class="alert alert-danger">
-              {{ session('status') }}
-            </div>
-            @endif
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword">Senha</label>
-            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha">
-            @if (session('status-senha'))
-            <div class="alert alert-danger">
-              {{ session('status-senha') }}
-            </div>
-            @endif
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword">Confirmar Senha</label>
-            <input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirmar Senha">
-            @if (session('status-senha'))
-            <div class="alert alert-danger">
-              {{ session('status-senha') }}
-            </div>
-            @endif
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputStreet">Rua</label>
-          <input type="text"name="rua" class="form-control" id="inputStreet" placeholder="Rua">
-          @if (session('status'))
-          <div class="alert alert-danger">
-            {{ session('status') }}
-          </div>
-          @endif
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-7">
-            <label for="inputBairro">Bairro</label>
-            <input type="text" name="bairro" class="form-control" id="inputBairro" placeholder="Bairro">
-            @if (session('status'))
-            <div class="alert alert-danger">
-              {{ session('status') }}
-            </div>
-            @endif
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputHnumber">Número</label>
-            <input type="text" name="numero" class="form-control" id="inputHnumber" placeholder="Número">
-            @if (session('status'))
-            <div class="alert alert-danger">
-              {{ session('status') }}
-            </div>
-            @endif
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputCommplemento">Complemento</label>
-            <input type="text" name="complemento" class="form-control" id="inputComplemento" placeholder="">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">Cidade</label>
-            <input type="text" name="cidade" class="form-control" id="inputCity">
-            @if (session('status'))
-            <div class="alert alert-danger">
-              {{ session('status') }}
-            </div>
-            @endif
-          </div>
-          <div class="form-group col-md-3 offset-sm-1">
-            <label for="inputCEP">CEP</label>
-            <input type="text" name="cep" class="form-control" id="inputCPF">
-            @if (session('status'))
-            <div class="alert alert-danger">
-              {{ session('status') }}
-            </div>
-            @endif
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputState">Estado</label>
-            <select id="inputState">
-              <option value="">Selecione</option>
-              <option value="AC">Acre</option>
-              <option value="AL">Alagoas</option>
-              <option value="AP">Amapá</option>
-              <option value="AM">Amazonas</option>
-              <option value="BA">Bahia</option>
-              <option value="CE">Ceará</option>
-              <option value="DF">Distrito Federal</option>
-              <option value="ES">Espirito Santo</option>
-              <option value="GO">Goiás</option>
-              <option value="MA">Maranhão</option>
-              <option value="MS">Mato Grosso do Sul</option>
-              <option value="MT">Mato Grosso</option>
-              <option value="MG">Minas Gerais</option>
-              <option value="PA">Pará</option>
-              <option value="PB">Paraíba</option>
-              <option value="PR">Paraná</option>
-              <option value="PE">Pernambuco</option>
-              <option value="PI">Piauí</option>
-              <option value="RJ">Rio de Janeiro</option>
-              <option value="RN">Rio Grande do Norte</option>
-              <option value="RS">Rio Grande do Sul</option>
-              <option value="RO">Rondônia</option>
-              <option value="RR">Roraima</option>
-              <option value="SC">Santa Catarina</option>
-              <option value="SP">São Paulo</option>
-              <option value="SE">Sergipe</option>
-              <option value="TO">Tocantins</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
-        <div class="col-md-4 offset-md-4 mb-3">
-        <button type="submit" class="btn btn-success btn-block">Criar seu cadastro</button>
-      </div>
-      </form>
-
-
-
-
+<div class="col-md-12 col-md-offset-4">
+  <h2><br>Pessoas Juridicas Cadastradas</h2>
+  <br>
 </div>
+@if (session('status'))
+<div class="alert alert-info">
+	{{ session('status') }}
 </div>
-</div>
+@endif
+  <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover order-column">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Distribuidor</th>
 
+            </tr>
+          </thead>
+          <tbody>
+            <?php $cont = 1; ?>
+            @foreach ($distribuidores as $distribuidor)
+            <tr>
+              <th>{{ $cont }}</th>
+              <th>{{ $distribuidor->nome }}</th>
+              <th>{{ $distribuidor->email }}</th>
+              <th>
+
+                @if($distribuidor->distribuidor === 0)
+
+                <form class="" action="{{ route('form.change.distribuidor', $distribuidor->id) }}" method="post">
+                  @csrf
+                  <input type="hidden" name="atual" value="normal">
+                  <input type="hidden" name="exclusao" value="false">
+                  <div class="switch">
+    								<input type="checkbox" onChange="this.form.submit()"  onclick="return confirm('Você tem certeza que deseja torná-lo(a) distribuidor?')"  name="option" id="option" />
+    								<label for="option"><span></span></label>
+    							</div>
+
+                </form>
+                @else
+                <form class="" action="{{ route('form.change.distribuidor', $distribuidor->id) }}" method="post">
+                  <input type="hidden" name="atual" value="distribuidor">
+									<input type="hidden" name="exclusao" value="false">
+                  @csrf
+                  <div class="switch">
+                    <input checked="" type="checkbox" onChange="this.form.submit()"  onclick="return confirm('Você tem certeza que deseja excluí-lo(a) de ser um distribuidor?')"  name="option" id="option" />
+                    <label for="option"><span></span></label>
+                  </div>
+                </form>
+                @endif
+              </th>
+            </tr>
+
+              <?php $cont++; ?>
+              @endforeach
+
+            </tbody>
+          </table>
+        </div>
 
 @endsection

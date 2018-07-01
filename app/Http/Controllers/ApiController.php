@@ -64,9 +64,6 @@ class ApiController extends Controller
           $contador++;
       }
 
-
-
-
       $dadosDistribuidores = $this->coordenadasDistribuidor($enderecos);
 
 
@@ -110,20 +107,19 @@ class ApiController extends Controller
 
       $menorDistancia = $todasDistancias[0];
       foreach ($todasDistancias as $key => $value) {
-
         if ($menorDistancia['distancia'] > $value['distancia']) {
           $menorDistancia = [
             'idUser' => $value['idUser'],
             'idJuridica' => $value['idJuridica'],
-            'menorDistancia' => $value['menorDistancia'],
+            'distancia' => $value['distancia'],
           ];
+
         }
       }
-
       return $menorDistancia;
     }
 
-    public function localizacao(Request $request)
+    public function getMenorDistancia(Request $request)
     {
       $lat = $request->posicaoLat;
       $lon = $request->posicaoLon;
@@ -137,16 +133,27 @@ class ApiController extends Controller
 
       $this->setEndereco($endereco['formatted_address']);
 
-      // dd($request->individual);
-      $qntProdParaOrcamento = array(
-        '0' => $request->individual,
-        '1' => $request->sm,
-        '2' => $request->display,
-        '3' => $request->caixaMasterIndividual,
-        '4' => $request->caixaMasterSm,
-        '5' => $request->caixaMasterDisplay,
+      $idDistribuidores = $this->encontraDistribuidor();
 
-      );
+      $menorDistancia = $this->calculaMenorDistanica($idDistribuidores);
+      $orcamento  =  $this->precoProdutos($request);
+      $qntProdutos = $this->getQntProdParaOrcamento();
+
+      return view('comuns.produtos', compact('orcamento', 'menorDistancia','qntProdutos'));
+
+
+    }
+    public function precoProdutos(Request $request)
+      {
+      // dd($request->individual);
+      $qntProdParaOrcamento = [
+        'Individual' => $request->individual,
+        'SM' => $request->sm,
+        'Display' => $request->display,
+        'CaixaMasterIndividual' => $request->caixaMasterIndividual,
+        'CaixaMasterSm' => $request->caixaMasterSm,
+        'CaixaMasterDisplay' => $request->caixaMasterDisplay,
+      ];
 
       foreach ($qntProdParaOrcamento as $key => $value) {
         if($value === null)
@@ -157,20 +164,16 @@ class ApiController extends Controller
 
       $this->setQntProdParaOrcamento($qntProdParaOrcamento);
 
-      $valorOrcamentoPorProduto = $this->realizaOrcamento();
+      $orcamento = $this->realizaOrcamento();
 
-      return view('comuns.produtos', compact('valorOrcamentoPorProduto'));
+      return $orcamento;
 
-      $idDistribuidores = $this->encontraDistribuidor();
-
-      $menorDistancia = $this->calculaMenorDistanica($idDistribuidores);
 
 
     }
 
     public function getEnderecoUsuario($coordenadas)
     {
-      // dd($coordenadas);
       $endereco = Geocoder::getAddressForCoordinates($coordenadas['latitude'], $coordenadas['longitude']);
       return $endereco;
     }
@@ -276,30 +279,32 @@ class ApiController extends Controller
 
     public function realizaOrcamento()
     {
-      $valorProduto = array();
-      $valorPorProdutoOrcamento = array();
-      $cont = 0;
+      $valorProduto = [];
+      $valorPorProdutoOrcamento = [];
+
       $dadosParaOrcamento = $this->qntProdParaOrcamento;
 
-      $valores = DB::table('valorproduto')->select('idProduto','valor')->get();
-      foreach ($valores as $valor => $value) {
-        if ($value->idProduto == $cont+1) {
-          $valorProduto[$cont] = $value->valor;
-        }
-        $cont++;
-      }
-
+      $valores = DB::table('valorproduto')->join('produto','valorproduto.idProduto','=','produto.idProduto')
+        ->select('nome','produto.idProduto','valor')->get();
       $cont = 0;
-
       $valorOrcamentoTotal = 0;
 
       foreach ($dadosParaOrcamento as $key => $value) {
-        $valorPorProdutoOrcamento[$cont] = $dadosParaOrcamento[$cont] * $valorProduto[$cont];
-        $valorOrcamentoTotal = $valorOrcamentoTotal + $valorPorProdutoOrcamento[$cont];
-        $cont++;
+        foreach ($valores as $valor => $dado) {
+          if ($dado->nome == $key) {
+            $valorProduto[$key] = $dado->valor;
+          }
+        }
+        $valorPorProdutoOrcamento[$key] = $dadosParaOrcamento[$key] * $valorProduto[$key];
+        $valorOrcamentoTotal = $valorOrcamentoTotal + $valorPorProdutoOrcamento[$key];
       }
 
-      return $valorPorProdutoOrcamento;
+      $orcamento =[
+        'total' => $valorOrcamentoTotal,
+        'separado' => $valorPorProdutoOrcamento,
+      ];
+
+      return $orcamento;
     }
 
     public function setEndereco($endereco)

@@ -8,6 +8,7 @@ use App\Models\Users;
 use App\Models\Endereco;
 use App\Models\Fisica;
 use App\Models\Juridica;
+use App\Models\Orcamento;
 
 use DB;
 
@@ -39,24 +40,47 @@ class MainController extends Controller
     {
         return view('comuns.produtos');
     }
-    // function distribuidores()
-    // {
-    //   $dados = DB::table('dadosusuariojuridica')->select('*')->where('distribuidor', '=', '1')->get();
-    //   return view('comuns.distribuidores', compact('dados'));
-    // }
     function sobre()
     {
         return view('comuns.sobre');
     }
-    function detalhes()
-    {
-
-      return view('comuns.detalhes');
-    }
 
     public function realizaOrcamento(Request $request)
     {
-      dd($request->caixaMasterIndividual);
+
+      $dadosOrcamento = $request->all();
+      $dadosParaBancoOrcamento = [
+      	'qntIndividual' =>  $dadosOrcamento['IndividualQnt'],
+      	'qntCaixaMasterIndividual' =>  $dadosOrcamento['CaixaMasterIndividualQnt'],
+      	'qntDisplay' =>  $dadosOrcamento['DisplayQnt'],
+      	'qntCaixaMasterDisplay' =>  $dadosOrcamento['CaixaMasterDisplayQnt'],
+      	'qntSm' =>  $dadosOrcamento['SMQnt'],
+        'qntCaixaMasterSm' =>  $dadosOrcamento['CaixaMasterSmQnt'],
+        'idRecebedor' =>  $dadosOrcamento['idUserRec'],
+        'idEmissor' =>  $dadosOrcamento['idUserPed'],
+        'aprovacao' =>  true,
+        'valor' =>  $dadosOrcamento['total'],
+      ];
+
+      $qntOrcPed = DB::table('users')->where('id','=',$dadosOrcamento['idUserPed'])
+        ->select('qntOrcPed')->first();
+      $qntOrcRec = DB::table('users')->where('id','=',$dadosOrcamento['idUserRec'])
+        ->select('qntOrcRec')->first();
+
+      Users::where('id','=',$dadosOrcamento['idUserPed'])->update(['qntOrcPed' => $qntOrcPed->qntOrcPed+1]);
+      Users::where('id','=',$dadosOrcamento['idUserRec'])->update(['qntOrcRec' => $qntOrcRec->qntOrcRec+1]);
+
+
+      $dadosOrcamentoEmail = Orcamento::create($dadosParaBancoOrcamento);
+
+      // $this->enviaEmailDistribuidor($dadosOrcamentoEmail);
+      return redirect()->route('produtos')->with('status','Orçamento efetivado! Aguarde o contado de nossos distribuidores!');
+
+    }
+    public function distribuidorInicial($idUser)
+    {
+      $orcamentosRecebidos = DB::table('orcamento')->join('users','id','idEmissor')->where('idRecebedor','=',$idUser)->get();
+      return view('distribuidor.orcamentosrecebidos', compact('orcamentosRecebidos'));
     }
 
 
