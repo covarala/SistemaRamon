@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\ProdutoDistribuidor;
 use App\Models\Users;
 use App\Models\Endereco;
 use App\Models\Fisica;
@@ -67,9 +68,39 @@ class MainController extends Controller
       $qntOrcRec = DB::table('users')->where('id','=',$dadosOrcamento['idUserRec'])
         ->select('qntOrcRec')->first();
 
+
+      $updateQntDist = DB::table('produto')
+        ->join('produtodistribuidor','produtodistribuidor.idProduto', 'produto.idProduto')
+        ->where('idJuridica','=',$dadosOrcamento['idJuridica'])
+        ->select('produtodistribuidor.idJuridica','produto.idProduto','produto.nome', 'produtodistribuidor.qnt')
+        ->get();
+
+      $dadosUpdate = [];
+
+      foreach ($dadosOrcamento as $key => $value) {
+
+        foreach ($updateQntDist as $chave => $valor) {
+          if ($key === $valor->nome."Qnt") {
+          $dadosUpdate["idJuridica"] = $valor->idJuridica;
+          $dadosUpdate[$valor->idProduto] = $valor->qnt - $value;
+          }
+        }
+      }
+
+      foreach ($dadosUpdate as $key => $value) {
+        if ($key !== 'idJuridica') {
+          DB::table('produtodistribuidor')
+            ->where('idJuridica',$dadosUpdate['idJuridica'])
+            ->where('idProduto',$key)
+            ->update([
+              'qnt' => $value
+            ]);
+        }
+      }
+      
+
       Users::where('id','=',$dadosOrcamento['idUserPed'])->update(['qntOrcPed' => $qntOrcPed->qntOrcPed+1]);
       Users::where('id','=',$dadosOrcamento['idUserRec'])->update(['qntOrcRec' => $qntOrcRec->qntOrcRec+1]);
-
 
       $dadosOrcamentoEmail = Orcamento::create($dadosParaBancoOrcamento);
 

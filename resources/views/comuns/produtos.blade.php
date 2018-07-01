@@ -105,12 +105,12 @@
 
           @foreach ($separado as $key => $value)
           <div class="form-group row">
-            <label for="inputPassword" class="col-form-label">{{$key}}: R${{$value}},00</label>
+            <label for="inputPassword" class="col-form-label">{{$key}}: R$ {{number_format($value, 2, ',', '.')}}</label>
             <input type="hidden" name="{{$key.'Valor'}}" value="{{$value}}">
           </div>
           @endforeach
           <div class="form-group row">
-            <label for="inputPassword" class="col-form-label font-weight-bold">Valor Total: R${{$total}},00</label>
+            <label for="inputPassword" class="col-form-label font-weight-bold">Valor Total: R$ {{number_format($total, 2, ',', '.')}}</label>
             <input type="hidden" name="total" value="{{$total}}">
             <input type="hidden" name="idUserRec" value="{{$menorDistancia['idUser']}}">
             <input type="hidden" name="idUserPed" value="{{$sessao['id']}}">
