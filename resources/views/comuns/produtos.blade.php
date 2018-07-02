@@ -147,7 +147,7 @@
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="{{ asset('imagens\SMcomsombra.png')}}" width="208" height="225" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('imagens\SMcard.png')}}" width="208" height="285" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">SM - 100g</h5>
       <p class="card-text" align="justify">Contém 04 barras de 25g.<br>
@@ -158,7 +158,7 @@ Validade, informação nutricional e demais informações.</p>
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('imagens\Displaycard.png')}}" width="208" height="285" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Display - 450g</h5>
       <p class="card-text" align="justify">Contém 18 barras de 25 g.<br>Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.</p>
@@ -171,7 +171,7 @@ Validade, informação nutricional e demais informações.</p>
 <!-- segunda linha -->
 <div class="card-deck mb-3">
   <div class="card">
-    <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('imagens\2.png')}}" width="208" height="225" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Caixa Master - Embalagem SM</h5>
       <p class="card-text">Com 56 embalagens de 100g.<br>
@@ -182,7 +182,7 @@ Validade, informação nutricional e demais informações.</p>
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('imagens\3.png')}}" width="208" height="225" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Caixa Master - Embalagem 450g</h5>
       <p class="card-text">Com 32 embalagens de 450g<br>Peso: 14,4 Kg.</p>
@@ -192,7 +192,7 @@ Validade, informação nutricional e demais informações.</p>
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('imagens\4.png')}}" width="208" height="225" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Caixa Master - Embalagem Individual 10 Kg</h5>
       <p class="card-text" align="justify">Com 400 barras de 25g.<br>
