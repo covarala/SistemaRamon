@@ -57,7 +57,7 @@
           <input id="posicaoLat" type="hidden" name="posicaoLat"  value="">
 
           <div class="modal-footer">
-            <h6 class="text justify-content-start py-4 text-danger font-weight-bold">Atenção !!! Permita a utilização da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você !</h6>
+            <h6 class="text justify-content-start py-4 text-danger font-weight-bold" align="justify">Atenção!!! Permita a utilização da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você!</h6>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             <button type="button" id="getCoordenadas" class="btn btn-success" onclick="getLocation()">Continuar</button>
           </div>
