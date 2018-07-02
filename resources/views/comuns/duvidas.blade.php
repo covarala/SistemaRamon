@@ -1,6 +1,6 @@
 @extends('comuns.estatico.layout')
-@section('conteudo')
 
+@section('conteudo')
 <div class="container">
     <br></br>
       <h5 class="text h4 mb-2 font-weight-normal" style="color: #0d823b;">Como realizar o orçamento?</h5>

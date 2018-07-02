@@ -47,19 +47,19 @@ class HomeController extends Controller
     }
     public function clientes()
     {
-      $clientes = DB::table('users')->where('tipousuario','=','cliente')->orderBy('nome', 'asc')->orderBy('qntOrcPed')->get();
+      $clientes = DB::table('users')->where('tipoUsuario','=','cliente')->orderBy('nome', 'asc')->orderBy('qntOrcPed')->get();
       $telefones = DB::table('telefonesusuarios')->get();
 
       return view('admin.clientes',compact('clientes', 'telefones'));
     }
     public function usuarios()
     {
-      $usuarios = DB::table('users')->orderBy('nome', 'asc')->get();
+      $usuarios = DB::table('users')->orderBy('tipoUsuario', 'asc')->get();
       return view('admin.usuarios', compact('usuarios'));
     }
     public function distribuidor()
     {
-        $distribuidores = DB::table('users')->join('juridica', 'id', '=', 'idUser')
+        $distribuidores = DB::table('users')->join('juridica', 'users.id', '=', 'idUser')
         ->where('distribuidor','=',true)->orderBy('nome', 'asc')->get();
         $telefones = ViewTelefone::all();
 
@@ -75,7 +75,8 @@ class HomeController extends Controller
     }
     public function visaodistribuidor()
     {
-        return view('distribuidor.inicial');
+      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')->get();
+      return view('distribuidor.orcamentos', compact('orcamentosRecebidos'));
     }
 
     public function viewAtualizaProduto($idProduto)
@@ -104,8 +105,6 @@ class HomeController extends Controller
         'nome'  =>  $request->nome,
         'descricao'  =>  $request->descricao,
       ];
-      // $updateProduto = Produto::where('idProduto', '=', $request->idProduto)->update($dadosProduto);
-      // $updateValorProduto = ValorProduto::where('idProduto', '=', $request->idProduto)->update($dadosValorProduto);
 
       $img = $request->file('imagem');
 
@@ -122,6 +121,8 @@ class HomeController extends Controller
           'diretorio' => $diretorioImg,
         ];
         $upload  = $img->store('public/produto'.'/'.$dadosImagem['nomeHash']);
+        $updateProduto = Produto::where('idProduto', '=', $request->idProduto)->update($dadosProduto);
+        $updateValorProduto = ValorProduto::where('idProduto', '=', $request->idProduto)->update($dadosValorProduto);
 
         ImagensProdutos::create($dadosImagem);
         if ( !$upload ){
@@ -187,11 +188,11 @@ class HomeController extends Controller
       if ($request['atual'] === 'distribuidor')
       {
         Juridica::where('idUser','=',$idUser)->update(['distribuidor' => false]);
-        Users::where('id','=',$idUser)->update(['tipousuario' => 'cliente']);
+        Users::where('id','=',$idUser)->update(['tipoUsuario' => 'cliente']);
       }
       else {
         Juridica::where('idUser',$idUser)->update(['distribuidor' => true]);
-        Users::where('id','=',$idUser)->update(['tipousuario' => 'distribuidor']);
+        Users::where('id','=',$idUser)->update(['tipoUsuario' => 'distribuidor']);
 
       }
       if ($request['exclusao'] === 'false') {
@@ -214,7 +215,13 @@ class HomeController extends Controller
     {
       $usuario =  Users::where('id','=', "$idUsuario")->first();
 
-      return view('admin/atualiza/usuario', compact('usuario'));
+      if ($usuario->tipoUsuario === 'admin') {
+        return view('admin/atualiza/usuario', compact('usuario'));
+      }else {
+        return redirect()->route('admin.usuario')->with('status', 'Não é possível alterar usuarios que não seja administradores!');
+
+      }
+
     }
     public function updateUsuario(Request $request)
     {
@@ -237,10 +244,10 @@ class HomeController extends Controller
         'nome'  =>  $request->nome,
         'sobrenome'  =>  $request->sobrenome,
         'email'  =>  $request->email,
-        'tipousuario'  =>  $request->tipousuario,
+        'tipoUsuario'  =>  $request->tipoUsuario,
       ];
 
-      if ($dadosUsuario['tipousuario'] === 'distribuidor') {
+      if ($dadosUsuario['tipoUsuario'] === 'distribuidor') {
         $this->cadastraDistribuidor($dados['id']);
       }
 
@@ -252,7 +259,7 @@ class HomeController extends Controller
     public function excluiUsuario($idUser)
     {
       $dadoUser = Users::find($idUser);
-      if($dadoUser->tipousuario === 'admin')
+      if($dadoUser->tipoUsuario === 'admin')
       {
         Users::destroy($idUser);
       }

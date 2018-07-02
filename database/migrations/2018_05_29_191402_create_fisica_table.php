@@ -14,7 +14,7 @@ class CreateFisicaTable extends Migration
     public function up()
     {
         Schema::create('fisica', function (Blueprint $table) {
-            $table->increments('idFisica');
+            $table->increments('id');
             $table->string('cpf');
             $table->integer('idUser')->foreign('idUser')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

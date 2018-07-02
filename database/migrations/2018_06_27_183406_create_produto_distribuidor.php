@@ -16,10 +16,10 @@ class CreateProdutoDistribuidor extends Migration
         //
         Schema::create('produtodistribuidor', function (Blueprint $table) {
 
+        $table->increments('id');
         $table->integer('idJuridica')->foreign('idJuridica')->references('idJuridica')->on('juridica')->onDelete('cascade')->onUpdate('cascade');
         $table->integer('idProduto')->foreign('idProduto')->references('idProduto')->on('produto')->onDelete('cascade')->onUpdate('cascade');
         $table->integer('qnt')->default('0');
-        $table->primary(['idJuridica', 'idProduto']);
         $table->timestamps();
         });
     }

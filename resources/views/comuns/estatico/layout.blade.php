@@ -3,13 +3,14 @@ $tmp = session()->all();
 if (!isset($tmp['email'])) {
   $tmp['email']=null;
 }
-if (!isset($tmp['tipousuario'])) {
-$tmp['tipousuario']=null;
+if (!isset($tmp['tipoUsuario'])) {
+$tmp['tipoUsuario']=null;
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="google-site-verification" content="EmGqWg_a_fJy9kHdv7zJpSM96CnHAjF8wXaL3G8Dn5o" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,6 +51,9 @@ $tmp['tipousuario']=null;
           <li class="nav-item active">
             <a class="nav-link text-white" href="{{ route('sobre') }}">Sobre<span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="{{ route('duvidas') }}">Dúvidas<span class="sr-only">(current)</span></a>
+          </li>
         </ul>
             <!-- Authentication Links -->
             @if($tmp['email'] === null)
@@ -71,7 +75,7 @@ $tmp['tipousuario']=null;
             <ul class="navbar-nav ml-auto">
             <ul class="navbar-nav">
               <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
-                @if(isset($tmp['tipousuario']) && $tmp['tipousuario'] === 'admin')
+                @if(isset($tmp['tipoUsuario']) && $tmp['tipoUsuario'] === 'admin')
                 <li class="nav-item active">
                   <a class="nav-link text-white" href="{{ route('admin.dashboard') }}">Voltar ao painel de controle<span class="sr-only">(current)</span></a>
                 </li>
@@ -102,6 +106,11 @@ $tmp['tipousuario']=null;
 
 
       </div>
+      @if (session('status-cadastro'))
+      <div class="alert alert-info">
+        {{ session('status-cadastro') }}
+      </div>
+      @endif
     </nav>
     @yield('conteudo')
 
@@ -118,7 +127,7 @@ $tmp['tipousuario']=null;
   </body>
   <footer class="text-muted" >
     <div class="container">
-      <p class="text-sm-center">Politica de privacidade <a href="#">clique aqui</a></p>
+      <p class="text-sm-center">Politica de privacidade <a href="{{route('privacidade')}}">clique aqui</a></p>
       <p class="text-sm-center">Rapadura Mônada: Faz. Itapiraçaba - Local denominado Sto Antônio -
 Rod. Januária Brejo do Amparo, 5090 - Zona Rural - Januária / MG – CEP 39.480-000</p>
     </div>

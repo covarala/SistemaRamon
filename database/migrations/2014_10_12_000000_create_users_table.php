@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('sobrenome');
             $table->string('email')->unique()->maxLength(191);
             $table->string('password');
-            $table->enum('tipousuario', ['admin', 'distribuidor', 'cliente']);
+            $table->enum('tipoUsuario', ['admin', 'distribuidor', 'cliente'])->default('cliente');
             $table->integer('qntOrcRec')->default(0);
             $table->integer('qntOrcPed')->default(0);
 

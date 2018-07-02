@@ -48,7 +48,7 @@
         <!–– formulário da pessoa fisica  : ––>
         <div class="col-md-6 order-md-1 offset-md-3">
 
-        <form class="needs-validation" method="post" action="{{ route('formulario.register') }}" novalidate>
+        <form class="needs-validation" method="post" action="{{ route('formulario.register.fisica') }}" novalidate>
           {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
@@ -74,7 +74,7 @@
               <input type="text" name="telefone" class="form-control" id="inputPhoneNumber" placeholder="Telefone">
             </div>
           </div>
-          <input type="hidden" name="tipousuario" value="cliente" class="form-control">
+          <input type="hidden" name="tipoUsuario" value="cliente" class="form-control">
           <input type="hidden" name="tipopessoa" value="fisica" class="form-control">
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -91,27 +91,27 @@
             <div class="form-group col-md-6">
               <label for="inputEmail">E-mail</label>
               <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
-              @if (session('status'))
+              @if (session('status-email'))
               <div class="alert alert-danger">
-                {{ session('status') }}
+                {{ session('status-email') }}
               </div>
               @endif
             </div>
             <div class="form-group col-md-6">
               <label for="inputPassword">Senha</label>
               <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha">
-              @if (session('status'))
+              @if (session('status-senha'))
               <div class="alert alert-danger">
-                {{ session('status') }}
+                {{ session('status-senha') }}
               </div>
               @endif
             </div>
             <div class="form-group col-md-6">
               <label for="inputPassword">Confirmar Senha</label>
               <input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirmar Senha">
-              @if (session('status'))
+              @if (session('status-senha'))
               <div class="alert alert-danger">
-                {{ session('status') }}
+                {{ session('status-senha') }}
               </div>
               @endif
             </div>
@@ -161,7 +161,7 @@
             </div>
             <div class="form-group col-md-3 offset-sm-1">
               <label for="inputCEP">CEP</label>
-              <input type="text" name="cep" class="form-control" id="inputCPF">
+              <input type="text" name="cep" class="form-control" id="inputCEP">
               @if (session('status'))
               <div class="alert alert-danger">
                 {{ session('status') }}
@@ -170,7 +170,7 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputState ">Estado</label>
-              <select id="inputState">
+              <select id="inputState" name="estado">
                 <option value="">Selecione</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -221,7 +221,7 @@
       <div class="tab-pane fade" id="pills-juridica" role="tabpanel" aria-labelledby="pills-juridica-tab">
 
       <div class="col-md-6 order-md-1 offset-md-3">
-        <form class="needs-validation" method="post" action="{{ route('formulario.register') }}" novalidate>
+        <form class="needs-validation" method="post" action="{{ route('formulario.register.juridica') }}" novalidate>
           {!! csrf_field() !!}
           <div class="form-row">
             <div class="form-group col-md-8">
@@ -233,7 +233,7 @@
               </div>
               @endif
             </div>
-            <input type="hidden" name="tipousuario" value="cliente" class="form-control" >
+            <input type="hidden" name="tipoUsuario" value="cliente" class="form-control" >
             <input type="hidden" name="tipopessoa" value="juridica" class="form-control" >
             <div class="form-group col-md-4 " >
               <label for="inputPhoneNumber">Telefone</label>
@@ -242,8 +242,8 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputCPF">CNPJ</label>
-              <input type="text" name="cnpj" class="form-control" id="inputCPF" placeholder="CNPJ">
+              <label for="inputCNPJ">CNPJ</label>
+              <input type="text" name="cnpj" class="form-control" id="inputCNPJ" placeholder="CNPJ">
               @if (session('status'))
               <div class="alert alert-danger">
                 {{ session('status') }}
@@ -255,9 +255,9 @@
             <div class="form-group col-md-6">
               <label for="inputEmail">E-mail</label>
               <input type="email" name="email" name="email" class="form-control" id="inputEmail" placeholder="E-mail">
-              @if (session('status'))
+              @if (session('status-email'))
               <div class="alert alert-danger">
-                {{ session('status') }}
+                {{ session('status-email') }}
               </div>
               @endif
             </div>
@@ -325,7 +325,7 @@
             </div>
             <div class="form-group col-md-3 offset-sm-1">
               <label for="inputCEP">CEP</label>
-              <input type="text" name="cep" class="form-control" id="inputCPF">
+              <input type="text" name="cep" class="form-control" id="inputCEP">
               @if (session('status'))
               <div class="alert alert-danger">
                 {{ session('status') }}
@@ -334,7 +334,7 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputState">Estado</label>
-              <select id="inputState">
+              <select id="inputState" name="estado">
                 <option value="">Selecione</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -397,6 +397,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>
+    <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>

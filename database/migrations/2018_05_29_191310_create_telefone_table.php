@@ -14,7 +14,7 @@ class CreateTelefoneTable extends Migration
     public function up()
     {
         Schema::create('telefone', function (Blueprint $table) {
-            $table->increments('idTelefone');
+            $table->increments('id');
             $table->string('telefone');
             $table->integer('idUser')->foreign('idUser')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

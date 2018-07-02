@@ -14,12 +14,9 @@ class CreateProdutoTable extends Migration
     public function up()
     {
         Schema::create('produto', function (Blueprint $table) {
-            $table->increments('idProduto');
+            $table->increments('id');
             $table->string('nome');
             $table->string('descricao');
-            // $table->decimal('valor', 10, 2);
-            // $table->integer('qnt')->default(0);
-            // $table->integer('idJuridica')->foreign('idJuridica')->references('idJuridica')->on('juridica')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

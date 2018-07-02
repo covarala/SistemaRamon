@@ -14,7 +14,7 @@ class CreateOrcamentoTable extends Migration
     public function up()
     {
         Schema::create('orcamento', function (Blueprint $table) {
-            $table->increments('idOrcamento');
+            $table->increments('id');
             $table->integer('qntIndividual')->default('0');
             $table->integer('qntCaixaMasterIndividual')->default('0');
             $table->integer('qntDisplay')->default('0');

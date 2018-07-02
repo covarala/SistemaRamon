@@ -15,7 +15,7 @@
 Route::get('home', function () {
     return view('comuns.inicial');
 });
-Route::get('/teste', 'ApiController@encontraDistribuidor');
+Route::get('/teste', 'MainController@teste');
 Route::get('/testeGetCordenadas', function ()
 {
   return view('teste');
@@ -62,10 +62,13 @@ Route::get('/ ', 'MainController@inicial');
 Route::get('/entrar', 'MainController@login')->name('entrar');
 Route::get('/registrar', 'MainController@register')->name('registrar');
 Route::post('/formulario/inicial', 'LoginController@login')->name('formulario.login');
-Route::post('/formulario/registrar', 'LoginController@register')->name('formulario.register');
+Route::post('/formulario/registrar/fisica', 'LoginController@register')->name('formulario.register.fisica');
+Route::post('/formulario/registrar/juridica', 'LoginController@register')->name('formulario.register.juridica');
 Route::get('/produtos', 'MainController@produtos')->name('produtos');
 Route::get('/sobre', 'MainController@sobre')->name('sobre');
 Route::get('/contatos', 'MainController@contatos')->name('contatos');
+Route::get('/privacidade', 'MainController@privacidade')->name('privacidade');
+Route::get('/duvidas', 'MainController@duvidas')->name('duvidas');
 
 //Rotas Distribuidores Resgistrados
 Route::get('/distribuidor/inicial/{idDistribuidor}', 'MainController@distribuidorInicial')->name('distribuidor.inicial');

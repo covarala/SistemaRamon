@@ -254,7 +254,7 @@ class ApiController extends Controller
     {
 
       $dadoJuridica = DB::table('dadosusuariojuridica')->where('distribuidor','=', true)->where('idUser', '=', $idDistribuidor)->first();
-      $dadosQntProdutosDistribuidores = DB::table('qntProdutosDistribuidores')->where('idJuridica','=',$dadoJuridica->idJuridica)->get();
+      $dadosQntProdutosDistribuidores = DB::table('qntprodutosdistribuidores')->where('idJuridica','=',$dadoJuridica->idJuridica)->get();
 
       $contador = 0;
       $produtosDist =[];
@@ -284,8 +284,8 @@ class ApiController extends Controller
 
       $dadosParaOrcamento = $this->qntProdParaOrcamento;
 
-      $valores = DB::table('valorproduto')->join('produto','valorproduto.idProduto','=','produto.idProduto')
-        ->select('nome','produto.idProduto','valor')->get();
+      $valores = DB::table('valorproduto')->join('produto','valorproduto.id','=','produto.id')
+        ->select('nome','produto.id','valor')->get();
       $cont = 0;
       $valorOrcamentoTotal = 0;
 

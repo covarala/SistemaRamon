@@ -15,7 +15,7 @@ class CreateViews extends Migration
     {
         //
         DB::unprepared('
-        Create view TotalProdutosOrcamentados AS(
+        Create view totalprodutosorcamentados AS(
             SELECT SUM(qntIndividual) as Individual,
             SUM(qntCaixaMasterIndividual) as CaixaMasterIndInvidual,
             SUM(qntDisplay) as Display,
@@ -26,9 +26,9 @@ class CreateViews extends Migration
           );
           ');
           DB::unprepared('
-          Create view dadosUsuarioFisica AS(
+          Create view dadosusuariofisica AS(
           SELECT
-            fisica.idFisica,
+            fisica.id as idFisica,
             users.id as idUser,
             nome as Nome,
             email as Email,
@@ -50,9 +50,9 @@ class CreateViews extends Migration
           );
           ');
           DB::unprepared('
-          Create view dadosUsuarioJuridica AS(
+          Create view dadosusuariojuridica AS(
             SELECT
-            juridica.idJuridica,
+            juridica.id as idJuridica,
             users.id as idUser,
             nome as Nome,
             email as Email,
@@ -77,7 +77,7 @@ class CreateViews extends Migration
           );
           ');
           DB::unprepared('
-          Create view telefonesUsuarios AS(
+          Create view telefonesusuarios AS(
             SELECT users.nome, b.telefone, b.IdUser
             from users, telefone as b
             WHERE users.id = b.IdUser
@@ -85,25 +85,26 @@ class CreateViews extends Migration
           );
         ');
           DB::unprepared('
-          Create view qntProdutosDistribuidores AS(
-            SELECT u.id as idUser, j.idJuridica, u.nome as nomeUser,
-            u.qntOrcRec, prod.idProduto, prod.nome as nomeProduto,
-            p.qnt as qntProdDist from juridica as j, users as u,
+          Create view qntprodutosdistribuidores AS(
+            SELECT u.id as idUser, j.id as idJuridica, u.nome as nomeUser,
+            u.qntOrcRec, prod.id as idProduto, prod.nome as nomeProduto,
+            p.qnt as qntProdDist
+            from juridica as j, users as u,
             produtodistribuidor as p, produto as prod
-            where u.id = j.idUser AND p.idJuridica = j.idJuridica
+            where u.id = j.idUser AND p.id = j.id
             AND j.distribuidor = true
-            AND prod.idProduto = p.idProduto
-            ORDER BY idJuridica
+            AND prod.id = p.id
+            ORDER BY u.nome
           );
         ');
       }
 
       public function down()
       {
-          DB::unprepared('DROP view `TotalProdutosOrcamentados`;');
-          DB::unprepared('DROP view `dadosUsuarioFisica`;');
-          DB::unprepared('DROP view `dadosUsuarioJuridica`;');
-          DB::unprepared('DROP view `telefonesUsuarios`;');
-          DB::unprepared('DROP view `qntProdutosDistribuidores`;');
+          DB::unprepared('DROP view `totalprodutosorcamentados`;');
+          DB::unprepared('DROP view `dadosusuarioFisica`;');
+          DB::unprepared('DROP view `dadosusuariojuridica`;');
+          DB::unprepared('DROP view `telefonesusuarios`;');
+          DB::unprepared('DROP view `qntprodutosdistribuidores`;');
       }
 }

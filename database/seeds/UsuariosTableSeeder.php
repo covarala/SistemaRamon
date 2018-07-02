@@ -16,7 +16,7 @@ class UsuariosTableSeeder extends Seeder
             'name'    => 'André Braga',
         	  'email'   => 'andrebraga@email.com',
             'password'=> bcrypt('123456'),
-            'tipousuario'=> 'cliente',
+            'tipoUsuario'=> 'cliente',
           ]
           );
 

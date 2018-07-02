@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
           'nome'    => 'André',
           'sobrenome'    => 'Oliveira Braga',
           'email'   => 'andrebraga@email.com',
-          'password'=> bcrypt('123456'),
-          'tipousuario'=> 'admin',
+          'password'=> bcrypt('nptsr123'),
+          'tipoUsuario'=> 'admin',
         ]
         );
        Users::create(
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Desenvolvimentos',
           'email'   => 'grawldesenvolvimentos@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'admin',
+          'tipoUsuario'=> 'distribuidor',
         ]
         );
       Users::create(
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Souza Gomes Barbosa',
           'email'   => 'georgiabarbosa@email.com',
           'password'=> bcrypt('654321'),
-          'tipousuario'=> 'admin',
+          'tipoUsuario'=> 'admin',
         ]
         );
       Users::create(
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Guimarães Pereira',
           'email'   => 'lucasgp@email.com',
           'password'=> bcrypt('987654'),
-          'tipousuario'=> 'admin',
+          'tipoUsuario'=> 'admin',
         ]
         );
       Users::create(
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Catarina Isabelle Pinto',
           'email'   => 'suelicatarina@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'cliente',
+          'tipoUsuario'=> 'cliente',
         ]
         );
       Users::create(
@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Paulo Melo',
           'email'   => 'heitormelo@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'cliente',
+          'tipoUsuario'=> 'cliente',
         ]
         );
       Users::create(
@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Adriana Isabel Moreira',
           'email'   => 'joanamoreira@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'cliente',
+          'tipoUsuario'=> 'cliente',
         ]
         );
       Users::create(
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Emanuel Tomás Caldeira',
           'email'   => 'eduardoemanueltomascaldeira@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'cliente',
+          'tipoUsuario'=> 'cliente',
         ]
         );
       Users::create(
@@ -98,7 +98,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Mariah Sales',
           'email'   => 'teresinhamariahsales@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'cliente',
+          'tipoUsuario'=> 'cliente',
         ]
         );
       Users::create(
@@ -107,7 +107,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Luan Nicolas Barros',
           'email'   => 'emanuelluan@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'distribuidor',
+          'tipoUsuario'=> 'distribuidor',
         ]
         );
       Users::create(
@@ -116,7 +116,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Alessandra Gonçalves',
           'email'   => 'leticiagoncalves@email.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'distribuidor',
+          'tipoUsuario'=> 'distribuidor',
         ]
         );
       Users::create(
@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
           'sobrenome'    => 'Guimarães Pereira',
           'email'   => 'lucasgp59@gmail.com',
           'password'=> bcrypt('123456'),
-          'tipousuario'=> 'distribuidor',
+          'tipoUsuario'=> 'distribuidor',
         ]
         );
         Users::create(
@@ -134,7 +134,7 @@ class DatabaseSeeder extends Seeder
             'sobrenome'    => 'Mônada',
             'email'   => 'rapaduramonada@email.com',
             'password'=> bcrypt('123456'),
-            'tipousuario'=> 'admin',
+            'tipoUsuario'=> 'admin',
           ]
         );
 

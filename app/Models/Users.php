@@ -19,4 +19,9 @@ class Users extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function teste()
+    {
+      echo "to aaqiu";
+    }
 }

@@ -34,16 +34,16 @@ class LoginController extends Controller
           $request->session()->put('id', $dadosBanco['id']);
           $request->session()->put('nome', $dadosBanco['nome']);
 
-          if ($dadosBanco['tipousuario'] === 'admin') {
-            $request->session()->put('tipousuario', $dadosBanco['tipousuario']);
+          if ($dadosBanco['tipoUsuario'] === 'admin') {
+            $request->session()->put('tipoUsuario', $dadosBanco['tipoUsuario']);
             Auth::login($dadosBanco);
             return redirect('/admin/dashboard');
           }
-          if ($dadosBanco['tipousuario'] === 'distribuidor') {
-            $request->session()->put('tipousuario', $dadosBanco['tipousuario']);
+          if ($dadosBanco['tipoUsuario'] === 'distribuidor') {
+            $request->session()->put('tipoUsuario', $dadosBanco['tipoUsuario']);
             return redirect('/distribuidor/inicial/'.$dadosBanco['id']);
           }
-          $request->session()->put('tipousuario', $dadosBanco['tipousuario']);
+          $request->session()->put('tipoUsuario', $dadosBanco['tipoUsuario']);
           return redirect('/inicial');
         }else {
 
@@ -59,10 +59,12 @@ class LoginController extends Controller
     {
         //
         $dados = $request->all();
-        foreach ($dados as $dado) {
-          if ($dado === null) {
-            if ($dado !== 'telefone' || $dado !== 'complemento') {
 
+        foreach ($dados as $dado => $value) {
+          if ($value === null) {
+            if (!strcmp($dado,"telefone") || !strcmp($dado,"complemento")) {
+            }
+            else {
               return redirect()->route('registrar')->with('status', 'Campo obrigatório!')->withInput();
             }
           }
@@ -70,20 +72,20 @@ class LoginController extends Controller
         if ($dados['password'] == null || $dados['password_confirm'] == null) {
           return redirect()->route('registrar')->with('status-senha', 'Senha não pode ser nula!');
         }
-        if ($dados['password'] !== $dados['password_confirm']) {
+        if (strcmp($dados['password'], $dados['password_confirm'])) {
           return redirect()->route('registrar')->with('status-senha', 'Senhas diferentes!');
         }
         $dados['password'] = Hash::make($dados['password']);
         $dadosBanco = Users::where('email', '=' ,$dados['email'])->first();
         if ($dados['email'] === $dadosBanco['email']) {
-          return redirect()->route('registrar')->with('status', 'Email já cadastrado!');
+          return redirect()->route('registrar')->with('status-email', 'Email já cadastrado!');
         }
         $dadosUsers = [
           'nome' => $dados['name'],
           'sobrenome' => $dados['sobrenome'],
           'password' => $dados['password'],
           'email' => $dados['email'],
-          'tipousuario' => $dados['tipousuario'],
+          'tipoUsuario' => $dados['tipoUsuario'],
         ];
 
         Users::create($dadosUsers);
@@ -111,8 +113,8 @@ class LoginController extends Controller
 
         Endereco::create($dadosEndereco);
 
-        if ($dadosUsers['tipousuario'] === 'distribuidor' || $dados['tipopessoa'] === 'juridica') {
-          // code...
+
+        if ($dadosUsers['tipoUsuario'] === 'distribuidor' || $dados['tipopessoa'] === 'juridica') {
           $dadosJuridica = [
             'idUser' => $idUsers,
             'cnpj' => $dados['cnpj']
@@ -127,8 +129,7 @@ class LoginController extends Controller
           ];
           Fisica::create($dadosFisica);
         }
-        return redirect('/inicial');
-        // return response()->json(['success' => true]);
+        return redirect('/inicial')->with('status-cadastro', 'Cadastro efetuado com sucesso!');
       }
 
     public function deslogar()
@@ -150,13 +151,13 @@ class LoginController extends Controller
     {
       $dados = $request->all();
 
-      if ($dados['tipousuario'] === 'juridica') {
+      if ($dados['tipoUsuario'] === 'juridica') {
         // code...
         $dadosJuridica = DadosUsuarioJuridica::where('email', '=', $dados['email']);
       }
       else {
         // code...
-        if ($dados['tipousuario'] === 'fisica') {
+        if ($dados['tipoUsuario'] === 'fisica') {
         $dadosFisica = DadosUsuarioFisica::where('email', '=', $dados['email']);
       }
     }
@@ -165,7 +166,7 @@ class LoginController extends Controller
       'sobrenome' => $dados['sobrenome'],
       'password' => $dados['password'],
       'email' => $dados['email'],
-      'tipousuario' => $dados['tipousuario'],
+      'tipoUsuario' => $dados['tipoUsuario'],
     ];
 
     // TERMINAR DE IMPLMENTAR/////////////////////////////////////////////////////

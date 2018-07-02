@@ -21,6 +21,12 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function teste()
+     {
+       $teste = new Users;
+       $teste->teste();
+     }
+
     public function login()
     {
         return view('comuns.login');
@@ -44,6 +50,14 @@ class MainController extends Controller
     function sobre()
     {
         return view('comuns.sobre');
+    }
+    function duvidas()
+    {
+        return view('comuns.duvidas');
+    }
+    function privacidade()
+    {
+        return view('comuns.privacidade');
     }
 
     public function realizaOrcamento(Request $request)
@@ -97,7 +111,7 @@ class MainController extends Controller
             ]);
         }
       }
-      
+
 
       Users::where('id','=',$dadosOrcamento['idUserPed'])->update(['qntOrcPed' => $qntOrcPed->qntOrcPed+1]);
       Users::where('id','=',$dadosOrcamento['idUserRec'])->update(['qntOrcRec' => $qntOrcRec->qntOrcRec+1]);
@@ -110,7 +124,7 @@ class MainController extends Controller
     }
     public function distribuidorInicial($idUser)
     {
-      $orcamentosRecebidos = DB::table('orcamento')->join('users','id','idEmissor')->where('idRecebedor','=',$idUser)->get();
+      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')->where('idRecebedor','=',$idUser)->get();
       return view('distribuidor.orcamentosrecebidos', compact('orcamentosRecebidos'));
     }
 

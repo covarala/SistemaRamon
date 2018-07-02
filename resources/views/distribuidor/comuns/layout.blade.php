@@ -3,8 +3,8 @@ $tmp = session()->all();
 if (!isset($tmp['email'])) {
   $tmp['email']=null;
 }
-if (!isset($tmp['tipousuario'])) {
-$tmp['tipousuario']=null;
+if (!isset($tmp['tipoUsuario'])) {
+$tmp['tipoUsuario']=null;
 }
 ?>
 <!DOCTYPE html>
@@ -41,9 +41,15 @@ $tmp['tipousuario']=null;
 
       <div class="collapse navbar-collapse row" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          @if(isset($tmp['tipoUsuario']) && $tmp['tipoUsuario'] === 'admin')
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="{{ route('admin.visaodistribuidor') }}">Orçamentos Recebidos<span class="sr-only">(current)</span></a>
+          </li>
+          @else
           <li class="nav-item active">
             <a class="nav-link text-white" href="{{ route('distribuidor.inicial', $tmp['id']) }}">Orçamentos Recebidos<span class="sr-only">(current)</span></a>
           </li>
+          @endif
           <li class="nav-item active">
             <a class="nav-link text-white" href="{{ route('produtos') }}">Produtos<span class="sr-only">(current)</span></a>
           </li>
@@ -71,7 +77,7 @@ $tmp['tipousuario']=null;
             <ul class="navbar-nav ml-auto">
             <ul class="navbar-nav">
               <div class="mb-3 mb-md-0 ml-md-3" style="width:200px">
-                @if(isset($tmp['tipousuario']) && $tmp['tipousuario'] === 'admin')
+                @if(isset($tmp['tipoUsuario']) && $tmp['tipoUsuario'] === 'admin')
                 <li class="nav-item active">
                   <a class="nav-link text-white" href="{{ route('admin.dashboard') }}">Voltar ao painel de controle<span class="sr-only">(current)</span></a>
                 </li>
