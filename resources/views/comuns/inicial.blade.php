@@ -11,14 +11,14 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="{{ asset('imagens\BANNER-1.JPG')}}"  alt="First slide">
+          <img class="d-block w-100" src="{{ asset('imagens\BANNER1.PNG')}}" width="1260" height="465" alt="First slide">
         </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="{{ asset('imagens\BANNER-2.JPG')}}"  alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="{{ asset('imagens\BANNER-3.JPG')}}" alt="Third slide">
-        </div>
+        <a href="#"><div class="carousel-item">
+         <img class="d-block w-100" src="{{ asset('imagens\BANNER-2.PNG')}}" width="1260" height="465" alt="Second slide">
+       </a></div>
+        <a href="#"><div class="carousel-item">
+        <img class="d-block w-100" src="{{ asset('imagens\BANNER-3.PNG')}}" width="1260" height="465" alt="Third slide">
+        </a></div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
