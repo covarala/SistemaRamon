@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "483ea913719b148c68374720e932514c",
+    "content-hash": "f04d3e3e8f1f7482f8aa0b84308e2c4f",
     "packages": [
         {
             "name": "alexpechkarev/geometry-library",

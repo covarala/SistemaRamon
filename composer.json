@@ -10,6 +10,7 @@
         "farhanwazir/laravelgooglemaps": "^2.3",
         "fideloper/proxy": "^4.0",
         "finalbytes/google-distance-matrix-api": "dev-master",
+        "guzzlehttp/guzzle": "^6.3",
         "jeroennoten/laravel-adminlte": "^1.23",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",

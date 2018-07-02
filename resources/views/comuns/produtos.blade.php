@@ -141,7 +141,7 @@
     <img class="card-img-top" src="{{ asset('imagens\unidadecomsombra.png')}}" width="208" height="225" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Individual - 25g</h5>
-      <p class="card-text">Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.</p>
+      <p class="card-text" align="justify">Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.</p>
     </div>
     <div class="card-footer">
     </div>
@@ -150,7 +150,7 @@
     <img class="card-img-top" src="{{ asset('imagens\SMcomsombra.png')}}" width="208" height="225" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">SM - 100g</h5>
-      <p class="card-text">Contém 04 barras de 25g.<br>
+      <p class="card-text" align="justify">Contém 04 barras de 25g.<br>
 Validade, informação nutricional e demais informações.</p>
     </div>
     <div class="card-footer">
@@ -161,7 +161,7 @@ Validade, informação nutricional e demais informações.</p>
     <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Display - 450g</h5>
-      <p class="card-text">Contém 18 barras de 25 g.<br>Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.</p>
+      <p class="card-text" align="justify">Contém 18 barras de 25 g.<br>Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.</p>
     </div>
     <div class="card-footer">
 
@@ -195,7 +195,7 @@ Validade, informação nutricional e demais informações.</p>
     <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Caixa Master - Embalagem Individual 10 Kg</h5>
-      <p class="card-text">Com 400 barras de 25g.<br>
+      <p class="card-text" align="justify">Com 400 barras de 25g.<br>
 Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmentos que não necessitam da embalagem intermediária.</p>
     </div>
     <div class="card-footer">
@@ -211,13 +211,14 @@ Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmento
   <img class="rounded-circle align-self-center mr-3" src="{{ asset('imagens\trapadura.png')}}" width="180" height="180" alt="">
   <div class="media-body">
     <h3 class="mt-0 font-weight-bold">Qualidade Nutricional</h4>
-    <p>   A rapadura ocupa dentre os diversos tipos de açúcares disponíveis no mercado, uma posição inigualável. É evidente que este produto, do ponto de vista da nutrição, leva vantagem em relação aos produtos similares, pois traz em sua composição elementos essenciais ao organismo humano, tanto os de natureza orgânica quanto minerais e vitaminas. No grupo dos orgânicos destacam-se a sacarose, a glucose e a frutose que, consumidos pelo organismo humano, vão lhe oferecer energia necessária às suas atividades. Esses açúcares são desdobrados no organismo em açúcares simples, glicose, produzindo após várias oxidações, energia, CO² e H²O . Desses três componentes, a energia produzida é a que dá força ao organismo e sustentação à vida.</p>
+    <p align="justify">   A rapadura ocupa dentre os diversos tipos de açúcares disponíveis no mercado, uma posição inigualável. É evidente que este produto, do ponto de vista da nutrição, leva vantagem em relação aos produtos similares, pois traz em sua composição elementos essenciais ao organismo humano, tanto os de natureza orgânica quanto minerais e vitaminas. No grupo dos orgânicos destacam-se a sacarose, a glucose e a frutose que, consumidos pelo organismo humano, vão lhe oferecer energia necessária às suas atividades. Esses açúcares são desdobrados no organismo em açúcares simples, glicose, produzindo após várias oxidações, energia, CO² e H²O . Desses três componentes, a energia produzida é a que dá força ao organismo e sustentação à vida.</p>
     <img class="rounded mx-auto d-block" src="{{ asset('imagens\table.png')}}" alt="">
-    <p class="mb-0 text-sm font-italic">*% Valores Diários de Referência com base em uma dieta de 2.000 Kcal ou 8.400 Kj. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.<br>
+    <p class="mb-0 text-sm font-italic" align="justify">*% Valores Diários de Referência com base em uma dieta de 2.000 Kcal ou 8.400 Kj. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.<br>
       *% Valores Diarios de referencia basados em una dieta de 2.000 Kcal o 8.400 Kj. Sus valores diarios pueden ser mayores o menores dependiendo de sus necesidades calóricas.<br>
       *% Daily Values are based on a 2.000 Kcal or 8.400 Kj diet. Your daily values may be higher or lower depending on your calorie needs. <br>
       ** Valor diário não estabelecido / Valor diario no establecido / Daily value not established.</p>
   </div>
 </div>
 </div>
+<br></br>
 @endsection
