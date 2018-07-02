@@ -38,12 +38,21 @@
       <div class="card-group">
         <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
+            <img class="card-img-top" src="{{asset('imagens\unidadecomsombra.png')}}" width="208" height="225" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Contém 04 barras de 25g.
-Validade, informação nutricional e demais informações.</p>
-              <a href="#" class="btn btn btn-outline-success btn-block">Ver produto</a>
+              <h5 class="card-title">Individual - 25g</h5>
+              <p class="card-text" align="justify">Em BOPP (sistema Flow Pack), código de barras GS1, validade, informação nutricional e demais informações.</p>
+          <br></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('imagens\SMcomsombra.png')}}" width="208" height="225" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">SM - 100g</h5>
+              <p class="card-text" align="justify">Contém 04 barras de 25g.<br>
+        Validade, informação nutricional e demais informações.</p>
+        <br>
             </div>
           </div>
         </div>
@@ -51,19 +60,8 @@ Validade, informação nutricional e demais informações.</p>
           <div class="card">
             <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn btn-outline-success btn-block">Ver produto</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="{{ asset('imagens\rapadura-monada.png')}}" width="208" height="225" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              <a href="#" class="btn btn btn-outline-success btn-block">Ver produto</a>
+              <h5 class="card-title">Display - 450g</h5>
+              <p class="card-text" align="justify">Contém 18 barras de 25 g.<br>Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.</p>
             </div>
           </div>
         </div>
