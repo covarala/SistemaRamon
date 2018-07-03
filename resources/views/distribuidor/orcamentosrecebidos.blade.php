@@ -11,21 +11,25 @@
               <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">E-mail</th>
-              <th scope="col"></th>
+              <th scope="col">Quantidade de orçamentos efetuados</th>
             </tr>
           </thead>
           <tbody>
-            <?php $cont = 1; ?>
+            <?php
+             $cont = 1;
+             $idRepetido = -1;
+             ?>
             @foreach ($orcamentosRecebidos as $orcamentoRecebido => $value)
-            <tr>
-              <th>{{ $cont }}</th>
-              <th>{{ $value->nome }}</th>
-              <th>{{ $value->email }}</th>
-              <th>
-
-              </th>
-            </tr>
-            <?php $cont++; ?>
+              @if($idRepetido !== $value->idEmissor || $idRepetido === -1)
+                <?php $idRepetido = $value->idEmissor; ?>
+                  <tr>
+                    <th>{{ $cont }}</th>
+                      <th>{{ $value->nome }}</th>
+                      <th>{{ $value->email }}</th>
+                      <th>{{ $value->qntOrcPed}}</th>
+                    </tr>
+                <?php $cont++; ?>
+              @endif
             @endforeach
 
           </tbody>

@@ -6,8 +6,10 @@
     color: #fff;
   }
 </style>
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-12 col-md-offset-4">
         <h2><br> Usuários Cadastrados</h2>
+        <a type="button" href="{{ route('view.cadastro.usuario') }}" class="btn btn-success btn-lg py-1 offset-10">Cadastrar novo</a>
+        <br>
         <br>
       </div>
       @if (session('status'))

@@ -125,11 +125,19 @@ class MainController extends Controller
     public function distribuidorInicial($idUser)
     {
       $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')->where('idRecebedor','=',$idUser)->get();
-    //   $dadosUsers = Users::all();
-    //   foreach ($orcamentosRecebidos as $orcamentoRecebido => $dados) {
-    //       dd($dados);
-    //   }
       return view('distribuidor.orcamentosrecebidos', compact('orcamentosRecebidos'));
     }
+
+    public function reposicaoProdutos()
+    {
+      return view('distribuidor.reposicao');
+    }
+    public function formReposicao(Request $request)
+    {
+      dd("implementar");
+    }
+
+
+
 
 }

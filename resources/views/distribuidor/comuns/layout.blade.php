@@ -54,10 +54,7 @@ $tmp['tipoUsuario']=null;
           </li>
           @endif
           <li class="nav-item active">
-            <a class="nav-link text-white" href="{{ route('produtos') }}">Produtos<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link text-white" href="{{ route('sobre') }}">Sobre<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="{{ route('produtos.distribuidor') }}">Reposição<span class="sr-only">(current)</span></a>
           </li>
         </ul>
             <!-- Authentication Links -->

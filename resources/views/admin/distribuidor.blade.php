@@ -47,8 +47,7 @@
               </th>
               <th>
                 <a href="{{ route('view.juridicas.cadastradas') }}" class="btn btn-primary btn-xs active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                <a href="{{ route('exclui.distribuidor', $distribuidor->id) }}" class="btn btn-xs btn-danger"  onclick="return confirm('Você tem certeza que deseja excluí-lo(a)? Essa ação não o excluirá da base de dados!')">Excluir</a>
-              </th>
+                </th>
             </tr>
             <?php $cont++; ?>
             @endforeach

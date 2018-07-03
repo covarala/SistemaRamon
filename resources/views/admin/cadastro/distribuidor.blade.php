@@ -171,10 +171,8 @@
               <th>{{ $distribuidor->nome }}</th>
               <th>{{ $distribuidor->email }}</th>
               <th>
-
                 @if($distribuidor->distribuidor === 0)
-
-                <form class="" action="{{ route('form.change.distribuidor', $distribuidor->id) }}" method="post">
+					       <form class="" action="{{ route('form.change.distribuidor', $distribuidor->idUser) }}" method="post">
                   @csrf
                   <input type="hidden" name="atual" value="normal">
                   <input type="hidden" name="exclusao" value="false">
@@ -185,7 +183,7 @@
 
                 </form>
                 @else
-                <form class="" action="{{ route('form.change.distribuidor', $distribuidor->id) }}" method="post">
+                <form class="" action="{{ route('form.change.distribuidor', $distribuidor->idUser) }}" method="post">
                   <input type="hidden" name="atual" value="distribuidor">
 									<input type="hidden" name="exclusao" value="false">
                   @csrf

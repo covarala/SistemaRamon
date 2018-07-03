@@ -45,9 +45,10 @@ Route::post('/admin/cadastro/produto', 'HomeController@cadastroProduto')->name('
 
 //Rotas Admin Distribuidores
 Route::post('/admin/update/distribuidor/{idDistribuidor}', 'HomeController@changeDistribuidor')->name('form.change.distribuidor');
-Route::get('/admin/exclui/distribuidor/{idDistribuidor}', 'HomeController@excluiDistribuidor')->name('exclui.distribuidor');
+// Route::get('/admin/exclui/distribuidor/{idDistribuidor}', 'HomeController@excluiDistribuidor')->name('exclui.distribuidor');
 Route::get('/admin/view/juridicas/cadastras', 'HomeController@viewJuridicasCadastradas')->name('view.juridicas.cadastradas');
-Route::get('/admin/visaodistribuidor', 'HomeController@visaodistribuidor')->name('admin.visaodistribuidor');
+Route::get('/admin/visaodistribuidor', 'HomeController@visaoDistribuidores')->name('admin.visaodistribuidor');
+Route::get('/admin/view/visaodistribuidor/{idUser}', 'HomeController@viewVisaoDistribuidor')->name('view.visao.distribuidor');
 
 //Rotas Admin Clientes
 Route::get('/admin/visao/cliente', 'HomeController@visaocliente')->name('admin.visaocliente');
@@ -77,4 +78,6 @@ Route::get('/distribuidor/inicial/{idDistribuidor}', 'MainController@distribuido
 //Rotas Clientes Resgistrados
 Route::post('/formulario/produtos', 'ApiController@getMenorDistancia')->name('formulario.localizacao');
 Route::post('/formulario/realiza/orcamento', 'MainController@realizaOrcamento')->name('efetivacao.orcamento');
+Route::get('/reposisao/produtos', 'MainController@reposicaoProdutos')->name('produtos.distribuidor');
+Route::post('/formulario/reposisao/produtos', 'MainController@formReposicao')->name('form.reposicao');
 Route::get('/logout', 'LoginController@deslogar')->name('logout');

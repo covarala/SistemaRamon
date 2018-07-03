@@ -41,9 +41,9 @@ class HomeController extends Controller
     }
     public function produtos()
     {
-      $produtos = DB::table('produto')->orderBy('nome', 'asc')->get();
-      $valorProdutos = DB::table('valorproduto')->get();
-      return view('admin.produtos',compact('produtos', 'valorProdutos'));
+      $produtos = DB::table('produto')->join('valorproduto', 'produto.id', 'valorproduto.idProduto')
+      ->orderBy('valor', 'asc')->get();
+      return view('admin.produtos', compact('produtos'));
     }
     public function clientes()
     {
@@ -73,18 +73,27 @@ class HomeController extends Controller
     {
         return view('comuns.inicial');
     }
-    public function visaodistribuidor()
+    public function visaoDistribuidores()
     {
-      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')->get();
-      return view('distribuidor.orcamentos', compact('orcamentosRecebidos'));
+      // $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')->get();
+      $distribuidores = DB::table('users')->join('juridica', 'users.id', '=', 'idUser')
+      ->where('distribuidor','=',true)->orderBy('nome', 'asc')->get();
+      return view('admin.visaodistribuidor', compact('distribuidores'));
+    }
+    public function viewVisaoDistribuidor($idUser)
+    {
+      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')
+        ->where('idRecebedor', '=',$idUser)->orderBy('idEmissor')->get();
+      // $orcamentosEfetuados =
+      return view('distribuidor.orcamentosrecebidos', compact('orcamentosRecebidos'));
     }
 
     public function viewAtualizaProduto($idProduto)
     {
 
       $valorProduto = ValorProduto::where('idProduto','=', "$idProduto")->first();
-      $produto =  Produto::where('idProduto','=', "$idProduto")->first();
-      return view('admin/atualiza/produto', compact('produto', 'valorProduto'));
+      $produto =  Produto::where('id','=', "$idProduto")->first();
+      return view('admin.atualiza.produto', compact('produto', 'valorProduto'));
     }
     public function viewCadastroProduto()
     {
@@ -92,8 +101,10 @@ class HomeController extends Controller
     }
     public function excluiProduto($idProduto)
     {
-      DB::table('produto')->where('idProduto', '=', $idProduto)->delete();
-      return redirect()->route('admin.produtos')->with('status', 'Excluido com sucesso!');
+      $teste = Produto::destroy($idProduto);
+      $produtos = DB::table('produto')->join('valorproduto', 'produto.id', 'valorproduto.idProduto')
+        ->orderBy('valor', 'asc')->get();
+        return redirect()->route('admin.produtos', compact('produtos'))->with('status', 'Excluido com sucesso!');
     }
     public function updateProduto(Request $request)
     {
@@ -110,8 +121,11 @@ class HomeController extends Controller
 
       if ($img = $request->hasFile('imagem')) {
 
+
         $img = $request->file('imagem');
-        $diretorioImg = storage_path("app\public\produto\\".$dadosValorProduto['idProduto']);
+        $diretorioImg = storage_path("app\public\produto\\".$dadosProduto['nome']);
+
+
 
         $dadosImagem = [
           'idProduto' => $dadosValorProduto['idProduto'],
@@ -120,8 +134,8 @@ class HomeController extends Controller
           'nomeImagem' => $img->getClientOriginalName(),
           'diretorio' => $diretorioImg,
         ];
-        $upload  = $img->store('public/produto'.'/'.$dadosImagem['nomeHash']);
-        $updateProduto = Produto::where('idProduto', '=', $request->idProduto)->update($dadosProduto);
+        $upload  = $img->store('public/produto'.'/'.$dadosProduto['nome']);
+        $updateProduto = Produto::where('id', '=', $request->idProduto)->update($dadosProduto);
         $updateValorProduto = ValorProduto::where('idProduto', '=', $request->idProduto)->update($dadosValorProduto);
 
         ImagensProdutos::create($dadosImagem);
@@ -143,10 +157,6 @@ class HomeController extends Controller
       ];
 
 
-      $dadosValorProduto = [
-        'idProduto' => $idProduto->id,
-        'valor' => $dados['valorProduto'],
-      ];
 
 
       $img = $request->file('imagem');
@@ -154,7 +164,14 @@ class HomeController extends Controller
       if ($img = $request->hasFile('imagem')) {
 
         $img = $request->file('imagem');
-        $diretorioImg = storage_path("app\public\produto\\".$dadosValorProduto['idProduto']);
+        $diretorioImg = storage_path("app\public\produto\\".$dadosProduto['nome']);
+
+        $dadosNovoProduto = Produto::create($dadosProduto);
+
+        $dadosValorProduto = [
+          'idProduto' => $dadosNovoProduto->id,
+          'valor' => $dados['valorProduto'],
+        ];
 
         $dadosImagem = [
           'idProduto' => $dadosValorProduto['idProduto'],
@@ -163,9 +180,8 @@ class HomeController extends Controller
           'nomeImagem' => $img->getClientOriginalName(),
           'diretorio' => $diretorioImg,
         ];
-        $upload  = $img->store('public/produto'.'/'.$dadosImagem['nomeHash']);
+        $upload  = $img->store('public/produto'.'/'.$dadosProduto['nome']);
 
-        Produto::create($dadosProduto);
         ValorProduto::create($dadosValorProduto);
         ImagensProdutos::create($dadosImagem);
         if ( !$upload ){
@@ -173,13 +189,13 @@ class HomeController extends Controller
         }
         return redirect()->route('admin.produtos')->with('status', 'Cadastrado com sucesso!');
       }
-      return redirect()->route('admin.produtos')->with('status', 'Erro ao cadastrar!');
+      return redirect()->route('admin.produtos')->with('status', 'Erro ao cadastrar!')->withInput();
 
     }
 
     public function viewJuridicasCadastradas()
     {
-      $distribuidores = DB::table('users')->join('juridica', 'id', '=', 'idUser')->get();
+      $distribuidores = DB::table('users')->join('juridica', 'users.id', '=', 'idUser')->get();
       return view('admin/cadastro/distribuidor', compact('distribuidores'));
     }
     public function changeDistribuidor(Request $request, $idUser)
@@ -187,28 +203,27 @@ class HomeController extends Controller
 
       if ($request['atual'] === 'distribuidor')
       {
+        if($idUser === "2"){
+          return redirect()->route('view.juridicas.cadastradas')->with('status', 'Esse usuário não pode ser alterado!');
+        }
         Juridica::where('idUser','=',$idUser)->update(['distribuidor' => false]);
         Users::where('id','=',$idUser)->update(['tipoUsuario' => 'cliente']);
+        return redirect()->route('view.juridicas.cadastradas')->with('status', 'Alterado com sucesso!');
       }
       else {
         Juridica::where('idUser',$idUser)->update(['distribuidor' => true]);
         Users::where('id','=',$idUser)->update(['tipoUsuario' => 'distribuidor']);
-
-      }
-      if ($request['exclusao'] === 'false') {
         return redirect()->route('view.juridicas.cadastradas')->with('status', 'Alterado com sucesso!');
-      }else {
-        return redirect()->route('admin.distribuidor')->with('status', 'Removido com sucesso!');
-
       }
     }
-    public function excluiDistribuidor($idUser)
-    {
-      $request = new Request;
-      $request['atual'] = 'distribuidor';
-      $request['exclusao'] = 'true';
-      $this->changeDistribuidor($request , $idUser);
-    }
+
+    // public function excluiDistribuidor($idUser)
+    // {
+    //   $request = new Request;
+    //   $request['atual'] = 'distribuidor';
+    //   $request['exclusao'] = 'true';
+    //   $this->changeDistribuidor($request , $idUser);
+    // }
 
 
     public function viewAtualizaUsuario($idUsuario)
@@ -262,9 +277,49 @@ class HomeController extends Controller
       if($dadoUser->tipoUsuario === 'admin')
       {
         Users::destroy($idUser);
+        return redirect()->route('admin.usuarios')->with('status', 'Usuário removido com sucesso!');
       }
       else {
         return redirect()->route('admin.usuarios')->with('status', 'Não é possível remover usuários que não são administradores!');
       }
+    }
+    public function viewCadastroUsuario()
+    {
+      return view('admin/cadastro/usuario');
+    }
+    public function cadastroUsuario(Request $request)
+    {
+      $dados = $request->all();
+
+      foreach ($dados as $dado => $value) {
+        if ($value === null) {
+          if (strcmp($dado, 'button')) {
+            return redirect()->route('cadastro.usuario')->with('status', 'Campo obrigatório!')->withInput();
+          }
+        }
+      }
+      if ($dados['password'] == null || $dados['password_confirm'] == null) {
+
+        return redirect()->route('cadastro.usuario')->with('status-senha', 'Senha não pode ser nula!')->withInput();
+      }
+      if (strcmp($dados['password'], $dados['password_confirm'])) {
+
+        return redirect()->route('cadastro.usuario')->with('status-senha', 'Senhas diferentes!')->withInput();
+      }
+      $dados['password'] = Hash::make($dados['password']);
+      $dadosBanco = Users::where('email', '=' ,$dados['email'])->first();
+      if ($dados['email'] === $dadosBanco['email']) {
+        return redirect()->route('cadastro.usuario')->with('status-email', 'Email já cadastrado!')->withInput();
+      }
+      $dadosUsers = [
+        'nome' => $dados['nome'],
+        'sobrenome' => $dados['sobrenome'],
+        'password' => $dados['password'],
+        'email' => $dados['email'],
+        'tipoUsuario' => $dados['tipoUsuario'],
+      ];
+
+      Users::create($dadosUsers);
+      return redirect()->route('admin.usuarios')->with('status', 'Cadastro efetuado com sucesso');
     }
 }
