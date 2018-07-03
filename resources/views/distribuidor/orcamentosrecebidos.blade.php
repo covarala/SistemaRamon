@@ -1,7 +1,8 @@
 @extends('distribuidor.comuns.layout')
 
 @section('conteudo')
-<div class="container-fluid">
+<br>
+<div class="container col-sm-7">
   <div class="row">
 <div class="container-fluid">
       <div class="table-responsive">

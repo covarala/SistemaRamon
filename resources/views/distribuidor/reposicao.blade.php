@@ -1,8 +1,8 @@
 @extends('distribuidor.comuns.layout')
 
 @section('conteudo')
-
-<div class="container-fluid">
+<br>
+<div class="container col-sm-7">
       <h6 class="text offset-sm-1 py-4 text-success font-weight-bold">Informe a quantidade desejada de cada produto:</h6>
       <form class="offset-sm-1" action="{{route('form.reposicao')}}" method="post">
         {!! csrf_field() !!}
@@ -35,8 +35,14 @@
             <input min="0" name="caixaMasterDisplay" type="number" class="form-control" placeholder="Qtd">
           </div>
         </div>
+        <div class="container col-sm-7">
+          <br>
+        <ul class="nav justify-content-end">
+          <button type="submit" class="btn btn-success justify-content-end" >Continuar</button>
+        </ul>
       </div>
-    <button type="submit" class="btn btn-success" >Continuar</button>
+      </div>
+      <br><br><br><br><br><br><br><br><br>
   </form>
 </div>
 
