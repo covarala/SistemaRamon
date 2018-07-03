@@ -15,7 +15,10 @@
 Route::get('home', function () {
     return view('comuns.inicial');
 });
-Route::get('/teste', 'MainController@teste');
+Route::get('/teste', function()
+{
+  return view('comuns.perfil');
+});
 Route::get('/testeGetCordenadas', function ()
 {
   return view('teste');
