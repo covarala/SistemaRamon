@@ -114,14 +114,14 @@ class LoginController extends Controller
         Endereco::create($dadosEndereco);
 
 
-        if ($dadosUsers['tipoUsuario'] === 'distribuidor' || $dados['tipopessoa'] === 'juridica') {
+        if ($dadosUsers['tipoUsuario'] === 'distribuidor' || $dados['tipoPessoa'] === 'juridica') {
           $dadosJuridica = [
             'idUser' => $idUsers,
             'cnpj' => $dados['cnpj']
           ];
           Juridica::create($dadosJuridica);
         }
-        if ($dados['tipopessoa'] === 'fisica') {
+        if ($dados['tipoPessoa'] === 'fisica') {
           // code...
           $dadosFisica = [
             'idUser' => $idUsers,
@@ -137,9 +137,7 @@ class LoginController extends Controller
       if (Auth::check()){
         // se tem usuario logado.
         Auth::logout();
-        session()->forget('email');
-        session()->forget('nome');
-        session()->forget('id');
+        session()->flush();
         return redirect('/inicial');
       }
       session()->flush();

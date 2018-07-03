@@ -86,6 +86,9 @@ $tmp['tipoUsuario']=null;
                         Olá, {{ $tmp['nome'] }} <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('perfil.cliente', $tmp['id']) }}">
+                            {{ __('Perfil') }}
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
@@ -106,12 +109,22 @@ $tmp['tipoUsuario']=null;
 
 
       </div>
+    </nav>
+    @if(isset($tmp['tipoUsuario']) && ($tmp['tipoUsuario'] === 'admin' || $tmp['tipoUsuario'] === 'distribuidor'))
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #fff;">
+      @if($tmp['tipoUsuario'] === 'admin')
+      <a class="nav-link active text-body" href="#">Orçamentos Recebidos</a>
+      @else
+      <a class="nav-link active text-body" href="{{route('distribuidor.inicial', $tmp['id'])}}">Orçamentos Recebidos</a>
+      @endif
+      <a class="nav-link text-body" href="{{route('produtos.distribuidor')}}">Reposição de Produtos</a>
+    </nav>
+    @endif
       @if (session('status-cadastro'))
       <div class="alert alert-info">
         {{ session('status-cadastro') }}
       </div>
       @endif
-    </nav>
     @yield('conteudo')
 
 

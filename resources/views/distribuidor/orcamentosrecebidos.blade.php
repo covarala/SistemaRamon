@@ -13,6 +13,7 @@
               <th scope="col">Nome</th>
               <th scope="col">E-mail</th>
               <th scope="col">Quantidade de orçamentos efetuados</th>
+              <th scope="col">Visualizar Orçamento</th>
             </tr>
           </thead>
           <tbody>
@@ -27,7 +28,10 @@
                     <th>{{ $cont }}</th>
                       <th>{{ $value->nome }}</th>
                       <th>{{ $value->email }}</th>
-                      <th>{{ $value->qntOrcPed}}</th>
+                      <th>{{ $value->qntOrcPed }}</th>
+                      <th>
+                        <a href="{{ route('visualiza.orcamento.usuario', $value->idEmissor) }}" class="btn btn-primary btn-xs active" >Visualizar orçamento<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                      </th>
                     </tr>
                 <?php $cont++; ?>
               @endif

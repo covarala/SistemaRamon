@@ -234,14 +234,11 @@ class HomeController extends Controller
         return view('admin/atualiza/usuario', compact('usuario'));
       }else {
         return redirect()->route('admin.usuario')->with('status', 'Não é possível alterar usuarios que não seja administradores!');
-
       }
-
     }
     public function updateUsuario(Request $request)
     {
       $dados = $request->all();
-
 
       if (strlen($dados['password']) <= 5 || strlen($dados['password_confirm']) <= 5) {
         return redirect()->route('atualiza.usuario', $dados['id'])->with('status-senha', 'A senha deve ter no mínimo 6 caracteres');

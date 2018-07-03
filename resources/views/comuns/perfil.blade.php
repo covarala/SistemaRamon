@@ -117,7 +117,7 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputState ">Estado</label>
-              <select id="inputState" name="estado">
+              <select id="inputState" name="estado" class="form-group">
                 <option value="">Selecione</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>

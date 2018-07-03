@@ -8,7 +8,7 @@
 
     <input type="hidden" name="id" value="<?= $usuario->id ?>" />
 
-    <h1 class="h3 mb-3 font-weight-normal" align="center">Atualiza | Usuario</h1>
+    <h1 class="h3 mb-3 font-weight-normal" align="center">Atualizar | Usuario</h1>
 
     <label for="" class="sr-only"></label>
     <input value="<?= $usuario->nome ?>" name="nome" type="text" class="form-control" placeholder="Nome" required autofocus>
@@ -31,11 +31,10 @@
       </div>
       @endif
       <br>
-    <label class="sr-only">Selecione o tipo de usuário</label>
-    <select class="form-control">
-      <option value="">Selecione o tipo de usuário</option>
+    <label for="inputTipoUsuario" class="sr-only"></label>
+    <select id="inputTipoUsuario" name="tipoUsuario" class="form-control">
       <option value="admin">Administrador</option>
-      <option value="distribuidor">Distribuidor</option>
+
     </select>
     <br>
 

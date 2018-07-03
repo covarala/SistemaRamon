@@ -33,6 +33,7 @@ $tmp['tipoUsuario']=null;
     <![endif]-->
     <link rel="shortcut icon" href="{{ asset('imagens\favicon .ico') }}">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @yield('cabecalho')
   </head>
   <body class="">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d823b;">
@@ -44,17 +45,17 @@ $tmp['tipoUsuario']=null;
 
       <div class="collapse navbar-collapse row" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          @if(isset($tmp['tipoUsuario']) && $tmp['tipoUsuario'] === 'admin')
           <li class="nav-item active">
-            <a class="nav-link text-white" href="{{ route('admin.visaodistribuidor') }}">Orçamentos Recebidos<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="{{ route('inicial') }}">Inicio<span class="sr-only">(current)</span></a>
           </li>
-          @else
           <li class="nav-item active">
-            <a class="nav-link text-white" href="{{ route('distribuidor.inicial', $tmp['id']) }}">Orçamentos Recebidos<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="{{ route('produtos') }}">Produtos<span class="sr-only">(current)</span></a>
           </li>
-          @endif
           <li class="nav-item active">
-            <a class="nav-link text-white" href="{{ route('produtos.distribuidor') }}">Reposição<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="{{ route('sobre') }}">Sobre<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="{{ route('duvidas') }}">Dúvidas<span class="sr-only">(current)</span></a>
           </li>
         </ul>
             <!-- Authentication Links -->
@@ -109,12 +110,16 @@ $tmp['tipoUsuario']=null;
 
       </div>
     </nav>
-    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #ffffff;">
-  <a class="nav-link active text-body" href="#">Active</a>
-  <a class="nav-link text-body" href="#">Link</a>
-  <a class="nav-link text-body" href="#">Link</a>
-  <a class="nav-link disabled" href="#">Disabled</a>
-</nav>
+    @if(isset($tmp['tipoUsuario']) && ($tmp['tipoUsuario'] === 'admin' || $tmp['tipoUsuario'] === 'distribuidor'))
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #fff;">
+      @if($tmp['tipoUsuario'] === 'admin')
+      <a class="nav-link active text-body" href="#">Orçamentos Recebidos</a>
+      @else
+      <a class="nav-link active text-body" href="{{route('distribuidor.inicial', $tmp['id'])}}">Orçamentos Recebidos</a>
+      @endif
+      <a class="nav-link text-body" href="{{route('produtos.distribuidor')}}">Reposição de Produtos</a>
+    </nav>
+    @endif
     @yield('conteudo')
 
 

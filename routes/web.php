@@ -76,11 +76,15 @@ Route::get('/privacidade', 'MainController@privacidade')->name('privacidade');
 
 //Rotas Distribuidores Resgistrados
 Route::get('/distribuidor/inicial/{idDistribuidor}', 'MainController@distribuidorInicial')->name('distribuidor.inicial');
+Route::get('/distribuidorreposisao/produtos', 'MainController@reposicaoProdutos')->name('produtos.distribuidor');
+Route::get('/distribuidor/visualiza/orcamento/{idEmissor}', 'MainController@visualizaOrcamento')->name('visualiza.orcamento.usuario');
+Route::post('/formulario/aprova/orcamento', 'MainController@changeAprovacao')->name('form.change.aprovacao');
 
 
 //Rotas Clientes Resgistrados
 Route::post('/formulario/produtos', 'ApiController@getMenorDistancia')->name('formulario.localizacao');
 Route::post('/formulario/realiza/orcamento', 'MainController@realizaOrcamento')->name('efetivacao.orcamento');
-Route::get('/reposisao/produtos', 'MainController@reposicaoProdutos')->name('produtos.distribuidor');
+Route::post('/formulario/efetivacao/orcamento', 'MainController@realizaOrcamentoDistribuidor')->name('efetivacao.orcamento.distribuidor');
 Route::post('/formulario/reposisao/produtos', 'MainController@formReposicao')->name('form.reposicao');
 Route::get('/logout', 'LoginController@deslogar')->name('logout');
+Route::get('/perfil/{idUser}', 'MainController@viewPerfil')->name('perfil.cliente');
