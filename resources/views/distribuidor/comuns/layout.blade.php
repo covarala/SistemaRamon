@@ -109,6 +109,12 @@ $tmp['tipoUsuario']=null;
 
       </div>
     </nav>
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #ffffff;">
+  <a class="nav-link active text-body" href="#">Active</a>
+  <a class="nav-link text-body" href="#">Link</a>
+  <a class="nav-link text-body" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
     @yield('conteudo')
 
 
