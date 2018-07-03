@@ -1,7 +1,6 @@
 @extends('comuns.estatico.layout')
 
 @section('conteudo')
-
 <!–– Carrossel de imagens : ––>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -11,16 +10,21 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="{{ asset('imagens\BANNER1.PNG')}}" width="1260" height="465" alt="First slide">
+          <img class="d-block w-100" src="{{ asset('imagens\BANNER1.png')}}" width="1260" height="465" alt="First slide">
         </div>
-        <a href="{{route('produtos')}}"><div class="carousel-item">
-         <img class="d-block w-100" src="{{ asset('imagens\BANNER-2.PNG')}}" width="1260" height="465" alt="Second slide">
-       </a></div>
-        <a href="{{route('sobre')}}"><div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('imagens\BANNER-3.png')}}" width="1260" height="465" alt="Third slide">
-        </a></div>
-      </div>
+        <div class="carousel-item">
 
+      <a href="{{route('produtos')}}">
+       <img class="d-block w-100"  src="{{ asset('imagens\BANNER-2.png')}}" width="1260" height="465" alt="Second slide">
+       </a>
+        </div>
+
+        <div class="carousel-item">
+            <a href="{{route('sobre')}}">
+          <img class="d-block w-100" src="{{ asset('imagens\BANNER-3.png')}}" width="1260" height="465" alt="Third slide"></a>
+          </a>
+        </div>
+      </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -32,7 +36,6 @@
     </div>
 
 <!–– Cards dos produtos : ––>
-
 <div class="album py-5 bg-light">
   <div class="container col-md-10">
     <div class="row">
@@ -48,7 +51,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top" src="{{ asset('imagens\SMcard.png')}}" width="208" height="285" alt="Card image cap">
+            <img class="card-img-top" src="{{asset('imagens\SMcard.png')}}" width="208" height="285" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">SM - 100g</h5>
               <p class="card-text" align="justify">Contém 04 barras de 25g.<br>
@@ -59,7 +62,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top" src="{{ asset('imagens\Displaycard.png')}}" width="208" height="285" alt="Card image cap">
+            <img class="card-img-top" src="{{asset('imagens\Displaycard.png')}}" width="208" height="285" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Display - 450g</h5>
               <p class="card-text" align="justify">Contém 18 barras de 25 g.<br>Embalagem moderna, selada com poliolefínico, informação nutricional, validade, código de barra GS1 e demais informações.</p>

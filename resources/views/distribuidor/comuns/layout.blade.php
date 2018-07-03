@@ -10,6 +10,9 @@ $tmp['tipoUsuario']=null;
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <meta name="google-site-verification" content="EmGqWg_a_fJy9kHdv7zJpSM96CnHAjF8wXaL3G8Dn5o" />
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

@@ -6,11 +6,8 @@
 
 <div class="container-fluid">
   <br>
-  <div class="alert alert-info">
-    <h4>Os distribuidores visualizam apenas os clientes que fizeram orcamento com eles</h4>
-  </div>
   <div class="row">
-    <div class="container-fluid">
+    <!--<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">-->
       <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover order-column">
           <thead>
@@ -38,7 +35,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    <!--</main>-->
   </div>
 </div>
 

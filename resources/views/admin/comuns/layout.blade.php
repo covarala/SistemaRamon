@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<meta name="google-site-verification" content="EmGqWg_a_fJy9kHdv7zJpSM96CnHAjF8wXaL3G8Dn5o" />
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('dashboard.css')}}" rel="stylesheet">

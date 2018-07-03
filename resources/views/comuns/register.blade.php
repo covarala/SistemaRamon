@@ -75,7 +75,7 @@
             </div>
           </div>
           <input type="hidden" name="tipoUsuario" value="cliente" class="form-control">
-          <input type="hidden" name="tipopessoa" value="fisica" class="form-control">
+          <input type="hidden" name="tipoPessoa" value="fisica" class="form-control">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCPF">CPF</label>
@@ -234,7 +234,7 @@
               @endif
             </div>
             <input type="hidden" name="tipoUsuario" value="cliente" class="form-control" >
-            <input type="hidden" name="tipopessoa" value="juridica" class="form-control" >
+            <input type="hidden" name="tipoPessoa" value="juridica" class="form-control" >
             <div class="form-group col-md-4 " >
               <label for="inputPhoneNumber">Telefone</label>
               <input type="text" name="telefone" class="form-control" id="inputPhoneNumber" placeholder="Telefone">

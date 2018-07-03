@@ -1,7 +1,49 @@
 @extends('comuns.estatico.layout')
 @section('conteudo')
+
+
 <div class="album py-5 bg-light">
   <div class="container col-md-9  offset-md-auto mb-5 ">
+      @if(isset($orcamento))
+      <div class="alert alert-info">
+        <h6 class="text offset-sm-1 py-4 text-success font-weight-bold">Preço orçamentado de cada produto:</h6>
+        <form class="offset-sm-1" action="{{ route('efetivacao.orcamento') }}" method="post">
+          <?php
+          $total = $orcamento['total'];
+          $separado = $orcamento['separado'];
+
+          $sessao = session()->all();
+          ?>
+          {!! csrf_field() !!}
+          @foreach ($qntProdutos as $qntProduto => $valor)
+          <input type="hidden" name="{{$qntProduto.'Qnt'}}" value="{{$valor}}">
+          @endforeach
+
+          @foreach ($separado as $key => $value)
+          <div class="form-group row">
+            <label for="inputPassword" class="col-form-label">{{$key}}: R$ {{number_format($value, 2, ',', '.')}}</label>
+            <input type="hidden" name="{{$key.'Valor'}}" value="{{$value}}">
+          </div>
+          @endforeach
+          <div class="form-group row">
+
+            <label for="inputPassword" class="col-form-label font-weight-bold">Valor Total: R$ {{number_format($total, 2, ',', '.')}}</label>
+            <input type="hidden" name="total" value="{{$total}}">
+            <input type="hidden" name="idUserRec" value="{{$menorDistancia['idUser']}}">
+            <input type="hidden" name="idUserPed" value="{{$sessao['id']}}">
+            <input type="hidden" name="idJuridica" value="{{$menorDistancia['idJuridica']}}">
+            <input type="hidden" name="distancia" value="{{$menorDistancia['distancia']}}">
+          </div>
+        </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-success">Efetivar Orçamento</button>
+  </div>
+</form>
+</div>
+
+@else
+
     <ul class="nav justify-content-end">
       <a data-toggle="modal" data-target="#ModalOrçamento">
         <button type="button" class="efeito efeito-6" data-toggle="modal" data-target="#ModalOrçamento">Gostou dos nossos produtos?</button>
@@ -57,11 +99,31 @@
           <input id="posicaoLat" type="hidden" name="posicaoLat"  value="">
 
           <div class="modal-footer">
-            <h6 class="text justify-content-start py-4 text-danger font-weight-bold" align="justify">Atenção!!! Permita a utilização da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você!</h6>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="button" id="getCoordenadas" class="btn btn-success" onclick="getLocation()">Continuar</button>
-          </div>
+            <h6 class="text justify-content-start py-4 text-danger font-weight-bold">Atenção !!! Permita a utilização da sua localização quando requisitado pelo navegador, assim podemos efetuar sua requisição para um distribuidor mais próximo de você !</h6>
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button><br>
+            <?php
+                $tmp = session()->all();
+            ?>
+            @if (isset($tmp['email']) && $tmp['email'] !== null)
+
+                <button type="button" id="getCoordenadas" class="btn btn-success" onclick="getLocation()">Continuar</button>
+                </div>
+            </form>
+
+            @else
+
+            </div>
         </form>
+        <div class="alert alert-info">
+                    Para continuar, faça seu login!<br>
+
+                     </div>
+                     <a class="btn btn-success" href="{{ route('entrar') }}">{{ __('Entrar') }}</a>
+
+            @endif
+
+
         <script type="text/javascript">
         var x=document.getElementById("getCoordenadas");
         function getLocation()
@@ -88,44 +150,6 @@
       </div>
     </div>
 
-      @if(isset($orcamento))
-      <div class="alert alert-info">
-        <h6 class="text offset-sm-1 py-4 text-success font-weight-bold">Preço orçamentado de cada produto:</h6>
-        <form class="offset-sm-1" action="{{ route('efetivacao.orcamento') }}" method="post">
-          <?php
-          $total = $orcamento['total'];
-          $separado = $orcamento['separado'];
-
-          $sessao = session()->all();
-          ?>
-          {!! csrf_field() !!}
-          @foreach ($qntProdutos as $qntProduto => $valor)
-          <input type="hidden" name="{{$qntProduto.'Qnt'}}" value="{{$valor}}">
-          @endforeach
-
-          @foreach ($separado as $key => $value)
-          <div class="form-group row">
-            <label for="inputPassword" class="col-form-label">{{$key}}: R$ {{number_format($value, 2, ',', '.')}}</label>
-            <input type="hidden" name="{{$key.'Valor'}}" value="{{$value}}">
-          </div>
-          @endforeach
-          <div class="form-group row">
-            <label for="inputPassword" class="col-form-label font-weight-bold">Valor Total: R$ {{number_format($total, 2, ',', '.')}}</label>
-            <input type="hidden" name="total" value="{{$total}}">
-            <input type="hidden" name="idUserRec" value="{{$menorDistancia['idUser']}}">
-            <input type="hidden" name="idUserPed" value="{{$sessao['id']}}">
-            <input type="hidden" name="idJuridica" value="{{$menorDistancia['idJuridica']}}">
-            <input type="hidden" name="distancia" value="{{$menorDistancia['distancia']}}">
-          </div>
-        </div>
-
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-success">Efetivar Orçamento</button>
-  </div>
-</form>
-</div>
-
-@endif
 
 @if (session('status'))
 <div class="alert alert-success">
@@ -211,14 +235,14 @@ Para atender a merenda escolar, cantinas, cozinhas industriais e demais segmento
   <img class="rounded-circle align-self-center mr-3" src="{{ asset('imagens\trapadura.png')}}" width="180" height="180" alt="">
   <div class="media-body">
     <h3 class="mt-0 font-weight-bold">Qualidade Nutricional</h4>
-    <p align="justify">   A rapadura ocupa dentre os diversos tipos de açúcares disponíveis no mercado, uma posição inigualável. É evidente que este produto, do ponto de vista da nutrição, leva vantagem em relação aos produtos similares, pois traz em sua composição elementos essenciais ao organismo humano, tanto os de natureza orgânica quanto minerais e vitaminas. No grupo dos orgânicos destacam-se a sacarose, a glucose e a frutose que, consumidos pelo organismo humano, vão lhe oferecer energia necessária às suas atividades. Esses açúcares são desdobrados no organismo em açúcares simples, glicose, produzindo após várias oxidações, energia, CO² e H²O . Desses três componentes, a energia produzida é a que dá força ao organismo e sustentação à vida.</p>
+    <p>   A rapadura ocupa dentre os diversos tipos de açúcares disponíveis no mercado, uma posição inigualável. É evidente que este produto, do ponto de vista da nutrição, leva vantagem em relação aos produtos similares, pois traz em sua composição elementos essenciais ao organismo humano, tanto os de natureza orgânica quanto minerais e vitaminas. No grupo dos orgânicos destacam-se a sacarose, a glucose e a frutose que, consumidos pelo organismo humano, vão lhe oferecer energia necessária às suas atividades. Esses açúcares são desdobrados no organismo em açúcares simples, glicose, produzindo após várias oxidações, energia, CO² e H²O . Desses três componentes, a energia produzida é a que dá força ao organismo e sustentação à vida.</p>
     <img class="rounded mx-auto d-block" src="{{ asset('imagens\table.png')}}" alt="">
-    <p class="mb-0 text-sm font-italic" align="justify">*% Valores Diários de Referência com base em uma dieta de 2.000 Kcal ou 8.400 Kj. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.<br>
+    <p class="mb-0 text-sm font-italic">*% Valores Diários de Referência com base em uma dieta de 2.000 Kcal ou 8.400 Kj. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.<br>
       *% Valores Diarios de referencia basados em una dieta de 2.000 Kcal o 8.400 Kj. Sus valores diarios pueden ser mayores o menores dependiendo de sus necesidades calóricas.<br>
       *% Daily Values are based on a 2.000 Kcal or 8.400 Kj diet. Your daily values may be higher or lower depending on your calorie needs. <br>
       ** Valor diário não estabelecido / Valor diario no establecido / Daily value not established.</p>
   </div>
 </div>
 </div>
-<br></br>
+@endif
 @endsection

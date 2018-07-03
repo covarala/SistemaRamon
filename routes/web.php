@@ -67,8 +67,8 @@ Route::post('/formulario/registrar/juridica', 'LoginController@register')->name(
 Route::get('/produtos', 'MainController@produtos')->name('produtos');
 Route::get('/sobre', 'MainController@sobre')->name('sobre');
 Route::get('/contatos', 'MainController@contatos')->name('contatos');
-Route::get('/privacidade', 'MainController@privacidade')->name('privacidade');
 Route::get('/duvidas', 'MainController@duvidas')->name('duvidas');
+Route::get('/privacidade', 'MainController@privacidade')->name('privacidade');
 
 //Rotas Distribuidores Resgistrados
 Route::get('/distribuidor/inicial/{idDistribuidor}', 'MainController@distribuidorInicial')->name('distribuidor.inicial');

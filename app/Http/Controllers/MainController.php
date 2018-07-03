@@ -84,9 +84,9 @@ class MainController extends Controller
 
 
       $updateQntDist = DB::table('produto')
-        ->join('produtodistribuidor','produtodistribuidor.idProduto', 'produto.idProduto')
+        ->join('produtodistribuidor','produtodistribuidor.id', 'produto.id')
         ->where('idJuridica','=',$dadosOrcamento['idJuridica'])
-        ->select('produtodistribuidor.idJuridica','produto.idProduto','produto.nome', 'produtodistribuidor.qnt')
+        ->select('produtodistribuidor.id','produto.id','produto.nome', 'produtodistribuidor.qnt')
         ->get();
 
       $dadosUpdate = [];
@@ -124,12 +124,12 @@ class MainController extends Controller
     }
     public function distribuidorInicial($idUser)
     {
-      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')
-      ->where('idRecebedor','=',$idUser)->get();  
+      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')->where('idRecebedor','=',$idUser)->get();
+    //   $dadosUsers = Users::all();
+    //   foreach ($orcamentosRecebidos as $orcamentoRecebido => $dados) {
+    //       dd($dados);
+    //   }
       return view('distribuidor.orcamentosrecebidos', compact('orcamentosRecebidos'));
     }
-
-
-
 
 }

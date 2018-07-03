@@ -40,12 +40,14 @@
           <a href="{{ route('atualiza.usuario', $usuario->id) }}" class="btn btn-primary btn-xs active"  >Editar<i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
           <a href="{{ route('exclui.usuario', $usuario->id) }}" class="btn btn-danger btn-xs active" onclick="return confirm('Você tem certeza que deseja excluir? Ao excluir não será possível recuperá-lo.')" > Excluir <i class="fa fa-trash-o fa-lg" aria-hidden="true"</a>
         </th>
-        @endif
+        @else
         <th>
-          <div class="alert alert-info">
+            <div class="alert alert-info">
           	Nenhuma ação possível
           </div>
         </th>
+        @endif
+
       </tr>
       <?php $cont++; ?>
       @endforeach

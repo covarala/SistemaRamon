@@ -31,56 +31,25 @@ class ApiController extends Controller
 
     private function coordenadasDistribuidor($enderecos)
     {
+      $apikey = env('GOOGLE_MAPS_KEY', 'AIzaSyCKTAc2EVbRB4y1iGxs08Bk0ck-C64u7JM');
 
-      $apikey = env('GOOGLE_MAPS_KEY', 'AIzaSyA5S-2DmWH83CCeigxi7N0zPIm4U8wVf0Y');
-
-
-
-      $coordenadas = [];
+      $coordenadas = array();
       $cont = 0;
 
       foreach ($enderecos as $endereco => $valores) {
-        // 1600+Amphitheatre+Parkway,+Mountain+View,+CA
 
-
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address="
-        .$valores->Numero
-        ." ".$valores->Rua
-        .", ".$valores->Bairro
-        .", ".$valores->Cidade
-        ." ".$valores->Estado
-        ."&key=".$apikey;
-        $urlCorreta = str_replace(' ', '+', $url);
-        $data = @file_get_contents($urlCorreta);
-        $jsondata = json_decode($data,true);
-
-        $dadosJson = $jsondata["results"];
-
-        dd($jsondata);
-
-        if(!($dadosJson === null)){
-          foreach ($dadosJson as $dado => $values)
-          {
-
-
-            $geometrys = $values["geometry"];
-            $localizacao = $geometrys["location"];
-
+        foreach ($valores as $dado => $value) {
+          if ($dado === 'Endereco') {
             $coordenadas[$cont] = [
-              'coordenadas' => $localizacao,
+              'coordenadas' => Geocoder::getCoordinatesForAddress($value, $apikey),
               'idJuridica' => $enderecos[$cont]->idJuridica,
               'idUser' => $enderecos[$cont]->idUser,
-              'formatted_address' => $values["formatted_address"],
             ];
-
-            break;
+            $cont++;
           }
         }
-        $cont++;
       }
-      dd($coordenadas);
-
-
+      // dd($coordenadas);
       return $coordenadas;
     }
 
@@ -88,8 +57,6 @@ class ApiController extends Controller
     {
       $cont = 0;
       $contador = 0;
-      $distancias=[];
-      $todasDistancias=[];
 
       foreach ($idDistribuidores as $idDistribuidor => $value) {
         $enderecos[$contador] = DB::table('dadosusuariojuridica')->where('distribuidor','=', true)
@@ -100,12 +67,10 @@ class ApiController extends Controller
       $dadosDistribuidores = $this->coordenadasDistribuidor($enderecos);
 
 
-      dd($dadosDistribuidores);
       foreach ($dadosDistribuidores as $key => $value) {
-
         $indexesDistribuidores = $dadosDistribuidores[$cont];
         $coordenadasDistribuidores = $indexesDistribuidores['coordenadas'];
-        $formattedAddress = $indexesDistribuidores['formatted_address'];
+        $formattedAddress = $coordenadasDistribuidores['formatted_address'];
 
         $distancias[$cont] = [
           'distancia' => \GoogleMaps::load('distancematrix')
@@ -119,14 +84,11 @@ class ApiController extends Controller
             'idJuridica'=> $value['idJuridica'],
            ];
         // ->get('');
-        dd($distancias[$cont]);
-
-
         $cont++;
-
       }
 
       $cont2 = 0;
+
 
       foreach ($distancias as $distancia => $value) {
         $result = $value['distancia'];
@@ -170,7 +132,7 @@ class ApiController extends Controller
 
       $endereco = $this->getEnderecoUsuario($coordenadas);
 
-      $this->setEndereco($endereco);
+      $this->setEndereco($endereco['formatted_address']);
 
       $idDistribuidores = $this->encontraDistribuidor();
 
@@ -213,21 +175,8 @@ class ApiController extends Controller
 
     public function getEnderecoUsuario($coordenadas)
     {
-      $apikey = env('GOOGLE_MAPS_KEY', '');
-
-      $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$coordenadas['latitude'].','.$coordenadas['longitude']."&key=".$apikey;
-      $data = @file_get_contents($url);
-      $jsondata = json_decode($data,true);
-
-      $endereco = $jsondata['results'];
-      $enderecoFormatado = [];
-
-      foreach ($endereco as $key => $value) {
-        $enderecoFormatado = $value['formatted_address'];
-        break;
-      }
-      // $endereco = Geocoder::getAddressForCoordinates($coordenadas['latitude'], $coordenadas['longitude']);
-       return $enderecoFormatado;
+      $endereco = Geocoder::getAddressForCoordinates($coordenadas['latitude'], $coordenadas['longitude']);
+      return $endereco;
     }
 
     public function encontraDistribuidor()
