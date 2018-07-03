@@ -13,13 +13,14 @@
         <div class="carousel-item active">
           <img class="d-block w-100" src="{{ asset('imagens\BANNER1.PNG')}}" width="1260" height="465" alt="First slide">
         </div>
-        <a href="#"><div class="carousel-item">
+        <a href="{{route('produtos')}}"><div class="carousel-item">
          <img class="d-block w-100" src="{{ asset('imagens\BANNER-2.PNG')}}" width="1260" height="465" alt="Second slide">
        </a></div>
-        <a href="#"><div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('imagens\BANNER-3.PNG')}}" width="1260" height="465" alt="Third slide">
+        <a href="{{route('sobre')}}"><div class="carousel-item">
+        <img class="d-block w-100" src="{{ asset('imagens\BANNER-3.png')}}" width="1260" height="465" alt="Third slide">
         </a></div>
       </div>
+
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -72,7 +73,7 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end pagination-md">
           <li class="page-item">
-            <a class="page-link text-success" href="#"> <img src="https://png.icons8.com/color/16/ffffff/plus.png"> Ver mais produtos <span aria-hidden="true">&raquo;</span></a>
+            <a class="page-link text-success" href="{{route('produtos')}}"> <img src="https://png.icons8.com/color/16/ffffff/plus.png"> Ver mais produtos <span aria-hidden="true">&raquo;</span></a>
           </li>
         </ul>
       </nav>

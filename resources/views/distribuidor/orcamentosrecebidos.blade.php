@@ -3,7 +3,9 @@
 @section('conteudo')
 <div class="container-fluid">
   <div class="row">
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <div class="container-fluid">
+        <div class="">
+
       <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover order-column">
           <thead>
@@ -36,7 +38,8 @@
           </tbody>
         </table>
       </div>
-    </main>
+      </div>
+    </div>
   </div>
 </div>
 

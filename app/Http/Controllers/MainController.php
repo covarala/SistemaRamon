@@ -124,7 +124,8 @@ class MainController extends Controller
     }
     public function distribuidorInicial($idUser)
     {
-      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')->where('idRecebedor','=',$idUser)->get();
+      $orcamentosRecebidos = DB::table('orcamento')->join('users','users.id','idEmissor')
+      ->where('idRecebedor','=',$idUser)->get();  
       return view('distribuidor.orcamentosrecebidos', compact('orcamentosRecebidos'));
     }
 
